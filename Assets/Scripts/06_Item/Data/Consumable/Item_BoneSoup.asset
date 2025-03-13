@@ -17,8 +17,10 @@ MonoBehaviour:
   item_description: "\uBF08\uB97C \uC6B0\uB824\uB0B8 \uACE0\uAE30"
   canStack: 1
   maxStack: 12
-  dropPref: {fileID: 0}
+  dropPref: {fileID: 8425929331219038377, guid: fc105b7a58a0fe743ac6dbd100cd31d4,
+    type: 3}
   Icon: {fileID: 0}
+  isNotStackOver: 0
   ItemData_Consumables:
   - consumableType: 0
     value: 10

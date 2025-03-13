@@ -68,14 +68,15 @@ public enum PlaceableType
     Sleep,
     Craft,
     Tent,
-    Storage
+    Storage,
+
 }
 
-[System.Serializable]
-public class ItemData_Placeable
-{
-    public PlaceableType placeableType;
-}
+//[System.Serializable]
+//public class ItemData_Placeable
+//{
+//    public PlaceableType placeableType;
+//}
 
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]
 public class ItemData : ScriptableObject
@@ -102,6 +103,6 @@ public class ItemData : ScriptableObject
     public GameObject EquipPref;
 
     [Header("¼³Ä¡ÅÛ")]
-    public ItemData_Placeable[] itemData_Placeable;
+    //public ItemData_Placeable[] itemData_Placeable;
     public GameObject PlacePref;
 }

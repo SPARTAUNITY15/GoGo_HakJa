@@ -18,7 +18,8 @@ MonoBehaviour:
     \uC0C1\uD638\uC791\uC6A9 \uC2DC \uC544\uC774\uD15C\uC744 \uD68D\uB4DD\uD55C\uB2E4"
   canStack: 0
   maxStack: 12
-  dropPref: {fileID: 0}
+  dropPref: {fileID: 5596459871035767829, guid: db91d18994af9aa46baa239b5c731fcc,
+    type: 3}
   Icon: {fileID: 0}
   isNotStackOver: 0
   ItemData_Consumables: []

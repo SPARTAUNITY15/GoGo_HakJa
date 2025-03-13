@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b529cf34b1aff4db09cf38181a5001, type: 3}
+  m_Name: Item_SteakRaw
+  m_EditorClassIdentifier: 
+  itemType: 1
+  item_name: "\uC0DD\uACE0\uAE30"
+  item_description: "\uC775\uC9C0 \uC54A\uC740 \uACE0\uAE30"
+  canStack: 1
+  maxStack: 12
+  dropPref: {fileID: 7966736766598387953, guid: 82dbc8a7966baf8469c3cd3f6aa52390,
+    type: 3}
+  Icon: {fileID: 0}
+  isNotStackOver: 0
+  ItemData_Consumables:
+  - consumableType: 0
+    value: -5
+  - consumableType: 2
+    value: 20
+  isCookable: 1
+  CookedThing: {fileID: 11400000, guid: 823ca30cd06e3024fbe653ccd7244c10, type: 2}
+  itemData_Equipables: []
+  EquipPref: {fileID: 0}
+  itemData_Placeable: []
+  PlacePref: {fileID: 0}
