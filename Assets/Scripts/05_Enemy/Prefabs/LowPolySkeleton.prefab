@@ -576,13 +576,14 @@ GameObject:
   - component: {fileID: 4902246674192844111}
   - component: {fileID: 3293610528174849458}
   - component: {fileID: 4498056570101974177}
+  - component: {fileID: 5286824919077265381}
   m_Layer: 0
   m_Name: LowPolySkeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2303132271948539975
 Transform:
   m_ObjectHideFlags: 0
@@ -646,11 +647,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   animator: {fileID: 0}
-  patrolRange: 10
-  sightRange: 15
+  patrolRange: 3
+  sightRange: 3
   attackRange: 0.5
   safeZoneCheckRadius: 3
-  maxChaseDistance: 1
+  maxChaseDistance: 3
+  health: 100
 --- !u!195 &4498056570101974177
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -673,6 +675,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5286824919077265381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3284450128340274290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c332db422feba984d9a40eb7675b9f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItemPrefab: {fileID: 8710216647784311638, guid: 051854dd55b2f274baa6569187dd829f,
+    type: 3}
+  dropForce: 2
 --- !u!1 &3325773154088703557
 GameObject:
   m_ObjectHideFlags: 0
