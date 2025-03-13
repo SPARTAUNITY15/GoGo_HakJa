@@ -20,8 +20,8 @@ public class SkeletonAI : MonoBehaviour
     public float patrolRange;
     public float sightRange;
     public float attackRange;
-    public float safeZoneCheckRadius;
-    public float maxChaseDistance;  // 플레이어와 최대 추격 거리 설정
+    public float safezoneRange;
+    public float maxChaseDistance;
     public float health = 100; 
 
     private Vector3 patrolTarget;
@@ -46,7 +46,7 @@ public class SkeletonAI : MonoBehaviour
 
         isPlayerInSight = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
-        isInSafeZone = Physics.CheckSphere(transform.position, safeZoneCheckRadius, safeZoneLayer);
+        isInSafeZone = Physics.CheckSphere(transform.position, safezoneRange, safeZoneLayer);
 
         if (isInSafeZone)
         {
@@ -139,17 +139,19 @@ public class SkeletonAI : MonoBehaviour
         currentState = State.Dead;
         animator.SetTrigger("Die");
         agent.isStopped = true; // 네비게이션 중지
-        GetComponentInChildren<Collider>().enabled = false; // 충돌 비활성화
+        GetComponentInChildren<Collider>().enabled = false;
 
         if (itemDropper != null)
         {
-            itemDropper.DropItem(); // 아이템 드롭
+            ///아이템 드롭
+            //itemDropper.DropItem(); 
+            itemDropper.DropItemWithDelay(0.5f);
         }
         else if (itemDropper == null)
         {
             Debug.Log("itemDropper가 Null입니다.");
         }
 
-        Destroy(gameObject, 3f); // 3초 후 오브젝트 삭제
+        Destroy(gameObject, 3f);
     }
 }

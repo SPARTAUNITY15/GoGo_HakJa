@@ -1,10 +1,22 @@
 using UnityEngine;
+using System.Collections;
 
 public class ItemDropper : MonoBehaviour
 {
     public GameObject dropItemPrefab;
     public float dropForce = 2f; // 아이템이 살짝 튀어나가는 힘
 
+    //코루틴을 이용해서 아이템 드롭 시간 지연시키기
+    public void DropItemWithDelay(float delay)
+    {
+        StartCoroutine(DropItemCoroutine(delay));
+    }
+
+    private IEnumerator DropItemCoroutine(float delay)
+    {
+        yield return new WaitForSeconds(delay); 
+        DropItem();
+    }
     public void DropItem()
     {
         if (dropItemPrefab != null)
@@ -12,12 +24,15 @@ public class ItemDropper : MonoBehaviour
             // 현재 위치에서 아이템 생성
             GameObject droppedItem = Instantiate(dropItemPrefab, transform.position, Quaternion.identity);
 
-            // Rigidbody가 있다면 힘을 가해서 자연스럽게 떨어지게 만들기
             Rigidbody rb = droppedItem.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 Vector3 randomForce = new Vector3(Random.Range(-1f, 1f), 1f, Random.Range(-1f, 1f)) * dropForce;
                 rb.AddForce(randomForce, ForceMode.Impulse);
+            }
+            else if (rb == null)
+            {
+                Debug.Log("아이템프리팹 안에 RigidBody가 없습니다! (생성되는데에는 문제가 없습니다.)");
             }
         }
     }
