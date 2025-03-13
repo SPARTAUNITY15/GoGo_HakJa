@@ -12,13 +12,26 @@ public class MeshGenerator : MonoBehaviour
     int[] triangles;
     Color[] colors;
 
-    public int xSize = 20;
-    public int zSize = 20;
+    [Header ("Map")]
+    public int xSize;
+    public int zSize;
+    public float scale;
+    public int octaves;
+    [Range(0, 1)] public float persistance;
+    public float lacunarity;
+    public int seed;
+    public Vector2 offset;
+    public float offsetRanX;
+    public float offsetRanZ;
+    public float chunkX;
+    public float chunkZ;
 
     public Gradient gradient;
 
-    float minTerrainHeight = float.MaxValue;
-    float maxTerrainHeight = float.MinValue;
+    [SerializeField]float minTerrainHeight = float.MaxValue;
+    [SerializeField]float maxTerrainHeight = float.MinValue;
+
+    public bool autoUpdate;
 
     void Start()
     {
@@ -28,38 +41,64 @@ public class MeshGenerator : MonoBehaviour
         UpdateMesh();
     }
 
-    void CreateShape()
+    public void CreateShape()
     {
+        if(scale <= 0)
+        {
+            scale = 0.0001f;
+        }
         vertices = new Vector3[(xSize + 1) * (zSize + 1)];
+        float[,] noiseMap = CreateNoise();
 
         for (int i = 0, z = 0; z <= zSize; z++)
         {
             for (int x = 0; x <= xSize; x++)
             {
-                float y = Mathf.PerlinNoise(x * 0.3f, z * 0.3f) * 2f;
-                vertices[i] = new Vector3(x, y, z);
-
-                if(y > maxTerrainHeight)
-                {
-                    maxTerrainHeight = y;
-                }
-                if(y < minTerrainHeight)
-                {
-                    minTerrainHeight = y;
-                }
-
+                vertices[i] = new Vector3(x, noiseMap[x, z], z);
                 i++;
             }
         }
 
+        SetTriangle();
+
+        SetColor();
+    }
+
+    public void UpdateMesh()
+    {
+        mesh.Clear();
+
+        mesh.vertices = vertices;
+        mesh.triangles = triangles;
+        mesh.colors = colors;
+
+        mesh.RecalculateNormals();
+    }
+
+    void SetColor()
+    {
+        colors = new Color[vertices.Length];
+
+        for (int i = 0, z = 0; z <= zSize; z++)
+        {
+            for (int x = 0; x <= xSize; x++)
+            {
+                colors[i] = gradient.Evaluate(vertices[i].y);
+                i++;
+            }
+        }
+    }
+
+    void SetTriangle()
+    {
         triangles = new int[xSize * zSize * 6];
 
         int vert = 0;
         int tris = 0;
 
-        for(int z = 0; z < zSize; z++)
+        for (int z = 0; z < zSize; z++)
         {
-            for(int x = 0; x < xSize; x++)
+            for (int x = 0; x < xSize; x++)
             {
                 triangles[tris + 0] = vert + 0;
                 triangles[tris + 1] = vert + xSize + 1;
@@ -72,28 +111,88 @@ public class MeshGenerator : MonoBehaviour
             }
             vert++;
         }
+    }
 
-        colors = new Color[vertices.Length];
+    float[,] CreateNoise()
+    {
+        float[,] noiseMap = new float[xSize + 1, zSize + 1];
 
-        for (int i = 0, z = 0; z <= zSize; z++)
+        System.Random prng = new System.Random(seed);
+        Vector2[] octaveOffsets = new Vector2[octaves];
+        for (int i = 0; i < octaves; i++)
         {
-            for (int x = 0; x <= xSize; x++)
+            offsetRanX = prng.Next(-100000, 100000) + offset.x;
+            offsetRanZ = prng.Next(-100000, 100000) + offset.y;
+            octaveOffsets[i] = new Vector2(offsetRanX, offsetRanZ);
+        }
+
+        if(scale <= 0)
+        {
+            scale = 0.0001f;
+        }
+        
+        float halfXSize = xSize / 2f;
+        float halfZSize = zSize / 2f;
+
+        for (int x = 0; x <= xSize; x++)
+        {
+            for (int z = 0; z <= zSize; z++)
             {
-                float height = Mathf.InverseLerp(minTerrainHeight, maxTerrainHeight, vertices[i].y);
-                colors[i] = gradient.Evaluate(height);
-                i++;
+                float amplitude = 1;
+                float frequency = 1;
+                float noiseHeight = 0;
+
+                for (int i = 0; i < octaves; i++)
+                {
+                    float sampleX = ((x - halfXSize) + chunkX * xSize) / scale * frequency + octaveOffsets[i].x;
+                    float sampleZ = ((z - halfZSize) + chunkZ * zSize) / scale * frequency + octaveOffsets[i].y;
+
+                    float perlinValue = Mathf.PerlinNoise(sampleX, sampleZ) * 2 - 1;
+                    noiseHeight += perlinValue * amplitude;
+                    amplitude *= persistance;
+                    frequency *= lacunarity;
+                }
+
+                if (noiseHeight > maxTerrainHeight)
+                {
+                    maxTerrainHeight = noiseHeight;
+                }
+                if (noiseHeight < minTerrainHeight)
+                {
+                    minTerrainHeight = noiseHeight;
+                }
+                noiseMap[x, z] = noiseHeight;
             }
+        }
+
+        for (int x = 0; x <= xSize; x++)
+        {
+            for (int z = 0; z <= zSize; z++)
+            {
+                noiseMap[x, z] = Mathf.InverseLerp(minTerrainHeight, maxTerrainHeight, noiseMap[x, z]);
+            }
+        }
+        return noiseMap;
+    }
+
+    void OnValidate()
+    {
+        if (xSize < 1)
+        {
+            xSize = 1;
+        }
+        if (zSize < 1)
+        {
+            zSize = 1;
+        }
+        if (lacunarity < 1)
+        {
+            lacunarity = 1;
+        }
+        if (octaves < 0)
+        {
+            octaves = 0;
         }
     }
 
-    void UpdateMesh()
-    {
-        mesh.Clear();
-
-        mesh.vertices = vertices;
-        mesh.triangles = triangles;
-        mesh.colors = colors;
-
-        mesh.RecalculateNormals();
-    }
 }
