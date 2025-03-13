@@ -19,14 +19,14 @@ MonoBehaviour:
   maxStack: 12
   dropPref: {fileID: 6289036255682112060, guid: 3a0173a510c843441b4407bac5a509d4,
     type: 3}
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 8230efda6e0c0934eb6bf7ad9bcaf2d2, type: 3}
   isNotStackOver: 0
+  renderPref: {fileID: 0}
   ItemData_Consumables: []
   isCookable: 0
   CookedThing: {fileID: 0}
   itemData_Equipables:
   - equipableType: 0
     value: 1
-  EquipPref: {fileID: 0}
-  itemData_Placeable: []
-  PlacePref: {fileID: 0}
+  equipPref: {fileID: 0}
+  placedPref: {fileID: 0}

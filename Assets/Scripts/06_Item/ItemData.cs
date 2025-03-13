@@ -92,6 +92,7 @@ public class ItemData : ScriptableObject
     public GameObject dropPref;
     public Sprite Icon;
     public bool isNotStackOver; // 스택이 0이 되어도 안사라짐.
+    public GameObject renderPref;
 
     [Header("소비템")]
     public ItemData_Consumable[] ItemData_Consumables;
@@ -100,9 +101,9 @@ public class ItemData : ScriptableObject
 
     [Header("장비템")]
     public ItemData_Equipable[] itemData_Equipables;
-    public GameObject EquipPref;
+    public GameObject equipPref;
 
     [Header("설치템")]
     //public ItemData_Placeable[] itemData_Placeable;
-    public GameObject PlacePref;
+    public GameObject placedPref;
 }

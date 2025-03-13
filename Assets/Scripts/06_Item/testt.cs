@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class testt : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public ItemData itemdata;
+
     void Start()
     {
-        //new ItemData   
+        itemdata.ToDropItem();
+        itemdata.ToPlacedItem(Vector3.zero, Quaternion.Euler(Vector3.zero));
     }
 }

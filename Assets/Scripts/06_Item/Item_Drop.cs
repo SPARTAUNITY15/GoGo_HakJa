@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-public class Item_Drop : MonoBehaviour //IInteractable
+public class Drop_Item : MonoBehaviour //IInteractable
 {
     public ItemData itemData;
     public GameObject rootObject; // 필요없을듯.

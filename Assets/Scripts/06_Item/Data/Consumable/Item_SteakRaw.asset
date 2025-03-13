@@ -19,8 +19,9 @@ MonoBehaviour:
   maxStack: 12
   dropPref: {fileID: 7966736766598387953, guid: 82dbc8a7966baf8469c3cd3f6aa52390,
     type: 3}
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: c7960cb6333d40d45acf83dbfa08d61c, type: 3}
   isNotStackOver: 0
+  renderPref: {fileID: 0}
   ItemData_Consumables:
   - consumableType: 0
     value: -5
@@ -29,6 +30,5 @@ MonoBehaviour:
   isCookable: 1
   CookedThing: {fileID: 11400000, guid: 823ca30cd06e3024fbe653ccd7244c10, type: 2}
   itemData_Equipables: []
-  EquipPref: {fileID: 0}
-  itemData_Placeable: []
-  PlacePref: {fileID: 0}
+  equipPref: {fileID: 0}
+  placedPref: {fileID: 0}
