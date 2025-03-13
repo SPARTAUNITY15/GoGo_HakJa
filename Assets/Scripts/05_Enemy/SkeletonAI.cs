@@ -5,7 +5,7 @@ public class SkeletonAI : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform player;
-    public LayerMask groundLayer, playerLayer, safeZoneLayer;
+    public LayerMask playerLayer, safeZoneLayer; //groundLayer
     public Animator animator;
     private enum State 
     { 
@@ -51,7 +51,7 @@ public class SkeletonAI : MonoBehaviour
         if (isInSafeZone)
         {
             currentState = State.Safe;
-            StopMoving();  // 안전구역에서는 멈춤
+            StopMoving();
         }
         else
         {
@@ -84,7 +84,7 @@ public class SkeletonAI : MonoBehaviour
         {
             patrolTarget = hit.position;
             agent.SetDestination(patrolTarget);
-            animator.SetBool("IsMoving", true);  //  이동 애니메이션 활성화
+            animator.SetBool("IsMoving", true);
         }
     }
 
