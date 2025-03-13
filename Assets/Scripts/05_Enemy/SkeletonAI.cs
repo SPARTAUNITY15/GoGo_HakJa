@@ -26,11 +26,6 @@ public class SkeletonAI : MonoBehaviour
         // 하이어라키에서 Player 태그를 가진 오브젝트를 찾아서 player에 할당
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        if (player == null)
-        {
-            Debug.LogError("플레이어를 찾을 수 없습니다. 'Player' 태그가 지정된 오브젝트가 없습니다.");
-        }
-
         SetNewPatrolPoint();
     }
 
@@ -96,9 +91,9 @@ public class SkeletonAI : MonoBehaviour
     void AttackPlayer()
     {
         agent.SetDestination(transform.position); // 공격 시 멈춤
-        transform.LookAt(player);
-        animator.SetBool("IsMoving", false);  //  공격할 때는 멈춤
-        animator.SetTrigger("Attack");  //  공격 애니메이션 실행
+        //transform.LookAt(player); //플레이어 바라보기 (Rotation값 회전이 있어서 우선 비활성화)
+        animator.SetBool("IsMoving", false);
+        animator.SetTrigger("Attack");
         Debug.Log("공격!");
     }
 
