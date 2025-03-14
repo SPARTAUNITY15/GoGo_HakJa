@@ -798,6 +798,11 @@ PrefabInstance:
       propertyPath: safezoneRange
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3293610528174849458, guid: 34a95de64361c374897c003440808ef5,
+        type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
