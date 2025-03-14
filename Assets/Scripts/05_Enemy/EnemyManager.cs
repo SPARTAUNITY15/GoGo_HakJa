@@ -3,8 +3,9 @@ using System.Collections;
 
 public class EnemyManager : MonoBehaviour
 {
-    public GameObject enemyPrefab;  // 스켈레톤 프리팹
-    public int enemyCount = 2;      // 스폰할 적 개수
+    public GameObject enemyPrefab;  
+    public GameObject enemyPrefab2;
+    public int enemyCount; 
     public Vector3 spawnArea;       // 스폰 범위
 
     void Start()
@@ -23,6 +24,7 @@ public class EnemyManager : MonoBehaviour
             );
 
             Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+            Instantiate(enemyPrefab2, spawnPos, Quaternion.identity);
         }
     }
 }
