@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -7,18 +8,29 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private Terrain terrain;
 
     [Header("Map")]
-    [SerializeField] private float mapScale;
-    [SerializeField] private int mapSize;
-    [SerializeField] private int depth;
+    public int mapSize;
+    public float depth;
+    public float scale;
+    public int octaves;
+    [Range(0, 1)] public float persistance;
+    public float lacunarity;
+    public int seed;
+    public Vector2 offset;
+    public float offsetRanX;
+    public float offsetRanZ;
+    public float chunkX;
+    public float chunkZ;
+    float[,] noiseMap;
 
-    [SerializeField] private int octaves;
-    private float seed;
+    [Header("Tree")]
+    public GameObject prefab;
+    [Range(0, 1)] public float density;
 
     private async void Start()
     {
-        seed = Random.Range(0, 10000f);
-        var noiseArr = await Task.Run(GenerateNoise);
+        var noiseArr = await Task.Run(CreateNoise);
         SetTerrain(noiseArr);
+        PlaceObjects();
     }
 
     private void SetTerrain(float[,] noiseArr)
@@ -27,51 +39,90 @@ public class MapGenerator : MonoBehaviour
         terrain.terrainData.SetHeights(0, 0, noiseArr);
     }
 
-    private float[,] GenerateNoise()
+    float[,] CreateNoise()
     {
-        float[,] noiseArr = new float[mapSize, mapSize];
+        noiseMap = new float[mapSize, mapSize];
         float min = float.MaxValue;
         float max = float.MinValue;
+        System.Random prng = new System.Random(seed);
+        Vector2[] octaveOffsets = new Vector2[octaves];
+        for (int i = 0; i < octaves; i++)
+        {
+            offsetRanX = prng.Next(-100000, 100000) + offset.x;
+            offsetRanZ = prng.Next(-100000, 100000) + offset.y;
+            octaveOffsets[i] = new Vector2(offsetRanX, offsetRanZ);
+        }
+
+        if (scale <= 0)
+        {
+            scale = 0.0001f;
+        }
+
+        float halfXSize = mapSize / 2f;
+        float halfZSize = mapSize / 2f;
 
         for (int x = 0; x < mapSize; x++)
         {
-            for (int y = 0; y < mapSize; y++)
+            for (int z = 0; z < mapSize; z++)
             {
-                float lacunarity = 2.0f;
-                float gain = 0.5f;
-                float amplitude = 0.5f;
-                float frequency = 1f;
+                float amplitude = 1;
+                float frequency = 1;
+                float noiseHeight = 0;
 
                 for (int i = 0; i < octaves; i++)
                 {
+                    float sampleX = ((x - halfXSize) + chunkX * mapSize) / scale * frequency + octaveOffsets[i].x;
+                    float sampleZ = ((z - halfZSize) + chunkZ * mapSize) / scale * frequency + octaveOffsets[i].y;
 
-                    noiseArr[x, y] += amplitude * (Mathf.PerlinNoise(
-                        seed + (x * mapScale * frequency),
-                        seed + (y * mapScale * frequency)) * 2 - 1);
-
+                    float perlinValue = Mathf.PerlinNoise(sampleX, sampleZ) * 2 - 1;
+                    noiseHeight += perlinValue * amplitude;
+                    amplitude *= persistance;
                     frequency *= lacunarity;
-                    amplitude *= gain;
+                }
 
-                }
-                if (noiseArr[x, y] < min)
+                if (noiseHeight > max)
                 {
-                    min = noiseArr[x, y];
+                    max = noiseHeight;
                 }
-                else if (noiseArr[x, y] > max)
+                if (noiseHeight < min)
                 {
-                    max = noiseArr[x, y];
+                    min = noiseHeight;
                 }
+                noiseMap[x, z] = noiseHeight;
             }
         }
 
         for (int x = 0; x < mapSize; x++)
         {
-            for (int y = 0; y < mapSize; y++)
+            for (int z = 0; z < mapSize; z++)
             {
-                noiseArr[x, y] = Mathf.InverseLerp(min, max, noiseArr[x, y]);
+                noiseMap[x, z] = Mathf.InverseLerp(min, max, noiseMap[x, z]);
             }
         }
+        return noiseMap;
+    }
 
-        return noiseArr;
+    public void PlaceObjects()
+    {
+        Transform parent = new GameObject("PlacedObjects").transform;
+
+        for (int x = 10; x < mapSize - 10; x++)
+        {
+            for (int z = 10; z < mapSize - 10; z++)
+            {
+                float noiseValue = Mathf.PerlinNoise((x + seed) / 5f, (z + seed) / 5);
+
+                if (noiseValue > 1 - density)
+                {
+                    float y = terrain.terrainData.GetInterpolatedHeight(x / (float)terrain.terrainData.size.x,
+                                                                        z / (float)terrain.terrainData.size.y);
+                    Vector3 spawnPos = new Vector3(x, y, z);
+
+                    GameObject go = Instantiate(prefab, spawnPos, Quaternion.identity, transform);
+                    go.transform.SetParent(parent);
+                }
+            }
+
+        }
     }
 }

@@ -12,9 +12,10 @@ public class MeshGenerator : MonoBehaviour
     int[] triangles;
     Color[] colors;
 
-    [Header ("Map")]
+    [Header("Map")]
     public int xSize;
     public int zSize;
+    public float height;
     public float scale;
     public int octaves;
     [Range(0, 1)] public float persistance;
@@ -28,9 +29,10 @@ public class MeshGenerator : MonoBehaviour
 
     public Gradient gradient;
 
-    [SerializeField]float minTerrainHeight = float.MaxValue;
-    [SerializeField]float maxTerrainHeight = float.MinValue;
+    [SerializeField] float minTerrainHeight = -1.4f;
+    [SerializeField] float maxTerrainHeight = 1.4f;
 
+    float[,] noiseMap;
     public bool autoUpdate;
 
     void Start()
@@ -43,22 +45,21 @@ public class MeshGenerator : MonoBehaviour
 
     public void CreateShape()
     {
-        if(scale <= 0)
+        if (scale <= 0)
         {
             scale = 0.0001f;
         }
         vertices = new Vector3[(xSize + 1) * (zSize + 1)];
-        float[,] noiseMap = CreateNoise();
+        noiseMap = CreateNoise();
 
         for (int i = 0, z = 0; z <= zSize; z++)
         {
             for (int x = 0; x <= xSize; x++)
             {
-                vertices[i] = new Vector3(x, noiseMap[x, z], z);
+                vertices[i] = new Vector3(x, noiseMap[x, z] * height, z);
                 i++;
             }
         }
-
         SetTriangle();
 
         SetColor();
@@ -83,7 +84,7 @@ public class MeshGenerator : MonoBehaviour
         {
             for (int x = 0; x <= xSize; x++)
             {
-                colors[i] = gradient.Evaluate(vertices[i].y);
+                colors[i] = gradient.Evaluate(noiseMap[x, z]);
                 i++;
             }
         }
@@ -92,30 +93,29 @@ public class MeshGenerator : MonoBehaviour
     void SetTriangle()
     {
         triangles = new int[xSize * zSize * 6];
-
-        int vert = 0;
         int tris = 0;
-
         for (int z = 0; z < zSize; z++)
         {
             for (int x = 0; x < xSize; x++)
             {
-                triangles[tris + 0] = vert + 0;
+                int vert = z * (xSize + 1) + x;
+
+                triangles[tris + 0] = vert;
                 triangles[tris + 1] = vert + xSize + 1;
                 triangles[tris + 2] = vert + 1;
+
                 triangles[tris + 3] = vert + 1;
                 triangles[tris + 4] = vert + xSize + 1;
                 triangles[tris + 5] = vert + xSize + 2;
-                vert++;
+
                 tris += 6;
             }
-            vert++;
         }
     }
 
     float[,] CreateNoise()
     {
-        float[,] noiseMap = new float[xSize + 1, zSize + 1];
+        noiseMap = new float[xSize + 1, zSize + 1];
 
         System.Random prng = new System.Random(seed);
         Vector2[] octaveOffsets = new Vector2[octaves];
@@ -126,11 +126,11 @@ public class MeshGenerator : MonoBehaviour
             octaveOffsets[i] = new Vector2(offsetRanX, offsetRanZ);
         }
 
-        if(scale <= 0)
+        if (scale <= 0)
         {
             scale = 0.0001f;
         }
-        
+
         float halfXSize = xSize / 2f;
         float halfZSize = zSize / 2f;
 
@@ -155,11 +155,13 @@ public class MeshGenerator : MonoBehaviour
 
                 if (noiseHeight > maxTerrainHeight)
                 {
-                    maxTerrainHeight = noiseHeight;
+                    //maxTerrainHeight = noiseHeight;
+                    noiseHeight = maxTerrainHeight;
                 }
                 if (noiseHeight < minTerrainHeight)
                 {
-                    minTerrainHeight = noiseHeight;
+                    //minTerrainHeight = noiseHeight;
+                    noiseHeight = minTerrainHeight;
                 }
                 noiseMap[x, z] = noiseHeight;
             }
@@ -194,5 +196,19 @@ public class MeshGenerator : MonoBehaviour
             octaves = 0;
         }
     }
+
+    //private void OnDrawGizmos()
+    //{
+    //    // vertices 배열과 triangles 배열이 생성되어 있을 때만 실행
+    //    if (vertices == null)
+    //        return;
+
+    //    // 정점 위치를 검은색 구체로 표시 (월드 좌표로 변환)
+    //    Gizmos.color = Color.black;
+    //    for (int i = 0; i < vertices.Length; i++)
+    //    {
+    //        Gizmos.DrawSphere(transform.TransformPoint(vertices[i]), 0.1f);
+    //    }
+    //}
 
 }
