@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public StatManager statManager;
+    private PlayerCondition playerCondition;
 
     [Header("Moverment")]
     public float jumpPower;                 // 점프파워
@@ -24,12 +25,14 @@ public class PlayerController : MonoBehaviour
     public Action inventory;                // 인벤토리 열기
 
     private float moveSpeed;
+    private bool isRunning = false;
     private Rigidbody _rigidbody;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         statManager = GetComponent<StatManager>();
+        playerCondition = GetComponent<PlayerCondition>();
         moveSpeed = statManager.speed;
     }
 
@@ -37,6 +40,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void Update()
+    {
+        float currentSpeed = isRunning ? moveSpeed * 2f : moveSpeed;
+
+        Vector3 move = new Vector3(curMovementInput.x, 0, curMovementInput.y) * currentSpeed * Time.deltaTime;
+        transform.Translate(move);
     }
 
     // 이동
@@ -76,6 +87,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnRun(InputAction.CallbackContext context)
+    {
+        Debug.Log("click");
+        if (context.phase == InputActionPhase.Performed)
+        {
+            if (playerCondition.UseStamina(3f))
+            {
+                isRunning = true;
+            }
+        }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            isRunning = false;
+        }
+    }
+
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started && IsGrounded())
@@ -84,7 +111,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // 바닥감지 (아래 방향으로 4개의 레이를 쏴서 충돌 검사, 레이어에 맞으면 바닥에 있는 것으로 판단(true)
     bool IsGrounded()
     {
         Ray[] rays = new Ray[4]

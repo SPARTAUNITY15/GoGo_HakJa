@@ -3,58 +3,71 @@ using UnityEngine;
 
 public class PlayerCondition : StatManager
 {
-    private Condition _health;
-    private Condition _hunger;
-    private Condition _stamina;
+    public float curHealth;
+    public float maxHealth;
+    public float startHealth;
 
+    public float curHunger;
+    public float maxHunger;
+    public float startHunger;
+
+    public float curStamina;
+    public float maxStamina;
+    public float startStamina;
+    public float passiveStamina;
+
+    [SerializeField]
     public float noHungerHealthDecay;
 
     private void Awake()
     {
-        _health = new Condition();
-        _health.curValue = health;
-        _health.startValue = health;   
-        _health.maxValue = health;
-        
-        _hunger = new Condition();
-        _hunger.curValue = hunger;
-        _hunger.startValue = hunger;
-        _hunger.maxValue = hunger;
+        curHealth = health;
+        maxHealth = health;
+        startHealth = health;
 
-        _stamina = new Condition();
-        _stamina.curValue = stamina;
-        _stamina.startValue = stamina;
-        _stamina.maxValue = stamina;
+        curHunger = hunger;
+        maxHunger = hunger;
+        startHunger = hunger;
+
+        curStamina = stamina;
+        maxStamina = stamina;
+        startStamina = stamina;
+        passiveStamina = 10f;
     }
 
     private void Update()
     {
-        _hunger.Subtract(_hunger.passiveValue * Time.deltaTime);
-        _stamina.Add(_stamina.passiveValue * Time.deltaTime);
+        curHunger = Mathf.Max(curHunger - passiveStamina * Time.deltaTime, 0f);
+        curStamina = Mathf.Min(curStamina + passiveStamina * Time.deltaTime, maxStamina);
 
-        if (_hunger.curValue < 0f)
+        if (curHunger <= 0f)
         {
-            _health.Subtract(noHungerHealthDecay * Time.deltaTime);
+            curHealth = Mathf.Max(curHealth - noHungerHealthDecay * Time.deltaTime, 0f);
         }
     }
 
     public void Heal(float amount)
     {
-        _health.Add(amount);
+        curHealth = Mathf.Min(curHealth + amount, maxHealth);
     }
 
     public void Eat(float amount)
     {
-        _hunger.Add(amount);
+        curHunger = Mathf.Min(curHunger + amount, maxHunger);
     }
 
     public bool UseStamina(float amount)
     {
-        if (_stamina.curValue - amount < 0f)
+        if (curStamina - amount < 0f)
         {
             return false;
         }
-        _stamina.Subtract(amount);
+        curStamina -= amount;
         return true;
     }
+
+    public void AddHealth(float amount) => AddStat(ref curHealth, amount, maxHealth);
+    public void AddHunger(float amount) => AddStat(ref curHunger, amount, maxHunger);
+    public void AddStamina(float amount) => AddStat(ref curStamina, amount, maxStamina);
 }
+

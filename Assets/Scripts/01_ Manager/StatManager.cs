@@ -9,6 +9,8 @@ public interface IDamagable
 
 public class StatManager : MonoBehaviour, IDamagable
 {
+    public PlayerCondition playerCondition;
+
     [SerializeField] public float health;
     [SerializeField] public float hunger;
     [SerializeField] public float stamina;
@@ -16,7 +18,10 @@ public class StatManager : MonoBehaviour, IDamagable
     [SerializeField] public float temperature;
     [SerializeField] public float speed;
 
-    public PlayerCondition playerCondition;
+    public void AddStat(ref float currentValue, float amount, float maxValue)
+    {
+        currentValue = Mathf.Min(currentValue + amount, maxValue);
+    }
 
     public void TakePhysicalDamage(int damage)
     {
