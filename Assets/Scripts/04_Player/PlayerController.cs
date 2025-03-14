@@ -23,9 +23,7 @@ public class PlayerController : MonoBehaviour
     public bool canLook = true;             // 카메라 움직일 수 있는지 여부
 
     public Action inventory;                // 인벤토리 열기
-
     private float moveSpeed;
-    private bool isRunning = false;
     private Rigidbody _rigidbody;
 
     private void Awake()
@@ -44,10 +42,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        float currentSpeed = isRunning ? moveSpeed * 2f : moveSpeed;
 
-        Vector3 move = new Vector3(curMovementInput.x, 0, curMovementInput.y) * currentSpeed * Time.deltaTime;
-        transform.Translate(move);
     }
 
     // 이동
@@ -75,6 +70,16 @@ public class PlayerController : MonoBehaviour
         _rigidbody.velocity = dir;
     }
 
+    void Run()
+    {
+        moveSpeed *= 2f;
+    }
+
+    void StopRun()
+    {
+        moveSpeed /= 2f;
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
@@ -89,17 +94,19 @@ public class PlayerController : MonoBehaviour
 
     public void OnRun(InputAction.CallbackContext context)
     {
-        Debug.Log("click");
+        var playerCondition = GetComponent<PlayerCondition>();
         if (context.phase == InputActionPhase.Performed)
         {
-            if (playerCondition.UseStamina(3f))
+            if (playerCondition.curStamina >= 10f)
             {
-                isRunning = true;
+                Run();
+                playerCondition.LoseStamina();
             }
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
-            isRunning = false;
+            StopRun();
+            playerCondition.LoseStamina();
         }
     }
 
