@@ -32,5 +32,8 @@ public class testt : MonoBehaviour
     int i = 100;
     private void Update()
     {
+        i--;
+        test();
+
     }
 }

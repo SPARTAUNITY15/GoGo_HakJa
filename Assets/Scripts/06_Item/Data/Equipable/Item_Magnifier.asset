@@ -25,7 +25,7 @@ MonoBehaviour:
   ItemData_Consumables: []
   isCookable: 0
   CookedThing: {fileID: 0}
-  equipableType: 0
+  equipableType: 4
   value: 1
   useStamina: 1
   distance: 1

@@ -58,7 +58,7 @@ public class Equip_Item : MonoBehaviour // 실제 데이터는 인벤에서 슬롯 또는 item
             //if(GameManager.Instance.player.UseStamina(useStamina)) // 나중에 함수 추가되면 넣기.
             {
                 isAttacking = true;
-                animator.SetTrigger("Attack");
+                animator.SetTrigger("Interaction");
                 Invoke("OnCanAttack", rate);
             }
         }
@@ -74,9 +74,13 @@ public class Equip_Item : MonoBehaviour // 실제 데이터는 인벤에서 슬롯 또는 item
         if (Physics.Raycast(cam.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out RaycastHit hitinfo, distance, hitLayerMask)) // cam.screenToRay대신 뷰포트로 했는데 잘 될지 테스트해바야함
         {
             Debug.Log($"{hitinfo.collider.name}를 맞춤");
-            IImpactable impactable = hitinfo.collider.GetComponent<IImpactable>();
-            impactable.ReceiveImpact(value);
+            IImpactable impactable;
+            if (hitinfo.collider.TryGetComponent<IImpactable>(out impactable))
+            {
+                impactable.ReceiveImpact(value);
+            }
+            else Debug.LogWarning("도구의 대상 오브젝트는 IImpactable 인터페이스를 상속받아야합니다.");
         }
-        Debug.Log("미스~");
+        else Debug.Log("미스~");
     }
 }
