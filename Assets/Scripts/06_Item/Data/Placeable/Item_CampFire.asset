@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b529cf34b1aff4db09cf38181a5001, type: 3}
+  m_Name: Item_CampFire
+  m_EditorClassIdentifier: 
+  itemType: 2
+  item_name: "\uBAA8\uB2E5\uBD88"
+  item_description: "\uB530\uB73B\uD55C \uBD88\uC774\uB2E4"
+  canStack: 0
+  maxStack: 12
+  renderPref: {fileID: 3580053305475902321, guid: 98b351e192db9be4b9ede28a8c1bb9ae,
+    type: 3}
+  basePref: {fileID: 8477608589998250770, guid: ae13bd1e482c7fd49bb98d7b52f2aa63,
+    type: 3}
+  Icon: {fileID: 21300000, guid: dfd4825dedfc88344820a9dfb98f306f, type: 3}
+  isNotStackOver: 0
+  ItemData_Consumables: []
+  isCookable: 0
+  CookedThing: {fileID: 0}
+  equipableType: 0
+  value: 0
+  useStamina: 0
+  distance: 0
+  rate: 0
+  equipPref: {fileID: 0}
