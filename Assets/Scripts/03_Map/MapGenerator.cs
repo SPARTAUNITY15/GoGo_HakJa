@@ -26,11 +26,11 @@ public class MapGenerator : MonoBehaviour
     public GameObject prefab;
     [Range(0, 1)] public float density;
 
-    private async void Start()
+    private async void Awake()
     {
         var noiseArr = await Task.Run(CreateNoise);
         SetTerrain(noiseArr);
-        PlaceObjects();
+        //PlaceObjects();
     }
 
     private void SetTerrain(float[,] noiseArr)
@@ -102,27 +102,27 @@ public class MapGenerator : MonoBehaviour
         return noiseMap;
     }
 
-    public void PlaceObjects()
-    {
-        Transform parent = new GameObject("PlacedObjects").transform;
+    //public void PlaceObjects()
+    //{
+    //    Transform parent = new GameObject("PlacedObjects").transform;
 
-        for (int x = 10; x < mapSize - 10; x++)
-        {
-            for (int z = 10; z < mapSize - 10; z++)
-            {
-                float noiseValue = Mathf.PerlinNoise((x + seed) / 5f, (z + seed) / 5);
+    //    for (int x = 10; x < mapSize - 10; x++)
+    //    {
+    //        for (int z = 10; z < mapSize - 10; z++)
+    //        {
+    //            float noiseValue = Mathf.PerlinNoise((x + seed) / 5f, (z + seed) / 5);
 
-                if (noiseValue > 1 - density)
-                {
-                    float y = terrain.terrainData.GetInterpolatedHeight(x / (float)terrain.terrainData.size.x,
-                                                                        z / (float)terrain.terrainData.size.y);
-                    Vector3 spawnPos = new Vector3(x, y, z);
+    //            if (noiseValue > 1 - density)
+    //            {
+    //                float y = terrain.terrainData.GetInterpolatedHeight(x / (float)terrain.terrainData.size.x,
+    //                                                                    z / (float)terrain.terrainData.size.y);
+    //                Vector3 spawnPos = new Vector3(x, y, z);
 
-                    GameObject go = Instantiate(prefab, spawnPos, Quaternion.identity, transform);
-                    go.transform.SetParent(parent);
-                }
-            }
+    //                GameObject go = Instantiate(prefab, spawnPos, Quaternion.identity, transform);
+    //                go.transform.SetParent(parent);
+    //            }
+    //        }
 
-        }
-    }
+    //    }
+    //}
 }
