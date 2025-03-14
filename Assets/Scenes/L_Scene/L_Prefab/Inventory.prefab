@@ -9524,6 +9524,7 @@ GameObject:
   - component: {fileID: 8455550892971692143}
   - component: {fileID: 3938722881872515925}
   - component: {fileID: 8570174691566929187}
+  - component: {fileID: 85360896873343355}
   m_Layer: 5
   m_Name: Esc
   m_TagString: Untagged
@@ -9632,6 +9633,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &85360896873343355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7655587157860793974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07b765fa4f41764eb21490a1218466c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7688634225459146524
 GameObject:
   m_ObjectHideFlags: 0

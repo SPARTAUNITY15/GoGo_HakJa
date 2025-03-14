@@ -854,8 +854,8 @@ MonoBehaviour:
     uiPrefab: {fileID: 5460646711624800881, guid: ab88d1a678bd5b342ab5fe743c29eb90,
       type: 3}
     targetCanvas: {fileID: 1096182848}
-  - uiName: "\uD14D\uC2A4\uD2B8"
-    uiPrefab: {fileID: 6900458241710377876, guid: a62ae31878a5be54aada5bcd448a48f9,
+  - uiName: "\uC778\uBCA4\uD1A0\uB9AC"
+    uiPrefab: {fileID: 8560081320421952307, guid: b3315a796f32c084ca51e1ea6b371d20,
       type: 3}
     targetCanvas: {fileID: 1096182848}
 --- !u!4 &935568155
@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f534009097affa44bf467fd8bea729d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiName: "\uD14D\uC2A4\uD2B8"
+  uiName: "\uC778\uBCA4\uD1A0\uB9AC"
 --- !u!114 &1480683530
 MonoBehaviour:
   m_ObjectHideFlags: 0
