@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimationEventHandler : MonoBehaviour
 {
-    public Equip_Item equipItem;
+    Equip_Item equipItem;
 
     private void Start()
     {

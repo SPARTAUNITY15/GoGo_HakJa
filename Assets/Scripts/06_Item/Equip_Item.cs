@@ -38,7 +38,7 @@ public class Equip_Item : MonoBehaviour // 실제 데이터는 인벤에서 슬롯 또는 item
                 hitLayerMask = 1 << 7; // 땅
                 break;
             case EquipableType.DoesDig:
-                hitLayerMask = 1 << 10; // 당에 보물
+                hitLayerMask = 1 << 10; // 트레저
                 break;
             case EquipableType.DoesGatherResources:
                 hitLayerMask = 1 << 11; // 자원

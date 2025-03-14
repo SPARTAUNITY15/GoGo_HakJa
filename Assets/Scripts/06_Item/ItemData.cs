@@ -88,7 +88,7 @@ public class ItemData : ScriptableObject
 
     public bool canStack;
     public int maxStack = 12;
-    public GameObject renderPref;
+    //public GameObject renderPref;
     public GameObject basePref;
     public Sprite Icon;
     public bool isNotStackOver; // 스택이 0이 되어도 안사라짐.

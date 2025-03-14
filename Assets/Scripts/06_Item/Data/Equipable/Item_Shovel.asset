@@ -18,8 +18,6 @@ MonoBehaviour:
     \uC0C1\uD638\uC791\uC6A9 \uC2DC \uC544\uC774\uD15C\uC744 \uD68D\uB4DD\uD55C\uB2E4"
   canStack: 0
   maxStack: 12
-  renderPref: {fileID: 746421977704085732, guid: 730c043e719a4824e99d4ef289bc924d,
-    type: 3}
   basePref: {fileID: 1511044856710335167, guid: e969e882a10e5ae4083fae2f1ee75621,
     type: 3}
   Icon: {fileID: 21300000, guid: a3d6d769dd8790543b62088d2be15da5, type: 3}
@@ -28,8 +26,9 @@ MonoBehaviour:
   isCookable: 0
   CookedThing: {fileID: 0}
   equipableType: 0
-  value: 0
-  useStamina: 0
-  distance: 0
-  rate: 0
-  equipPref: {fileID: 0}
+  value: 1
+  useStamina: 1
+  distance: 1
+  rate: 1
+  equipPref: {fileID: 587825135926327712, guid: dab6cb076abe1264da6aad8783301cf8,
+    type: 3}

@@ -13,6 +13,13 @@ public static class ItemStateExtensions
     //    return go;
     //}
 
+
+    /// <summary>
+    /// 역할: ItemData => Drop_Item 변환
+    /// 설명: itemData를 Drop_Item클래스로 감싸서 객체화
+    /// </summary>
+    /// <param name="itemData"></param>
+    /// <returns></returns>
     public static GameObject ToDropItem(this ItemData itemData)
     {
         GameObject go = Object.Instantiate(itemData.basePref);
@@ -42,10 +49,16 @@ public static class ItemStateExtensions
         return go;
     }
 
+    /// <summary>
+    /// 역할: ItemData => Placed_Item 변환
+    /// 설명: itemData를 Placed_Item클래스로 감싸서 객체화
+    /// </summary>
+    /// <param name="itemData"></param>
+    /// <returns></returns>
     public static GameObject ToPlacedItem(this ItemData itemData, Vector3 worldPosition, Quaternion rotation)
     {
-        GameObject go = new GameObject($"Placed_{itemData}");
-        Object.Instantiate(itemData.renderPref, go.transform, false);
+        GameObject go = Object.Instantiate(itemData.basePref);
+        go.name = $"Placed_{itemData}";
         go.AddComponent<Placed_Item>().itemData = itemData;
 
         go.transform.position = worldPosition;
@@ -54,5 +67,17 @@ public static class ItemStateExtensions
         return go;
     }
 
+    /// <summary>
+    /// 역할: ItemData => Equip_Item 변환. 
+    /// 설명: itemData를 Equip_Item클래스로 감싸서 객체화
+    /// </summary>
+    /// <param name="itemData"></param> 
+    /// <returns></returns>
+    public static GameObject ToEquipItem(this ItemData itemData, Transform parent)
+    {
+        GameObject go = Object.Instantiate(itemData.equipPref);
+        go.transform.SetParent(parent);
 
+        return go;
+    }
 }
