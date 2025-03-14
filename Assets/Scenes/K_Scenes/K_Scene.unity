@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a3caa9ad85a3a42ada6b580c0e7aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemdata: {fileID: 11400000, guid: e7d22e47b1d565f4ab474b6444f68aa0, type: 2}
+  itemdata: {fileID: 11400000, guid: eeef8747cac94c546a32902a78fcfb4a, type: 2}
   player: {fileID: 1987537409}
   equipCamera: {fileID: 1545475803}
 --- !u!4 &84850431
@@ -838,8 +838,8 @@ Transform:
   m_GameObject: {fileID: 1987537408}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.30794, y: 1, z: 0.31224096}
+  m_LocalPosition: {x: 0, y: 0, z: -0.433}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1545475801}
