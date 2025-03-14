@@ -39,9 +39,5 @@ public class GameManager : MonoBehaviour
 
         player = FindObjectOfType<Player>();
         UI = FindObjectOfType<UIManager>();
-
-        //player.Init();
-        //UI.Init();
     }
-
 }
