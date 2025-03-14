@@ -17,7 +17,9 @@ MonoBehaviour:
   item_description: "\uC0C1\uCC98 \uD68C\uBCF5\uC6A9 \uD0A4\uD2B8"
   canStack: 1
   maxStack: 12
-  dropPref: {fileID: 5342592107691287224, guid: 867cedc5d68367e439cbc50e7a3ab501,
+  renderPref: {fileID: 1857858979136712690, guid: 9501f123bab843746807a0aff926f323,
+    type: 3}
+  basePref: {fileID: 3152094892364251965, guid: 59da03fa31740254f850c1cea8719b9d,
     type: 3}
   Icon: {fileID: 21300000, guid: c5187d6ee391b2548b979aabf44a38bd, type: 3}
   isNotStackOver: 0
@@ -26,7 +28,9 @@ MonoBehaviour:
     value: 50
   isCookable: 1
   CookedThing: {fileID: 0}
-  itemData_Equipables: []
-  EquipPref: {fileID: 0}
-  itemData_Placeable: []
-  PlacePref: {fileID: 0}
+  equipableType: 0
+  value: 0
+  useStamina: 0
+  distance: 0
+  rate: 0
+  equipPref: {fileID: 0}

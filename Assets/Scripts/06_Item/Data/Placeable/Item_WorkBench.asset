@@ -18,14 +18,18 @@ MonoBehaviour:
     \uC218 \uC788\uB2E4"
   canStack: 0
   maxStack: 12
-  dropPref: {fileID: 6562141285705917196, guid: dc8f7d01a7f0d574d850d4f39ad90ad6,
+  renderPref: {fileID: 6166544773885380431, guid: 669c87a4d7e2a99458e8c46c859247d6,
+    type: 3}
+  basePref: {fileID: 2613038743002522169, guid: a089bb5cccca947419ca916719f04025,
     type: 3}
   Icon: {fileID: 21300000, guid: 17fe3191f5fd4a14483a8e4660d192a0, type: 3}
   isNotStackOver: 0
-  renderPref: {fileID: 0}
   ItemData_Consumables: []
   isCookable: 0
   CookedThing: {fileID: 0}
-  itemData_Equipables: []
+  equipableType: 0
+  value: 0
+  useStamina: 0
+  distance: 0
+  rate: 0
   equipPref: {fileID: 0}
-  placedPref: {fileID: 0}

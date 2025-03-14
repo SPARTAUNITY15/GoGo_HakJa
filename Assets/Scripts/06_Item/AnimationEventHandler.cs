@@ -1,0 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AnimationEventHandler : MonoBehaviour
+{
+    public Equip_Item equipItem;
+
+    private void Start()
+    {
+        equipItem = GetComponentInParent<Equip_Item>();
+    }
+    void OnHit()
+    {
+        equipItem.PerformEquipInteraction();
+    }
+}

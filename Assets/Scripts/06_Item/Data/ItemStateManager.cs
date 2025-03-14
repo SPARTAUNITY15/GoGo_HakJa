@@ -4,10 +4,19 @@ using UnityEngine;
 
 public static class ItemStateExtensions
 {
+    //public static GameObject ToDropItem(this ItemData itemData) // itemData.basePref : 위에 빈 부모 클래스 하나 잇는    
+    // {
+    //    GameObject go = new GameObject($"Drop_{itemData}");
+    //    Object.Instantiate(itemData.renderPref, go.transform, false);
+    //    go.AddComponent<Drop_Item>().itemData = itemData;
+
+    //    return go;
+    //}
+
     public static GameObject ToDropItem(this ItemData itemData)
     {
-        GameObject go = new GameObject($"Drop_{itemData}");
-        Object.Instantiate(itemData.renderPref, go.transform, false);
+        GameObject go = Object.Instantiate(itemData.basePref);
+        go.name = $"Drop_{itemData}";
         go.AddComponent<Drop_Item>().itemData = itemData;
 
         return go;
