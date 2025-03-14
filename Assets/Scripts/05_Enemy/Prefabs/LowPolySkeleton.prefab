@@ -637,9 +637,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   player: {fileID: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -650,7 +647,7 @@ MonoBehaviour:
   patrolRange: 3
   sightRange: 3
   attackRange: 0.5
-  safeZoneCheckRadius: 3
+  safezoneRange: 3
   maxChaseDistance: 3
   health: 100
 --- !u!195 &4498056570101974177
