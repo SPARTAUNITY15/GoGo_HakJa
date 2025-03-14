@@ -1,3 +1,8 @@
+
+
+
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,20 +10,25 @@ using UnityEngine;
 public enum ItemType
 {
     Equipable,
-    Consumable
+    Consumable,
+    Placeable,
+    Resources
+
 }
+
+//[System.Serializable]
+//public class ItemData_ItemType
+//{
+//    public ItemType itemType;
+//}
 
 public enum ConsumableType
 {
     Health,
-    Hunger
-}
-
-public enum EquipableType
-{
-    AttackPower,
-    JumpPower,
-    MoveSpeed
+    Stamina,
+    Hunger,
+    Thirst,
+    Temperature
 }
 
 [System.Serializable]
@@ -28,18 +38,43 @@ public class ItemData_Consumable
     public float value;
 }
 
-[System.Serializable]
-public class ItemData_Equipable
+public enum EquipableType
 {
-    public EquipableType equipableType; 
-    public float value;
+    DoesGatherResources,
+    DoesAttack,
+    DoesShoot,
+    DoesDig,
+    DoesDiscover
+    //DoesStat
+}
+
+//public enum DoesStatType // 나중에 쓰일려나
+//{
+//    MoveSpeed,
+//    JumpPower,
+//    MaxHealth,
+//}
+
+
+//[System.Serializable]
+//public class ItemData_Equipable
+//{
+//    public EquipableType equipableType;
+//}
+
+public enum PlaceableType
+{
+    Sleep,
+    Craft,
+    Tent,
+    Storage,
+
 }
 
 //[System.Serializable]
-//public class ItemData_Equipable_Value
+//public class ItemData_Placeable
 //{
-//    public EquipableType equipableType;
-//    public float value;
+//    public PlaceableType placeableType;
 //}
 
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]
@@ -47,12 +82,16 @@ public class ItemData : ScriptableObject
 {
     [Header("공통 정보")]
     public ItemType itemType;
+    //public ItemData_ItemType itemData_ItemType;
     public string item_name;
     public string item_description;
+
     public bool canStack;
     public int maxStack = 12;
-    public GameObject dropPref;
-    public Sprite Image;
+    //public GameObject renderPref;
+    public GameObject basePref;
+    public Sprite Icon;
+    public bool isNotStackOver; // 스택이 0이 되어도 안사라짐.
 
     [Header("소비템")]
     public ItemData_Consumable[] ItemData_Consumables;
@@ -60,6 +99,14 @@ public class ItemData : ScriptableObject
     public ItemData CookedThing;
 
     [Header("장비템")]
-    public ItemData_Equipable[] itemData_Equipables;
-    public GameObject EquipPref;
+    //public ItemData_Equipable[] itemData_Equipables; 
+    public EquipableType equipableType;
+    public float value; // 자원 - 한번에 몇개의 자원을 캘지, 공격 - 데미지. 그 외에는 어디 쓰일지 아직 생각 못함..
+    public float useStamina; // 사용 스태미나
+    public float distance;
+    public float rate; // 재사용 대기시간
+    public GameObject equipPref;
+
+    //[Header("설치템")]
+    //public ItemData_Placeable[] itemData_Placeable;
 }
