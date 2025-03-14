@@ -29,7 +29,7 @@ MonoBehaviour:
   equipableType: 0
   value: 1
   useStamina: 10
-  distance: 1
+  distance: 10000
   rate: 1
   equipPref: {fileID: 2629744223312670578, guid: b848be24adb8bcb4f8dd99306b5d05e6,
     type: 3}
