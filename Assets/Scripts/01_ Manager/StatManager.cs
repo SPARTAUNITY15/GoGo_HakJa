@@ -9,18 +9,14 @@ public interface IDamagable
 
 public class StatManager : MonoBehaviour, IDamagable
 {
-    [SerializeField] public float health = 3f;
-    [SerializeField] public float hunger = 3f;
-    [SerializeField] public float stamina = 3f;
-    [SerializeField] public float moisture = 3f;
-    [SerializeField] public float temperature = 3f;
+    [SerializeField] public float health;
+    [SerializeField] public float hunger;
+    [SerializeField] public float stamina;
+    [SerializeField] public float moisture;
+    [SerializeField] public float temperature;
     [SerializeField] public float speed;
 
     public PlayerCondition playerCondition;
-
-
-    // ΩÃ±€≈Ê
-    // 
 
     public void TakePhysicalDamage(int damage)
     {

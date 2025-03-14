@@ -1,10 +1,8 @@
 using System;
 using UnityEngine;
 
-public class PlayerCondition : MonoBehaviour
+public class PlayerCondition : StatManager
 {
-    public StatManager statManager;
-
     private Condition _health;
     private Condition _hunger;
     private Condition _stamina;
@@ -14,19 +12,19 @@ public class PlayerCondition : MonoBehaviour
     private void Awake()
     {
         _health = new Condition();
-        _health.curValue = statManager.health;
-        _health.startValue = statManager.health;   
-        _health.maxValue = statManager.health;
+        _health.curValue = health;
+        _health.startValue = health;   
+        _health.maxValue = health;
         
         _hunger = new Condition();
-        _hunger.curValue = statManager.hunger;
-        _hunger.startValue = statManager.hunger;
-        _hunger.maxValue = statManager.hunger;
+        _hunger.curValue = hunger;
+        _hunger.startValue = hunger;
+        _hunger.maxValue = hunger;
 
         _stamina = new Condition();
-        _stamina.curValue = statManager.stamina;
-        _stamina.startValue = statManager.stamina;
-        _stamina.maxValue = statManager.stamina;
+        _stamina.curValue = stamina;
+        _stamina.startValue = stamina;
+        _stamina.maxValue = stamina;
     }
 
     private void Update()
