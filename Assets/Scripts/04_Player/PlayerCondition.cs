@@ -4,22 +4,24 @@ using UnityEngine;
 public class PlayerCondition : StatManager
 {
     public float curHealth;
-    public float maxHealth;
-    public float startHealth;
+    [HideInInspector] public float maxHealth;
+    [HideInInspector] public float startHealth;
 
     public float curHunger;
-    public float maxHunger;
-    public float startHunger;
+    [HideInInspector] public float maxHunger;
+    [HideInInspector] public float startHunger;
 
     public float curStamina;
-    public float maxStamina;
-    public float startStamina;
+    [HideInInspector] public float maxStamina;
+    [HideInInspector] public float startStamina;
     public float passiveStamina;
+
+    [HideInInspector] public bool useStamina = false;
 
     [SerializeField]
     public float noHungerHealthDecay;
 
-    private void Awake()
+    public void Awake()
     {
         curHealth = health;
         maxHealth = health;
@@ -32,13 +34,20 @@ public class PlayerCondition : StatManager
         curStamina = stamina;
         maxStamina = stamina;
         startStamina = stamina;
-        passiveStamina = 10f;
+        passiveStamina = 5f;
     }
 
-    private void Update()
+    public void Update()
     {
         curHunger = Mathf.Max(curHunger - passiveStamina * Time.deltaTime, 0f);
-        curStamina = Mathf.Min(curStamina + passiveStamina * Time.deltaTime, maxStamina);
+        if (useStamina)
+        {
+            curStamina = Mathf.Max(curStamina - passiveStamina * Time.deltaTime, 0f);
+        }
+        else
+        {
+            curStamina = Mathf.Min(curStamina + passiveStamina * Time.deltaTime, maxStamina);
+        }
 
         if (curHunger <= 0f)
         {
@@ -66,8 +75,9 @@ public class PlayerCondition : StatManager
         return true;
     }
 
-    public void AddHealth(float amount) => AddStat(ref curHealth, amount, maxHealth);
-    public void AddHunger(float amount) => AddStat(ref curHunger, amount, maxHunger);
-    public void AddStamina(float amount) => AddStat(ref curStamina, amount, maxStamina);
+    public void LoseStamina()
+    {
+        useStamina = !useStamina;
+    }
 }
 
