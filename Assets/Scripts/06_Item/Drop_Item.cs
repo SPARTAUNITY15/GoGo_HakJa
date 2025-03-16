@@ -24,7 +24,7 @@ public class Drop_Item : MonoBehaviour //IInteractable
     //public Wrapping GetNeedThing()
     //{
     //    var wrapped = new Wrapping();
-    //    wrapped._itemData = itemData;
+    //    wrapped._itemData = item2Place;
     //    return wrapped;
     //}
 
