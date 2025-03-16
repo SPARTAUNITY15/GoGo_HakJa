@@ -40,5 +40,11 @@ public class testt : MonoBehaviour
     }
     */
 
+    public ItemData itemData;
+
+    private void Start()
+    {
+        itemData.ToDropItem();
+    }
 
 }
