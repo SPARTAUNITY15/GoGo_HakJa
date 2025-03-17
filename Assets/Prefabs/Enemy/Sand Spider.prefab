@@ -2606,7 +2606,7 @@ Transform:
   m_GameObject: {fileID: 6426188485235386715}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22, y: 1.11, z: 2.28}
+  m_LocalPosition: {x: -0.22, y: 1.11, z: 1.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3031,10 +3031,10 @@ MonoBehaviour:
   safezoneRange: 3
   maxChaseDistance: 3
   health: 100
-  projectilePrefab: {fileID: 8710216647784311638, guid: 051854dd55b2f274baa6569187dd829f,
+  projectilePrefab: {fileID: 4226196638867828240, guid: d0384f8963b21854b93598b8ec37ba92,
     type: 3}
   attackPoint: {fileID: 3214428342917023944}
-  attackCooldown: 2
+  attackCooldown: 2.5
 --- !u!195 &1479954915319855138
 NavMeshAgent:
   m_ObjectHideFlags: 0

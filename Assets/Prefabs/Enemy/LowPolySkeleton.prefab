@@ -686,6 +686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropItemPrefab: {fileID: 8710216647784311638, guid: 051854dd55b2f274baa6569187dd829f,
     type: 3}
+  itemData: {fileID: 0}
   dropForce: 2
 --- !u!1 &3325773154088703557
 GameObject:
