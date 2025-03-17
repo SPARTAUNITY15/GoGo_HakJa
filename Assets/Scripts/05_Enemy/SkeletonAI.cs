@@ -1,22 +1,25 @@
 using UnityEngine;
+using System.Collections;
 
 public class SkeletonAI : EnemyAI
 {
     [SerializeField] private float attackDamage = 10f;
-    [SerializeField] private float attackCooldown = 1f; //공격 쿨타임
-    
+
+    public float attackCooldown;
     private float lastAttackTime = 0f;
 
     protected override void AttackPlayer()
     {
-        if (Time.time - lastAttackTime < attackCooldown) return; 
-        lastAttackTime = Time.time;
-
-        base.AttackPlayer(); 
+        if (Time.time >= lastAttackTime + attackCooldown)
+        {
+            base.AttackPlayer();
+            lastAttackTime = Time.time;
+        }
         Debug.Log("스켈레톤이 검으로 공격!");
 
         DamagePlayer();
     }
+
 
     private void DamagePlayer()
     {

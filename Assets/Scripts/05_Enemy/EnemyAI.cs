@@ -30,6 +30,7 @@ public abstract class EnemyAI : MonoBehaviour
         itemDropper = GetComponent<ItemDropper>();
 
         SetNewPatrolPoint();
+        Die();
     }
 
     protected virtual void Update()

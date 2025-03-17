@@ -262,7 +262,7 @@ PrefabInstance:
     - target: {fileID: 4219872359984164779, guid: 37743b780819c5e4ea8213875ca9474f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.467
       objectReference: {fileID: 0}
     - target: {fileID: 4219872359984164779, guid: 37743b780819c5e4ea8213875ca9474f,
         type: 3}
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 383493909}
   - component: {fileID: 383493908}
   - component: {fileID: 383493907}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.04730632, y: -0.021, z: 0.12174219}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -494,7 +494,7 @@ PrefabInstance:
     - target: {fileID: 2303132271948539975, guid: 34a95de64361c374897c003440808ef5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2303132271948539975, guid: 34a95de64361c374897c003440808ef5,
         type: 3}
@@ -541,6 +541,23 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 835985966}
+    - target: {fileID: 3293610528174849458, guid: 34a95de64361c374897c003440808ef5,
+        type: 3}
+      propertyPath: attackCooldown
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286824919077265381, guid: 34a95de64361c374897c003440808ef5,
+        type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: da14e708ae64f29489192c0fc5ab7a97,
+        type: 2}
+    - target: {fileID: 5286824919077265381, guid: 34a95de64361c374897c003440808ef5,
+        type: 3}
+      propertyPath: dropItemPrefab
+      value: 
+      objectReference: {fileID: 2954679420750835272, guid: 968c9b0fc5c4a104d9868abf6036ffb5,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -559,6 +576,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Widow
       objectReference: {fileID: 0}
+    - target: {fileID: 118806338065452650, guid: 928d707027828f648845acb88cab58ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 343179047318769399, guid: 928d707027828f648845acb88cab58ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -572,7 +594,7 @@ PrefabInstance:
     - target: {fileID: 343179047318769399, guid: 928d707027828f648845acb88cab58ee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -3.92
       objectReference: {fileID: 0}
     - target: {fileID: 343179047318769399, guid: 928d707027828f648845acb88cab58ee,
         type: 3}
@@ -720,7 +742,7 @@ Transform:
   m_GameObject: {fileID: 2102404272}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.359, y: 0.71, z: 6.44}
+  m_LocalPosition: {x: 6.56, y: 0.71, z: 6.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -776,7 +798,7 @@ PrefabInstance:
     - target: {fileID: 4762551712768867836, guid: 584b28ceda2233a4396114cb64c85603,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -6.4
       objectReference: {fileID: 0}
     - target: {fileID: 4762551712768867836, guid: 584b28ceda2233a4396114cb64c85603,
         type: 3}
@@ -822,6 +844,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sand Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418016074044017502, guid: 584b28ceda2233a4396114cb64c85603,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
