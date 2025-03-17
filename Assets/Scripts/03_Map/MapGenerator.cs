@@ -1,6 +1,16 @@
 using System.Threading.Tasks;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
+
+[System.Serializable]
+public class FlattenRegion
+{
+    public int startX;
+    public int endX;
+    public int startZ;
+    public int endZ;
+    public float constantHeight = 0.5f; // 평탄화할 높이
+    public int blendWidth = 20;         // 경계에서 보간할 폭
+}
 
 public class MapGenerator : MonoBehaviour
 {
@@ -22,9 +32,8 @@ public class MapGenerator : MonoBehaviour
     public float chunkZ;
     float[,] noiseMap;
 
-    [Header("Tree")]
-    public GameObject prefab;
-    [Range(0, 1)] public float density;
+    [Header("Flatten Regions")]
+    public FlattenRegion[] flattenRegions;
 
     private async void Awake()
     {
@@ -96,33 +105,56 @@ public class MapGenerator : MonoBehaviour
         {
             for (int z = 0; z < mapSize; z++)
             {
-                noiseMap[x, z] = Mathf.InverseLerp(min, max, noiseMap[x, z]);
+                float finalBlend = 0f;
+                float targetHeight = noiseMap[x, z]; // 기본값
+
+                foreach (var region in flattenRegions)
+                {
+                    // x축에 대한 보간 인자 계산
+                    float blendX = 0f;
+                    if (x >= region.startX - region.blendWidth && x < region.startX)
+                    {
+                        blendX = Mathf.SmoothStep(0f, 1f, (x - (region.startX - region.blendWidth)) / (float)region.blendWidth);
+                    }
+                    else if (x >= region.startX && x <= region.endX)
+                    {
+                        blendX = 1f;
+                    }
+                    else if (x > region.endX && x <= region.endX + region.blendWidth)
+                    {
+                        blendX = Mathf.SmoothStep(1f, 0f, (x - region.endX) / (float)region.blendWidth);
+                    }
+
+                    // z축에 대한 보간 인자 계산
+                    float blendZ = 0f;
+                    if (z >= region.startZ - region.blendWidth && z < region.startZ)
+                    {
+                        blendZ = Mathf.SmoothStep(0f, 1f, (z - (region.startZ - region.blendWidth)) / (float)region.blendWidth);
+                    }
+                    else if (z >= region.startZ && z <= region.endZ)
+                    {
+                        blendZ = 1f;
+                    }
+                    else if (z > region.endZ && z <= region.endZ + region.blendWidth)
+                    {
+                        blendZ = Mathf.SmoothStep(1f, 0f, (z - region.endZ) / (float)region.blendWidth);
+                    }
+
+                    // 최종 보간 인자는 두 축의 최소값 (두 방향 모두 경계가 적용되어야 함)
+                    float regionBlend = Mathf.Min(blendX, blendZ);
+
+                    // 여러 구간이 겹칠 경우, 보간 값이 더 큰 영역을 우선시
+                    if (regionBlend > finalBlend)
+                    {
+                        finalBlend = regionBlend;
+                        targetHeight = region.constantHeight;
+                    }
+                }
+
+                // 해당 좌표의 노이즈와 평탄화 높이를 부드럽게 혼합
+                noiseMap[x, z] = Mathf.Lerp(noiseMap[x, z], targetHeight, finalBlend);
             }
         }
         return noiseMap;
     }
-
-    //public void PlaceObjects()
-    //{
-    //    Transform parent = new GameObject("PlacedObjects").transform;
-
-    //    for (int x = 10; x < mapSize - 10; x++)
-    //    {
-    //        for (int z = 10; z < mapSize - 10; z++)
-    //        {
-    //            float noiseValue = Mathf.PerlinNoise((x + seed) / 5f, (z + seed) / 5);
-
-    //            if (noiseValue > 1 - density)
-    //            {
-    //                float y = terrain.terrainData.GetInterpolatedHeight(x / (float)terrain.terrainData.size.x,
-    //                                                                    z / (float)terrain.terrainData.size.y);
-    //                Vector3 spawnPos = new Vector3(x, y, z);
-
-    //                GameObject go = Instantiate(prefab, spawnPos, Quaternion.identity, transform);
-    //                go.transform.SetParent(parent);
-    //            }
-    //        }
-
-    //    }
-    //}
 }

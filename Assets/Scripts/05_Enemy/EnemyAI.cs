@@ -28,7 +28,7 @@ public abstract class EnemyAI : MonoBehaviour
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         itemDropper = GetComponent<ItemDropper>();
-        safeZone = FindObjectOfType<SafeZone>();
+        //safeZone = FindObjectOfType<SafeZone>();
 
         SetNewPatrolPoint();
     }
