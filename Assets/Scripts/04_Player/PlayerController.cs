@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidbody;
 
     Action interactionAction;                          // 상호작용 이벤트
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
