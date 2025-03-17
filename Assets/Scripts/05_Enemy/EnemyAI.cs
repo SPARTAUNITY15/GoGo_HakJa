@@ -31,7 +31,7 @@ public abstract class EnemyAI : MonoBehaviour
         itemDropper = GetComponent<ItemDropper>();
 
         SetNewPatrolPoint();
-        //Die();
+        Die();
     }
 
     protected virtual void Update()
@@ -123,7 +123,7 @@ public abstract class EnemyAI : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         animator.SetBool("IsMoving", false);
-        animator.SetTrigger("Attack");
+        //animator.SetTrigger("Attack");
     }
 
     protected void StopMoving()

@@ -304,6 +304,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8174633961139887092, guid: 37743b780819c5e4ea8213875ca9474f,
+        type: 3}
+      propertyPath: health
+      value: 1000000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -473,6 +478,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 298632387}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1123335124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7418016074044017502, guid: 584b28ceda2233a4396114cb64c85603,
+    type: 3}
+  m_PrefabInstance: {fileID: 4524822596072607509}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1123335129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123335124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c332db422feba984d9a40eb7675b9f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItemPrefab: {fileID: 0}
+  itemData: {fileID: 0}
+  dropForce: 3
+  dropParticleEffectPrefab: {fileID: 0}
 --- !u!1001 &1324890310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -541,28 +568,39 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 835985966}
-    - target: {fileID: 3293610528174849458, guid: 34a95de64361c374897c003440808ef5,
-        type: 3}
-      propertyPath: attackCooldown
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 5286824919077265381, guid: 34a95de64361c374897c003440808ef5,
         type: 3}
-      propertyPath: itemData
+      propertyPath: dropParticleEffectPrefab
       value: 
-      objectReference: {fileID: 11400000, guid: da14e708ae64f29489192c0fc5ab7a97,
-        type: 2}
-    - target: {fileID: 5286824919077265381, guid: 34a95de64361c374897c003440808ef5,
-        type: 3}
-      propertyPath: dropItemPrefab
-      value: 
-      objectReference: {fileID: 2954679420750835272, guid: 968c9b0fc5c4a104d9868abf6036ffb5,
+      objectReference: {fileID: 7474993228974353214, guid: ddc574a9da60a0b468b844b75fb69aac,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34a95de64361c374897c003440808ef5, type: 3}
+--- !u!1 &1488000855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 118806338065452650, guid: 928d707027828f648845acb88cab58ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1494293269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1488000860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488000855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c332db422feba984d9a40eb7675b9f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItemPrefab: {fileID: 0}
+  itemData: {fileID: 0}
+  dropForce: 3
+  dropParticleEffectPrefab: {fileID: 0}
 --- !u!1001 &1494293269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -575,11 +613,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Black Widow
-      objectReference: {fileID: 0}
-    - target: {fileID: 118806338065452650, guid: 928d707027828f648845acb88cab58ee,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 343179047318769399, guid: 928d707027828f648845acb88cab58ee,
         type: 3}
@@ -636,15 +669,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 835985966}
-    - target: {fileID: 7969928853570368069, guid: 928d707027828f648845acb88cab58ee,
-        type: 3}
-      propertyPath: attackRange
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 118806338065452650, guid: 928d707027828f648845acb88cab58ee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1488000860}
   m_SourcePrefab: {fileID: 100100000, guid: 928d707027828f648845acb88cab58ee, type: 3}
 --- !u!1 &2102404272
 GameObject:
@@ -850,15 +882,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sand Spider
       objectReference: {fileID: 0}
-    - target: {fileID: 7418016074044017502, guid: 584b28ceda2233a4396114cb64c85603,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7418016074044017502, guid: 584b28ceda2233a4396114cb64c85603,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1123335129}
   m_SourcePrefab: {fileID: 100100000, guid: 584b28ceda2233a4396114cb64c85603, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

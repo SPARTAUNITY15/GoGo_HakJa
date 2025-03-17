@@ -9,9 +9,10 @@ public class SkeletonAI : EnemyAI
     protected override void AttackPlayer()
     {
         if (Time.time - lastAttackTime < attackCooldown) return;
+        lastAttackTime = Time.time;
 
-        lastAttackTime = Time.time; // 마지막 공격 시간 업데이트
-        base.AttackPlayer();
+        animator.SetTrigger("Attack");
+
         Debug.Log("스켈레톤이 검으로 공격!");
 
         DamagePlayer();

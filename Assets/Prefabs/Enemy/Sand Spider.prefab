@@ -3031,6 +3031,7 @@ MonoBehaviour:
   safezoneRange: 3
   maxChaseDistance: 3
   health: 100
+  attackDamage: 10
   projectilePrefab: {fileID: 4226196638867828240, guid: d0384f8963b21854b93598b8ec37ba92,
     type: 3}
   attackPoint: {fileID: 3214428342917023944}
