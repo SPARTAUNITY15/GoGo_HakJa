@@ -5,7 +5,6 @@ public class SpiderAI : EnemyAI
     public GameObject projectilePrefab;
     public Transform attackPoint;
     public float attackCooldown = 2f;
-
     private float lastAttackTime = 0f;
 
     protected override void AttackPlayer()
@@ -34,7 +33,21 @@ public class SpiderAI : EnemyAI
         }
 
         animator.SetTrigger("Attack");
+        DamagePlayer();
         Debug.Log("거미가 투사체 공격!");
+    }
+
+    private void DamagePlayer()
+    {
+        if (player != null)
+        {
+            StatManager playerStats = player.GetComponent<StatManager>();
+            if (playerStats != null)
+            {
+                playerStats.TakePhysicalDamage(attackDamage);
+                Debug.Log($"플레이어가 {attackDamage}만큼 피해를 입음! 현재 체력: {playerStats.health}");
+            }
+        }
     }
 }
 

@@ -16,6 +16,7 @@ public abstract class EnemyAI : MonoBehaviour
     public float safezoneRange;
     public float maxChaseDistance;
     public float health = 100;
+    public float attackDamage = 10f;
 
     private Vector3 patrolTarget;
     protected bool isPlayerInSight, isPlayerInAttackRange, isInSafeZone;
@@ -30,7 +31,7 @@ public abstract class EnemyAI : MonoBehaviour
         itemDropper = GetComponent<ItemDropper>();
 
         SetNewPatrolPoint();
-        Die();
+        //Die();
     }
 
     protected virtual void Update()

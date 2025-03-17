@@ -5,7 +5,7 @@ public class ItemDropper : MonoBehaviour
 {
     public GameObject dropItemPrefab;
     public ItemData itemData; 
-    public float dropForce = 2f; // 아이템이 살짝 튀어나가는 힘
+    public float dropForce = 3f; // 아이템이 살짝 튀어나가는 힘
 
     //코루틴을 이용해서 아이템 드롭 시간 지연시키기
     public void DropItemWithDelay(float delay)
@@ -22,10 +22,8 @@ public class ItemDropper : MonoBehaviour
     {
         if (itemData != null)
         {
-            //GameObject droppedItem = Instantiate(dropItemPrefab, transform.position, Quaternion.identity);
             GameObject go = itemData.ToDropItem(transform.position, Quaternion.identity);
             
-            //Rigidbody rb = droppedItem.GetComponent<Rigidbody>();
             Rigidbody rb = go.GetComponent<Rigidbody>();
             if (rb != null)
             {
