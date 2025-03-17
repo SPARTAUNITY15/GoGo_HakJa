@@ -48,7 +48,7 @@ public enum EquipableType
     //DoesStat
 }
 
-//public enum DoesStatType // ³ªÁß¿¡ ¾²ÀÏ·Á³ª
+//public enum DoesStatType // ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½
 //{
 //    MoveSpeed,
 //    JumpPower,
@@ -80,7 +80,7 @@ public enum PlaceableType
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]
 public class ItemData : ScriptableObject
 {
-    [Header("°øÅë Á¤º¸")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public ItemType itemType;
     //public ItemData_ItemType itemData_ItemType;
     public string item_name;
@@ -91,22 +91,22 @@ public class ItemData : ScriptableObject
     //public GameObject renderPref;
     public GameObject basePref;
     public Sprite Icon;
-    public bool isNotStackOver; // ½ºÅÃÀÌ 0ÀÌ µÇ¾îµµ ¾È»ç¶óÁü.
+    public bool isNotStackOver; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½Ç¾îµµ ï¿½È»ï¿½ï¿½ï¿½ï¿½.
 
-    [Header("¼ÒºñÅÛ")]
+    [Header("ï¿½Òºï¿½ï¿½ï¿½")]
     public ItemData_Consumable[] ItemData_Consumables;
     public bool isCookable;
     public ItemData CookedThing;
 
-    [Header("ÀåºñÅÛ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½")]
     //public ItemData_Equipable[] itemData_Equipables; 
     public EquipableType equipableType;
-    public float value; // ÀÚ¿ø - ÇÑ¹ø¿¡ ¸î°³ÀÇ ÀÚ¿øÀ» Ä¶Áö, °ø°Ý - µ¥¹ÌÁö. ±× ¿Ü¿¡´Â ¾îµð ¾²ÀÏÁö ¾ÆÁ÷ »ý°¢ ¸øÇÔ..
-    public float useStamina; // »ç¿ë ½ºÅÂ¹Ì³ª
+    public float value; // ï¿½Ú¿ï¿½ - ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½î°³ï¿½ï¿½ ï¿½Ú¿ï¿½ï¿½ï¿½ Ä¶ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ ï¿½Ü¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½..
+    public float useStamina; // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¹Ì³ï¿½
     public float distance;
-    public float rate; // Àç»ç¿ë ´ë±â½Ã°£
+    public float rate; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½
     public GameObject equipPref;
 
-    //[Header("¼³Ä¡ÅÛ")]
+    //[Header("ï¿½ï¿½Ä¡ï¿½ï¿½")]
     //public ItemData_Placeable[] itemData_Placeable;
 }
