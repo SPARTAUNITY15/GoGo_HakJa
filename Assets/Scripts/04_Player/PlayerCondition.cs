@@ -74,6 +74,9 @@ public class PlayerCondition : StatManager
         {
             curMoisture = Mathf.Max(curMoisture - noHungerHealthDecay * Time.deltaTime, 0f);
         }
+
+
+        LowHealth();
     }
 
     public void Heal(float amount)
@@ -106,7 +109,7 @@ public class PlayerCondition : StatManager
         useStamina = !useStamina;
     }
 
-    // DamageIndicator 사용전용, 데미지 감소 실 테스트 필요
+    // DamageIndicator 사용전용, 데미지 감소 실 테스트 필요, 추후 다른곳에서 호출 필요
     public void TakePhysicalDamage(float damage)
     {
         onTakeDamage?.Invoke();
