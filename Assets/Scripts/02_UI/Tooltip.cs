@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,7 +6,9 @@ public class Tooltip : MonoBehaviour
 {
     public static Tooltip Instance;
     public GameObject tooltipPanel;
-    public Text tooltipText;
+    public TextMeshProUGUI tooltipName;
+    public TextMeshProUGUI tooltipDesc;
+    public Image Image;
     private RectTransform rectTransform;
     private Vector3 offset = new Vector3(10f, -10f, 0f); // 마우스와의 거리 조정
 
@@ -29,10 +32,11 @@ public class Tooltip : MonoBehaviour
         }
     }
 
-    public void ShowTooltip(string description)
+    public void ShowTooltip(string name, string description)
     {
         tooltipPanel.SetActive(true);
-        tooltipText.text = description;
+        tooltipName.text = name;
+        tooltipDesc.text = description;
     }
 
     public void HideTooltip()

@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public UIManager UI;
+    //public UIManager UI;
     public Player player;
     public Player Player
     {
@@ -41,6 +41,12 @@ public class GameManager : MonoBehaviour
         }
 
         player = FindObjectOfType<Player>();
-        UI = FindObjectOfType<UIManager>();
+        //UI = FindObjectOfType<UIManager>();
+        //if(UI == null)
+        //{
+        //    UI = new GameObject("UIManager").AddComponent<UIManager>();
+        //}
+
+        //UI.InitializeUI();
     }
 }

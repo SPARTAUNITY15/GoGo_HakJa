@@ -49,6 +49,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ToggleUI(string uiName) //현재 활성 UI가 null이면 그냥 켜고, null이 아니면 현재 활성 UI랑 미래 UI랑 비교해서 같으면 끄고 다르면 켜진거 끄고 켜기.
+    {
+        if (currentActiveUI == uiDictionary[uiName])
+        {
+            HideCurrentUI();
+        }
+        else
+        {
+            HideCurrentUI();
+            ShowUI(uiName);
+        }
+    }
     public void ShowUI(string uiName)
     {
         if (uiDictionary.ContainsKey(uiName))

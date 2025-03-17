@@ -50,7 +50,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (currentItem != null)
         {
-            Tooltip.Instance.ShowTooltip(currentItem.item_description);
+            Tooltip.Instance.ShowTooltip(currentItem.item_name, currentItem.item_description);
         }
     }
 
