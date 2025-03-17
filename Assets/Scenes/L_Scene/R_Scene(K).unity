@@ -430,6 +430,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e7d22e47b1d565f4ab474b6444f68aa0, type: 2}
   - {fileID: 11400000, guid: 2bc6b365a5348544ebbf349362e162a4, type: 2}
   - {fileID: 11400000, guid: 043bf8d1186da1d4986f81c09290af48, type: 2}
+  - {fileID: 11400000, guid: 043bf8d1186da1d4986f81c09290af48, type: 2}
+  - {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  - {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  - {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  - {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
   items: []
   inventorySize: 20
 --- !u!114 &616597260

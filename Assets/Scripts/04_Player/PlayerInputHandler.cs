@@ -10,6 +10,7 @@ public class PlayerInputHandler : MonoBehaviour
         if(context.phase == InputActionPhase.Started)
         {
             UIManager.Instance.ToggleUI("인벤토리");
+            UIManager.Instance.inventoryUI.SetCraftMode(CraftMode.Inventory);
         }
     }
 }

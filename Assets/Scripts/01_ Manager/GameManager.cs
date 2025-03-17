@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     //public UIManager UI;
     public Player player;
+    public CraftingManager craftingManager;
+
     public Player Player
     {
         get { return player; }
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
         }
 
         player = FindObjectOfType<Player>();
+        craftingManager = new();
         //UI = FindObjectOfType<UIManager>();
         //if(UI == null)
         //{
