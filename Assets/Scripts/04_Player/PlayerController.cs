@@ -70,16 +70,6 @@ public class PlayerController : MonoBehaviour
         _rigidbody.velocity = dir;
     }
 
-    void Run()
-    {
-        moveSpeed *= 2f;
-    }
-
-    void StopRun()
-    {
-        moveSpeed /= 2f;
-    }
-
     public void OnMove(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
@@ -99,13 +89,13 @@ public class PlayerController : MonoBehaviour
         {
             if (playerCondition.curStamina >= 10f)
             {
-                Run();
+                moveSpeed *= 2f;
                 playerCondition.LoseStamina();
             }
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
-            StopRun();
+            moveSpeed /= 2f;
             playerCondition.LoseStamina();
         }
     }

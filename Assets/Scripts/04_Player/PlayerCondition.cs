@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerCondition : StatManager
@@ -10,16 +11,25 @@ public class PlayerCondition : StatManager
     public float curHunger;
     [HideInInspector] public float maxHunger;
     [HideInInspector] public float startHunger;
+    [HideInInspector] public float passiveHunger;
 
     public float curStamina;
     [HideInInspector] public float maxStamina;
     [HideInInspector] public float startStamina;
-    public float passiveStamina;
+    [HideInInspector] public float passiveStamina;
+
+    public float curMoisture;
+    [HideInInspector] public float maxMoisture;
+    [HideInInspector] public float startMoisture;
+    [HideInInspector] public float passiveMoisture;
 
     [HideInInspector] public bool useStamina = false;
 
     [SerializeField]
     public float noHungerHealthDecay;
+    public float noHungerMoistureDecay;
+
+    public event Action onTakeDamage;
 
     public void Awake()
     {
@@ -30,16 +40,23 @@ public class PlayerCondition : StatManager
         curHunger = hunger;
         maxHunger = hunger;
         startHunger = hunger;
+        passiveHunger = 3f;
 
         curStamina = stamina;
         maxStamina = stamina;
         startStamina = stamina;
         passiveStamina = 5f;
+
+        curMoisture = moisture;
+        maxMoisture = moisture;
+        startMoisture = moisture;
+        passiveMoisture = 2f;
     }
 
     public void Update()
     {
-        curHunger = Mathf.Max(curHunger - passiveStamina * Time.deltaTime, 0f);
+        curHunger = Mathf.Max(curHunger - passiveHunger * Time.deltaTime, 0f);
+        curMoisture = Mathf.Max(curMoisture - passiveMoisture * Time.deltaTime, 0f);
         if (useStamina)
         {
             curStamina = Mathf.Max(curStamina - passiveStamina * Time.deltaTime, 0f);
@@ -53,6 +70,10 @@ public class PlayerCondition : StatManager
         {
             curHealth = Mathf.Max(curHealth - noHungerHealthDecay * Time.deltaTime, 0f);
         }
+        if (curMoisture <= 0f)
+        {
+            curMoisture = Mathf.Max(curMoisture - noHungerHealthDecay * Time.deltaTime, 0f);
+        }
     }
 
     public void Heal(float amount)
@@ -63,6 +84,11 @@ public class PlayerCondition : StatManager
     public void Eat(float amount)
     {
         curHunger = Mathf.Min(curHunger + amount, maxHunger);
+    }
+
+    public void Drink(float amount)
+    {
+        curMoisture = Mathf.Min(curMoisture + amount, maxMoisture);
     }
 
     public bool UseStamina(float amount)
@@ -78,6 +104,21 @@ public class PlayerCondition : StatManager
     public void LoseStamina()
     {
         useStamina = !useStamina;
+    }
+
+    // DamageIndicator 사용전용, 데미지 감소 실 테스트 필요
+    public void TakePhysicalDamage(float damage)
+    {
+        onTakeDamage?.Invoke();
+    }
+
+    // 체력감소시 DamageIndicator 사용
+    public void LowHealth()
+    {
+        if (curHealth <= maxHealth * 0.15f)
+        {
+            onTakeDamage?.Invoke();
+        }
     }
 }
 
