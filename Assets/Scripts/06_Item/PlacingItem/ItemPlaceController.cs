@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 아이템 설치 트리거. "GameManager.Instance.player.itemPlaceController.StartPlacing(itemData)"
 public class ItemPlaceController : MonoBehaviour
 {
     bool isPlacing;

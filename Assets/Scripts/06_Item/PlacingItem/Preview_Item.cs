@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Preview_Item : MonoBehaviour
@@ -15,7 +16,7 @@ public class Preview_Item : MonoBehaviour
     Vector3 position;
     Quaternion rotation;
 
-    int colliderCount;
+    //int colliderCount;
     float floatingHeight;
     PlacingValidity placeValidity;
 
@@ -29,7 +30,10 @@ public class Preview_Item : MonoBehaviour
 
         //기본값 세팅
         rotation = Quaternion.identity;
-        colliderCount = GetComponentsInChildren<Collider>().Length;
+        foreach (var colli in GetComponentsInChildren<Collider>())
+        {
+            colli.enabled = false;
+        }
         renderers = gameObject.GetComponentsInChildren<Renderer>();
         foreach (Renderer renderer in renderers)
         {
@@ -68,7 +72,7 @@ public class Preview_Item : MonoBehaviour
 
         CheckPlaceAvailable();
 
-        if (Input.GetKeyDown(KeyCode.KeypadEnter) & placeValidity == PlacingValidity.Valid)
+        if (Input.GetKeyDown(KeyCode.Return) & placeValidity == PlacingValidity.Valid)
             ConfirmPlace();
     }
 
@@ -80,8 +84,11 @@ public class Preview_Item : MonoBehaviour
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.4f));
         if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, 1 << 7))
         {
-            position = new Vector3(hitInfo.point.x, hitInfo.point.y + bounds.extents.y, hitInfo.point.z);
+            //position = new Vector3(hitInfo.point.x, hitInfo.point.y + bounds.extents.y, hitInfo.point.z);
+            position = new Vector3(hitInfo.point.x, hitInfo.point.y, hitInfo.point.z);
         }
+        Debug.Log($"{hitInfo.point.y} + {bounds.extents.y}");
+
     }
 
     private void CalcRot()
@@ -98,6 +105,7 @@ public class Preview_Item : MonoBehaviour
         //계산된 위치값, 회전값 결과를 실제 고스트 뷰에 반영하기
         transform.localPosition = position;
         transform.rotation = rotation;
+
     }
 
     private enum PlacingValidity
@@ -122,9 +130,9 @@ public class Preview_Item : MonoBehaviour
         // 다른 오브젝트와의 충돌이 있는지 (바운드 사용해서)
 
         bool isOtheColliderOK;
-        Collider[] temp = Physics.OverlapBox(bounds.center, bounds.extents, rotation, ~(1 << 7), QueryTriggerInteraction.Ignore);
+        Collider[] temp = Physics.OverlapBox(bounds.center, bounds.extents, Quaternion.identity, ~(1 << 7), QueryTriggerInteraction.Ignore);
 
-        if (temp.Length > colliderCount) // 자기 자신 제외.
+        if (temp.Length > 0) 
         {
             Debug.Log("땅 외의 콜라이더와 충돌이 있어요");
             isOtheColliderOK = false;
@@ -197,6 +205,14 @@ public class Preview_Item : MonoBehaviour
 
         // 종료 함수 호출
         controller.QuitPlacing();
+    }
+
+    private void ForceQuit()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            controller.QuitPlacing();
+        }
     }
 }
 

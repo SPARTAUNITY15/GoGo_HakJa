@@ -2073,6 +2073,7 @@ MonoBehaviour:
   condition: {fileID: 0}
   statManager: {fileID: 0}
   interaction: {fileID: 0}
+  itemPlaceController: {fileID: 0}
 --- !u!65 &1987537410
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2277,6 +2278,7 @@ MonoBehaviour:
   condition: {fileID: 2046130290}
   statManager: {fileID: 0}
   interaction: {fileID: 0}
+  itemPlaceController: {fileID: 0}
 --- !u!114 &2046130293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2500,7 +2502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24239480c4d19040ab53bb71038834b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item2Place: {fileID: 11400000, guid: 891f067df6d53b544af89c8c320a6686, type: 2}
+  item2Place: {fileID: 11400000, guid: 2bc6b365a5348544ebbf349362e162a4, type: 2}
   placeController: {fileID: 0}
 --- !u!114 &2046130299
 MonoBehaviour:
