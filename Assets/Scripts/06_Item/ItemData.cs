@@ -105,6 +105,7 @@ public class ItemData : ScriptableObject
     public float useStamina; // ��� ���¹̳�
     public float distance;
     public float rate; // ���� ���ð�
+    public bool isEquiped;
     public GameObject equipPref;
 
     //[Header("��ġ��")]

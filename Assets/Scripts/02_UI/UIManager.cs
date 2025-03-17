@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    public InventoryUI inventoryUI;
     [System.Serializable]
     public class UIElement
     {
@@ -47,6 +49,8 @@ public class UIManager : MonoBehaviour
             uiInstance.SetActive(false);
             uiDictionary[element.uiName] = uiInstance;
         }
+
+        inventoryUI = uiDictionary["인벤토리"].GetComponent<InventoryUI>();
     }
 
     public void ToggleUI(string uiName) //현재 활성 UI가 null이면 그냥 켜고, null이 아니면 현재 활성 UI랑 미래 UI랑 비교해서 같으면 끄고 다르면 켜진거 끄고 켜기.
