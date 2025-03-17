@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed;
     private Rigidbody _rigidbody;
 
+    Action interactionAction;                          // 상호작용 이벤트
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -157,5 +158,20 @@ public class PlayerController : MonoBehaviour
         bool toggle = Cursor.lockState == CursorLockMode.Locked;
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
+    }
+
+    public void OnInteraction(InputAction.CallbackContext Context)
+    {
+        if (Context.phase == InputActionPhase.Started)
+        {
+            IInteractable interactingObject = GameManager.Instance.player.interaction.interactingObject;
+
+            if (interactingObject != null)
+            {
+                interactionAction = interactingObject.SubscribeMethod;
+
+                interactionAction?.Invoke();
+            }
+        }
     }
 }
