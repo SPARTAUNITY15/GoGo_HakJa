@@ -18,10 +18,13 @@ public abstract class EnemyAI : MonoBehaviour
     public float health = 100;
     public float attackDamage = 10f;
 
+    public bool TestDie = false;
+
     private Vector3 patrolTarget;
     protected bool isPlayerInSight, isPlayerInAttackRange, isInSafeZone;
     protected ItemDropper itemDropper;
     protected SafeZone safeZone;
+    
     
     protected virtual void Start()
     {
@@ -31,11 +34,16 @@ public abstract class EnemyAI : MonoBehaviour
         itemDropper = GetComponent<ItemDropper>();
 
         SetNewPatrolPoint();
-        Die();
+        
     }
 
     protected virtual void Update()
     {
+        if (TestDie == true)
+        {
+            Die();
+        }
+
         if (currentState == State.Dead) return;
 
         isPlayerInSight = Physics.CheckSphere(transform.position, sightRange, playerLayer);

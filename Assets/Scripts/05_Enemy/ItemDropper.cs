@@ -4,22 +4,28 @@ using System.Collections;
 public class ItemDropper : MonoBehaviour
 {
     public GameObject dropItemPrefab;
-    public ItemData itemData; 
+    public ItemData itemData;
     public float dropForce = 3f; // 아이템이 살짝 튀어나가는 힘
-
     public GameObject dropParticleEffectPrefab;
 
-    //코루틴을 이용해서 아이템 드롭 시간 지연시키기
+    private bool hasDropped = false; // 한 번만 드랍하기 위한 플래그
+
+    // 코루틴을 이용해서 아이템 드롭 시간 지연시키기
     public void DropItemWithDelay(float delay)
     {
-        StartCoroutine(DropItemCoroutine(delay));
+        if (!hasDropped)
+        {
+            hasDropped = true;
+            StartCoroutine(DropItemCoroutine(delay));
+        }
     }
 
     private IEnumerator DropItemCoroutine(float delay)
     {
-        yield return new WaitForSeconds(delay); 
+        yield return new WaitForSeconds(delay);
         DropItem();
     }
+
     public void DropItem()
     {
         if (itemData != null)
@@ -46,11 +52,10 @@ public class ItemDropper : MonoBehaviour
                 Vector3 randomForce = new Vector3(Random.Range(-1f, 1f), 1f, Random.Range(-1f, 1f)) * dropForce;
                 rb.AddForce(randomForce, ForceMode.Impulse);
             }
-            else if (rb == null)
+            else
             {
-                Debug.Log("아이템프리팹 안에 RigidBody가 없습니다! (생성되는데에는 문제가 없습니다.)");
+                Debug.Log("아이템프리팹 안에 Rigidbody가 없습니다! (생성되는데에는 문제가 없습니다.)");
             }
         }
     }
 }
-

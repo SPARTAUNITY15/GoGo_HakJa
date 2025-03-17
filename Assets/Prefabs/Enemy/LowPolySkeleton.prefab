@@ -651,6 +651,7 @@ MonoBehaviour:
   maxChaseDistance: 3
   health: 100
   attackDamage: 10
+  TestDie: 0
   attackCooldown: 1.5
 --- !u!195 &4498056570101974177
 NavMeshAgent:
@@ -690,6 +691,8 @@ MonoBehaviour:
     type: 3}
   itemData: {fileID: 11400000, guid: da14e708ae64f29489192c0fc5ab7a97, type: 2}
   dropForce: 2
+  dropParticleEffectPrefab: {fileID: 7474993228974353214, guid: ddc574a9da60a0b468b844b75fb69aac,
+    type: 3}
 --- !u!1 &3325773154088703557
 GameObject:
   m_ObjectHideFlags: 0
