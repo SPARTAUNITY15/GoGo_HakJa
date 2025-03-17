@@ -18,8 +18,6 @@ MonoBehaviour:
     \uBAA9\uC7AC"
   canStack: 0
   maxStack: 12
-  renderPref: {fileID: 5283113819156789674, guid: 0a8c601a16df4ca489e7d15e8a3e6e43,
-    type: 3}
   basePref: {fileID: 3486255233723751376, guid: 024e79d5df999a4468aef5c7820ab3ca,
     type: 3}
   Icon: {fileID: 21300000, guid: e6e873f4984f8e34e9783b8e291ec206, type: 3}

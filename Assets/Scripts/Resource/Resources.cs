@@ -1,12 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Resources : MonoBehaviour, IImpactable
 {
     public ItemData resourcePref;
+    public float health;
+
     public void ReceiveImpact(float value)
     {
-        resourcePref.ToDropItem();// 자원 뱉어내기
+        health -= value;
+
+        if (health <= 0)
+        {
+            resourcePref.ToDropItem(transform.position + Vector3.up, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
     }
 }
