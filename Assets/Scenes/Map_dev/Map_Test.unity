@@ -154,6 +154,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1861841360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &134706962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 134706963}
+  - component: {fileID: 134706964}
+  m_Layer: 0
+  m_Name: TentGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &134706963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134706962}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 801325559}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &134706964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134706962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7f36fce723937c4f94974617e807161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 106575752}
+  prefab: {fileID: 6684160937747065777, guid: fac0fbf57e7f9e64a9a0254ea9802a4e, type: 3}
+  destiny: 20
+  minHeight: 1
+  maxHeight: 10
+  xRange: {x: 10, y: 1000}
+  zRange: {x: 10, y: 1000}
+  isOasis: 0
+  rotateTowardsNormal: 0.1
+  rotationRange: {x: 0, y: 360}
+  minScale: {x: 0.9, y: 0.9, z: 0.9}
+  maxScale: {x: 1.1, y: 1.1, z: 1.1}
+  transformY: 0
 --- !u!4 &357627176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8730119249068889063, guid: 89364a38eefe93d4495fa803300fc501,
@@ -285,6 +342,7 @@ Transform:
   - {fileID: 1407992132}
   - {fileID: 1507797575}
   - {fileID: 1443282408}
+  - {fileID: 134706963}
   - {fileID: 1563196057}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -299,7 +357,7 @@ GameObject:
   - component: {fileID: 864913576}
   - component: {fileID: 864913577}
   m_Layer: 0
-  m_Name: OasisGenerator1
+  m_Name: OasisGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -707,7 +765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 106575752}
   prefab: {fileID: 6837370470255021544, guid: 6331b1758f50198478ddfdc13c68f037, type: 3}
-  destiny: 200
+  destiny: 100
   minHeight: 1
   maxHeight: 10
   xRange: {x: 10, y: 1000}
@@ -778,8 +836,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 106575752}
-  prefab: {fileID: 1989321367521876480, guid: 7b5dee5ea57821a4a930d11f1527fb67, type: 3}
-  destiny: 200
+  prefab: {fileID: 3954200782640961214, guid: 9510c48abeb819940a9a86d998ec931f, type: 3}
+  destiny: 100
   minHeight: 1
   maxHeight: 10
   xRange: {x: 10, y: 1000}
@@ -835,8 +893,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 106575752}
-  prefab: {fileID: 2172471636107800588, guid: 9f00871d1f1463b4ab58cd6bc7ef0b37, type: 3}
-  destiny: 200
+  prefab: {fileID: 1471259420535681277, guid: 43e2fc4343bb2c641b853038990eaca1, type: 3}
+  destiny: 100
   minHeight: 1
   maxHeight: 10
   xRange: {x: 10, y: 1000}
@@ -858,7 +916,7 @@ GameObject:
   - component: {fileID: 1544987033}
   - component: {fileID: 1544987034}
   m_Layer: 0
-  m_Name: OasisGenerator1 (3)
+  m_Name: OasisGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -950,7 +1008,7 @@ GameObject:
   - component: {fileID: 1685955010}
   - component: {fileID: 1685955011}
   m_Layer: 0
-  m_Name: OasisGenerator1 (2)
+  m_Name: OasisGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1266,7 +1324,7 @@ GameObject:
   - component: {fileID: 2107003377}
   - component: {fileID: 2107003378}
   m_Layer: 0
-  m_Name: OasisGenerator1 (1)
+  m_Name: OasisGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1312,74 +1370,6 @@ MonoBehaviour:
   minScale: {x: 0.9, y: 0.9, z: 0.9}
   maxScale: {x: 1.1, y: 1.1, z: 1.1}
   transformY: 4
---- !u!1001 &4691710301818588157
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6780651846066172208, guid: 6331b1758f50198478ddfdc13c68f037,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6780651846066172208, guid: 6331b1758f50198478ddfdc13c68f037,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6780651846066172208, guid: 6331b1758f50198478ddfdc13c68f037,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6780651846066172208, guid: 6331b1758f50198478ddfdc13c68f037,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6780651846066172208, guid: 6331b1758f50198478ddfdc13c68f037,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6780651846066172208, guid: 6331b1758f50198478ddfdc13c68f037,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6780651846066172208, guid: 6331b1758f50198478ddfdc13c68f037,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6780651846066172208, guid: 6331b1758f50198478ddfdc13c68f037,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6780651846066172208, guid: 6331b1758f50198478ddfdc13c68f037,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6780651846066172208, guid: 6331b1758f50198478ddfdc13c68f037,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6837370470255021544, guid: 6331b1758f50198478ddfdc13c68f037,
-        type: 3}
-      propertyPath: m_Name
-      value: bush
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6331b1758f50198478ddfdc13c68f037, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1389,4 +1379,3 @@ SceneRoots:
   - {fileID: 1215783048}
   - {fileID: 1861841360}
   - {fileID: 801325559}
-  - {fileID: 4691710301818588157}

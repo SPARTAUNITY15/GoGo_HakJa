@@ -43,14 +43,15 @@ public class PlacementGenerator : MonoBehaviour
     public void Generate()
     {
         int floorLayer = LayerMask.GetMask("Floor");
+        int i = 0;
 
-        for (int i = 0; i < destiny; i++)
+        while (i < destiny)
         {
             float sampleX = Random.Range(xRange.x, xRange.y);
             float sampleY = Random.Range(zRange.x, zRange.y);
             Vector3 ray = new Vector3(sampleX, maxHeight, sampleY);
 
-            if (!Physics.Raycast(ray, Vector3.down, out RaycastHit hit, Mathf.Infinity, floorLayer))
+            if (!Physics.Raycast(ray, Vector3.down, out RaycastHit hit, maxHeight - minHeight + 1, floorLayer))
             {
                 continue;
             }
@@ -71,6 +72,7 @@ public class PlacementGenerator : MonoBehaviour
                 Random.Range(minScale.y, maxScale.y),
                 Random.Range(minScale.z, maxScale.z)
                 );
+            i++;
         }
     }
 
@@ -85,7 +87,7 @@ public class PlacementGenerator : MonoBehaviour
             float sampleY = zRange.x;
             Vector3 ray = new Vector3(sampleX, maxHeight, sampleY);
 
-            if (!Physics.Raycast(ray, Vector3.down, out RaycastHit hit, Mathf.Infinity, floorLayer))
+            if (!Physics.Raycast(ray, Vector3.down, out RaycastHit hit, maxHeight - minHeight + 1, floorLayer))
             {
                 continue;
             }
