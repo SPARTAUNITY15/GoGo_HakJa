@@ -2581,6 +2581,37 @@ Transform:
   - {fileID: 1035062298834597059}
   m_Father: {fileID: 4730829486859667456}
   m_LocalEulerAnglesHint: {x: 59.884533, y: 154.46432, z: -146.91277}
+--- !u!1 &6426188485235386715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3214428342917023944}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3214428342917023944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6426188485235386715}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.22, y: 1.11, z: 2.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4762551712768867836}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6582480396446118045
 GameObject:
   m_ObjectHideFlags: 0
@@ -2949,6 +2980,7 @@ Transform:
   - {fileID: 4218878275133531161}
   - {fileID: 2413771838374273288}
   - {fileID: 6604114000880428026}
+  - {fileID: 3214428342917023944}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5670863381381764160
@@ -2995,10 +3027,14 @@ MonoBehaviour:
   animator: {fileID: 0}
   patrolRange: 3
   sightRange: 3
-  attackRange: 1
+  attackRange: 2
   safezoneRange: 3
   maxChaseDistance: 3
   health: 100
+  projectilePrefab: {fileID: 8710216647784311638, guid: 051854dd55b2f274baa6569187dd829f,
+    type: 3}
+  attackPoint: {fileID: 3214428342917023944}
+  attackCooldown: 2
 --- !u!195 &1479954915319855138
 NavMeshAgent:
   m_ObjectHideFlags: 0
