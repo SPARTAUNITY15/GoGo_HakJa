@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IDamagable
 {
-    void TakePhysicalDamage(int damage);
+    void TakePhysicalDamage(float damage);
 }
 
 public class StatManager : MonoBehaviour, IDamagable
@@ -23,7 +23,7 @@ public class StatManager : MonoBehaviour, IDamagable
         currentValue = Mathf.Min(currentValue + amount, maxValue);
     }
 
-    public void TakePhysicalDamage(int damage)
+    public void TakePhysicalDamage(float damage)
     {
         health -= damage;
         if (health <= 0)

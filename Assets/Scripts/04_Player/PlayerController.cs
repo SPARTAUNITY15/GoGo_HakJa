@@ -23,16 +23,18 @@ public class PlayerController : MonoBehaviour
     public bool canLook = true;             // 카메라 움직일 수 있는지 여부
 
     public Action inventory;                // 인벤토리 열기
-
     private float moveSpeed;
-    private bool isRunning = false;
     private Rigidbody _rigidbody;
+    private Animator animator;
+
+    Action interactionAction;                          // 상호작용 이벤트
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         statManager = GetComponent<StatManager>();
         playerCondition = GetComponent<PlayerCondition>();
+        animator = GetComponent<Animator>();
         moveSpeed = statManager.speed;
     }
 
@@ -44,10 +46,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        float currentSpeed = isRunning ? moveSpeed * 2f : moveSpeed;
-
-        Vector3 move = new Vector3(curMovementInput.x, 0, curMovementInput.y) * currentSpeed * Time.deltaTime;
-        transform.Translate(move);
+        bool isGrounded = IsGrounded();
+        animator.SetBool("IsJump", !isGrounded);
     }
 
     // 이동
@@ -85,21 +85,27 @@ public class PlayerController : MonoBehaviour
         {
             curMovementInput = Vector2.zero;
         }
+        bool isMove = curMovementInput != Vector2.zero;
+        animator.SetBool("IsMove", isMove);
     }
 
     public void OnRun(InputAction.CallbackContext context)
     {
-        Debug.Log("click");
+        var playerCondition = GetComponent<PlayerCondition>();
         if (context.phase == InputActionPhase.Performed)
         {
-            if (playerCondition.UseStamina(3f))
+            if (playerCondition.curStamina >= 10f)
             {
-                isRunning = true;
+                moveSpeed *= 2f;
+                playerCondition.LoseStamina();
+                animator.SetBool("IsRun", true);
             }
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
-            isRunning = false;
+            moveSpeed /= 2f;
+            playerCondition.LoseStamina();
+            animator.SetBool("IsRun", false);
         }
     }
 
@@ -108,6 +114,7 @@ public class PlayerController : MonoBehaviour
         if (context.phase == InputActionPhase.Started && IsGrounded())
         {
             _rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+            animator.SetBool("IsJump", true);
         }
     }
 
@@ -160,5 +167,20 @@ public class PlayerController : MonoBehaviour
         bool toggle = Cursor.lockState == CursorLockMode.Locked;
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
+    }
+
+    public void OnInteraction(InputAction.CallbackContext Context)
+    {
+        if (Context.phase == InputActionPhase.Started)
+        {
+            IInteractable interactingObject = GameManager.Instance.player.interaction.interactingObject;
+
+            if (interactingObject != null)
+            {
+                interactionAction = interactingObject.SubscribeMethod;
+
+                interactionAction?.Invoke();
+            }
+        }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class testt : MonoBehaviour
 {
+
+    /* 테스트: 무기 장착 / 애니메이션 실행 / 타격 판정 테스트
     public ItemData itemdata;
     public Player player;
     public Camera equipCamera;
@@ -36,4 +38,13 @@ public class testt : MonoBehaviour
         test();
 
     }
+    */
+
+    public ItemData itemData;
+
+    private void Start()
+    {
+        itemData.ToDropItem();
+    }
+
 }
