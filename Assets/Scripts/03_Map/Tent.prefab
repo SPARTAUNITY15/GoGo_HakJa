@@ -119,8 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dc45e9a4414d944922c792ec1660bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourcePref: {fileID: 0}
-  health: 1
   rewards:
   - item: {fileID: 11400000, guid: eeef8747cac94c546a32902a78fcfb4a, type: 2}
     probability: 1
@@ -130,3 +128,5 @@ MonoBehaviour:
     probability: 1
   - item: {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
     probability: 1
+  resourcePref: {fileID: 0}
+  health: 1

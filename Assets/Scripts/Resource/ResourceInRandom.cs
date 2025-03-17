@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 [System.Serializable]
 struct Reward
@@ -9,9 +10,27 @@ struct Reward
     public int Probability { get { return probability; } }
 }
 
-public class ResourceInRandom: Resources
+public class ResourceInRandom: MonoBehaviour, IInteractable
 {
     [SerializeField]Reward[] rewards;
+    public ItemData resourcePref;
+    public float health;
+
+    public void GetPromptInfo()
+    {
+        health--;
+
+        if (health <= 0)
+        {
+            resourcePref.ToDropItem(transform.position + Vector3.up, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void SubscribeMethod()
+    {
+        Debug.Log("tent interactive");
+    }
 
     void Start()
     {
