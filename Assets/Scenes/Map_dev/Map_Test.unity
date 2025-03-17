@@ -327,8 +327,8 @@ MonoBehaviour:
   destiny: 1
   minHeight: 1
   maxHeight: 10
-  xRange: {x: 50, y: 450}
-  zRange: {x: 50, y: 450}
+  xRange: {x: 250, y: 450}
+  zRange: {x: 250, y: 450}
   isOasis: 1
   rotateTowardsNormal: 0.1
   rotationRange: {x: 0, y: 360}
@@ -626,6 +626,31 @@ MonoBehaviour:
   offsetRanZ: 0
   chunkX: 0
   chunkZ: 0
+  flattenRegions:
+  - startX: 200
+    endX: 300
+    startZ: 200
+    endZ: 300
+    constantHeight: 0
+    blendWidth: 20
+  - startX: 200
+    endX: 300
+    startZ: 700
+    endZ: 800
+    constantHeight: 0
+    blendWidth: 20
+  - startX: 700
+    endX: 800
+    startZ: 200
+    endZ: 300
+    constantHeight: 0
+    blendWidth: 20
+  - startX: 700
+    endX: 800
+    startZ: 700
+    endZ: 800
+    constantHeight: 0
+    blendWidth: 20
 --- !u!4 &1215783048
 Transform:
   m_ObjectHideFlags: 0
@@ -861,8 +886,8 @@ MonoBehaviour:
   destiny: 1
   minHeight: 1
   maxHeight: 10
-  xRange: {x: 550, y: 950}
-  zRange: {x: 550, y: 950}
+  xRange: {x: 750, y: 950}
+  zRange: {x: 750, y: 950}
   isOasis: 1
   rotateTowardsNormal: 0.1
   rotationRange: {x: 0, y: 360}
@@ -953,8 +978,8 @@ MonoBehaviour:
   destiny: 1
   minHeight: 1
   maxHeight: 10
-  xRange: {x: 50, y: 450}
-  zRange: {x: 550, y: 950}
+  xRange: {x: 750, y: 450}
+  zRange: {x: 250, y: 950}
   isOasis: 1
   rotateTowardsNormal: 0.1
   rotationRange: {x: 0, y: 360}
@@ -1264,8 +1289,8 @@ MonoBehaviour:
   destiny: 1
   minHeight: 1
   maxHeight: 10
-  xRange: {x: 440, y: 950}
-  zRange: {x: 50, y: 450}
+  xRange: {x: 250, y: 950}
+  zRange: {x: 750, y: 450}
   isOasis: 1
   rotateTowardsNormal: 0.1
   rotationRange: {x: 0, y: 360}
