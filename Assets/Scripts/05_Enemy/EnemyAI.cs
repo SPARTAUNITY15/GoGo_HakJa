@@ -20,7 +20,7 @@ public abstract class EnemyAI : MonoBehaviour
     private Vector3 patrolTarget;
     protected bool isPlayerInSight, isPlayerInAttackRange, isInSafeZone;
     protected ItemDropper itemDropper;
-    //protected SafeZone safeZone;
+    protected SafeZone safeZone;
     
     protected virtual void Start()
     {
@@ -40,7 +40,7 @@ public abstract class EnemyAI : MonoBehaviour
         isPlayerInSight = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
         //isInSafeZone = Physics.CheckSphere(transform.position, safezoneRange, safeZoneLayer);
-        //isInSafeZone = safeZone != null && safeZone.isPlayerInside;
+        isInSafeZone = safeZone != null && safeZone.isPlayerInside;
 
         if (isInSafeZone)
         {
