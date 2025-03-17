@@ -25,13 +25,16 @@ public class PlayerController : MonoBehaviour
     public Action inventory;                // 인벤토리 열기
     private float moveSpeed;
     private Rigidbody _rigidbody;
+    private Animator animator;
 
     Action interactionAction;                          // 상호작용 이벤트
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         statManager = GetComponent<StatManager>();
         playerCondition = GetComponent<PlayerCondition>();
+        animator = GetComponent<Animator>();
         moveSpeed = statManager.speed;
     }
 
@@ -43,7 +46,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
+        bool isGrounded = IsGrounded();
+        animator.SetBool("IsJump", !isGrounded);
     }
 
     // 이동
@@ -81,6 +85,8 @@ public class PlayerController : MonoBehaviour
         {
             curMovementInput = Vector2.zero;
         }
+        bool isMove = curMovementInput != Vector2.zero;
+        animator.SetBool("IsMove", isMove);
     }
 
     public void OnRun(InputAction.CallbackContext context)
@@ -92,12 +98,14 @@ public class PlayerController : MonoBehaviour
             {
                 moveSpeed *= 2f;
                 playerCondition.LoseStamina();
+                animator.SetBool("IsRun", true);
             }
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
             moveSpeed /= 2f;
             playerCondition.LoseStamina();
+            animator.SetBool("IsRun", false);
         }
     }
 
@@ -106,6 +114,7 @@ public class PlayerController : MonoBehaviour
         if (context.phase == InputActionPhase.Started && IsGrounded())
         {
             _rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+            animator.SetBool("IsJump", true);
         }
     }
 

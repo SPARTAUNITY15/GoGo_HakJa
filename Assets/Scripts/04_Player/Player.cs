@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public ItemPlaceController itemPlaceController;
     private void Awake()
     {
-        CharacterManager.Instance.Player = this;
+        GameManager.Instance.Player = this;
         controller = GetComponent<PlayerController>();
         condition = GetComponent<PlayerCondition>();
         statManager = GetComponent<StatManager>();
