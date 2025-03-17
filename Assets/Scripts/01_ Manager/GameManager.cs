@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     public UIManager UI;
     public Player player;
-
+    public DayNightCycle dayNightCycle;
     private void Awake()
     {
         if (_instance == null)
