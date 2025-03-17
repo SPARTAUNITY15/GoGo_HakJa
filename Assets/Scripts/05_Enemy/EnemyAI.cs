@@ -28,7 +28,6 @@ public abstract class EnemyAI : MonoBehaviour
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         itemDropper = GetComponent<ItemDropper>();
-        //safeZone = FindObjectOfType<SafeZone>();
 
         SetNewPatrolPoint();
     }
@@ -39,13 +38,25 @@ public abstract class EnemyAI : MonoBehaviour
 
         isPlayerInSight = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
-        //isInSafeZone = Physics.CheckSphere(transform.position, safezoneRange, safeZoneLayer);
         isInSafeZone = safeZone != null && safeZone.isPlayerInside;
+        bool isNearSafeZone = Physics.CheckSphere(transform.position, safezoneRange, safeZoneLayer);
 
         if (isInSafeZone)
         {
-            currentState = State.Safe;
+            isPlayerInSight = false;
+            isPlayerInAttackRange = false;
+        }
+
+        if (isInSafeZone && (currentState == State.Chasing || currentState == State.Attacking))
+        {
+            currentState = State.Patrolling;
+            SetNewPatrolPoint();
             StopMoving();
+            return;
+        }
+        if (!isInSafeZone && isNearSafeZone && isPlayerInSight) 
+        {
+            currentState = State.Chasing;
         }
         else
         {
@@ -78,7 +89,7 @@ public abstract class EnemyAI : MonoBehaviour
         {
             patrolTarget = hit.position;
             agent.SetDestination(patrolTarget);
-            animator.SetBool("IsMoving", true);
+            animator.SetBool("IsMoving", true); 
         }
     }
 

@@ -5,6 +5,8 @@ public class EnemyManager : MonoBehaviour
 {
     public GameObject enemyPrefab;  
     public GameObject enemyPrefab2;
+    public GameObject enemyPrefab3;
+
     public int enemyCount; 
     public Vector3 spawnArea;       // 스폰 범위
 
@@ -25,6 +27,7 @@ public class EnemyManager : MonoBehaviour
 
             Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
             Instantiate(enemyPrefab2, spawnPos, Quaternion.identity);
+            Instantiate(enemyPrefab3, spawnPos, Quaternion.identity);
         }
     }
 }
