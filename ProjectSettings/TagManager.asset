@@ -12,12 +12,12 @@ TagManager:
   - Water
   - UI
   - Player
-  - Graound
+  - Floor
+  - Enemy
+  - Equip
+  - Treasure
+  - Resources
   - 
-  - 
-  - 
-  - 
-  - SafeZone
   - 
   - 
   - 
