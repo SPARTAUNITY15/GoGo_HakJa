@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public static class ItemStateExtensions
@@ -25,6 +26,7 @@ public static class ItemStateExtensions
         GameObject go = Object.Instantiate(itemData.basePref);
         go.name = $"Drop_{itemData}";
         go.AddComponent<Drop_Item>().itemData = itemData;
+        go.transform.GetChild(0).AddComponent<Rigidbody>();
 
         return go;
     }
