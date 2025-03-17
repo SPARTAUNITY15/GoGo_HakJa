@@ -20,13 +20,15 @@ public abstract class EnemyAI : MonoBehaviour
     private Vector3 patrolTarget;
     protected bool isPlayerInSight, isPlayerInAttackRange, isInSafeZone;
     protected ItemDropper itemDropper;
-
+    protected SafeZone safeZone;
+    
     protected virtual void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         itemDropper = GetComponent<ItemDropper>();
+        safeZone = FindObjectOfType<SafeZone>();
 
         SetNewPatrolPoint();
     }
@@ -37,7 +39,8 @@ public abstract class EnemyAI : MonoBehaviour
 
         isPlayerInSight = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
-        isInSafeZone = Physics.CheckSphere(transform.position, safezoneRange, safeZoneLayer);
+        //isInSafeZone = Physics.CheckSphere(transform.position, safezoneRange, safeZoneLayer);
+        isInSafeZone = safeZone != null && safeZone.isPlayerInside;
 
         if (isInSafeZone)
         {
