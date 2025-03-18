@@ -10,7 +10,7 @@ public class AnimationEventHandler : MonoBehaviour
     {
         equipItem = GetComponentInParent<Equip_Item>();
     }
-    void OnHit()
+    public void OnHit()
     {
         equipItem.PerformEquipInteraction();
     }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
-public abstract class EnemyAI : MonoBehaviour
+public abstract class EnemyAI : MonoBehaviour, IImpactable
 {
     public NavMeshAgent agent;
     public Transform player;
@@ -65,20 +65,20 @@ public abstract class EnemyAI : MonoBehaviour
     {
         isPlayerInSight = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
-        isInSafeZone = safeZone != null && safeZone.isPlayerInside;
+        //isInSafeZone = safeZone != null && safeZone.isPlayerInside;
 
-        if (safeZone == null)
-        {
-            Debug.LogError("safeZone이 할당되지 않았습니다!");
-            return;
-        }
+        //if (safeZone == null)
+        //{
+        //    Debug.LogError("safeZone이 할당되지 않았습니다!");
+        //    return;
+        //}
 
         // 안전구역에 있을 경우, 플레이어 감지를 비활성화
-        if (isInSafeZone)
-        {
-            isPlayerInSight = false;
-            isPlayerInAttackRange = false;
-        }
+        //if (isInSafeZone)
+        //{
+        //    isPlayerInSight = false;
+        //    isPlayerInAttackRange = false;
+        //}
     }
     private void HandleState()
     {
@@ -173,7 +173,7 @@ public abstract class EnemyAI : MonoBehaviour
         animator.SetBool("IsMoving", false);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         GetComponent<EnemyDamaged>()?.FlashDamage();
@@ -197,6 +197,12 @@ public abstract class EnemyAI : MonoBehaviour
         }
 
         Destroy(gameObject, 3f);
+    }
+
+    public void ReceiveImpact(float value)
+    {
+        TakeDamage(value);
+        Debug.Log(value);
     }
 }
 

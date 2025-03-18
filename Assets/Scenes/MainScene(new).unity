@@ -1462,6 +1462,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062540632}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1080374434 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3253271326814209914, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3449731213215277800}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df474f792519dda4a9e68e74ae651d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1207227927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3846,6 +3858,21 @@ PrefabInstance:
       propertyPath: noHungerMoistureDecay
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4161458394485848709, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1080374434}
+    - target: {fileID: 4161458394485848709, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161458394485848709, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6050234259640502757, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3902,7 +3929,7 @@ PrefabInstance:
     - target: {fileID: 8111890036980253850, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.4
+      value: 10.04
       objectReference: {fileID: 0}
     - target: {fileID: 8111890036980253850, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
         type: 3}
