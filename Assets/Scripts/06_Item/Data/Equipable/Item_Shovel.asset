@@ -25,10 +25,11 @@ MonoBehaviour:
   ItemData_Consumables: []
   isCookable: 0
   CookedThing: {fileID: 0}
-  equipableType: 3
+  equipableType: 0
   value: 1
   useStamina: 1
   distance: 1
   rate: 1
+  isEquiped: 0
   equipPref: {fileID: 587825135926327712, guid: dab6cb076abe1264da6aad8783301cf8,
     type: 3}

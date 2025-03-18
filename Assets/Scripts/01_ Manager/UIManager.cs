@@ -52,6 +52,7 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            ToggleCursor();
             ToggleUI("인벤토리");
             
             Instance.inventoryUI.SetCraftMode(CraftMode.Inventory);
@@ -128,6 +129,7 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         playerController.canLook = !toggle;
     }
+
     public void HideCurrentUI()
     {
         if (currentActiveUI != null)

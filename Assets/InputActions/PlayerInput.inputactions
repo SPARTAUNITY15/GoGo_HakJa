@@ -33,15 +33,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Inventory",
-                    "type": "Button",
-                    "id": "7fc8ff4e-7b91-4ca4-96de-ed81c252da09",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Attack",
                     "type": "Button",
                     "id": "d9e3c819-2d01-4ebc-b84c-1b0070705919",
@@ -54,6 +45,15 @@
                     "name": "Run",
                     "type": "Button",
                     "id": "58007601-a0f4-4419-b6a8-68d994d212d4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interaction",
+                    "type": "Button",
+                    "id": "64f7483a-7b51-4725-b72d-27799cad6ad9",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -140,17 +140,6 @@
                 },
                 {
                     "name": "",
-                    "id": "f2313723-5e8d-4deb-af09-9c3b7e6054bf",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Inventory",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "d89dc9cf-9bef-405b-a869-fd44c6080578",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -168,6 +157,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "03e833cd-dd69-4730-bef2-3ac130884cea",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interaction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -9,7 +9,7 @@ public class CameraCullingController : MonoBehaviour
 
     private void Update()
     {
-        if(condition) //|| GameManager.Instance.player.playerEquip.equippedItem.itemData == item)
+        if (condition || (GameManager.Instance.player.playerEquip.isEquipping && GameManager.Instance.player.playerEquip.equippedItem.itemData == item))
         {
             mainCamera.cullingMask |= layerMask;
         }
