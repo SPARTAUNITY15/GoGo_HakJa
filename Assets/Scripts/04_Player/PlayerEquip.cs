@@ -18,7 +18,7 @@ public class PlayerEquip : MonoBehaviour
     {
         if (isEquipping)
         {
-            Destroy(equippedItem);
+            Destroy(equippedItem.gameObject);
             equippedItem = null;
         }
 
@@ -33,6 +33,7 @@ public class PlayerEquip : MonoBehaviour
 
     public void Unequip(ItemData item)
     {
+        Destroy(equippedItem.gameObject);
         equippedItem = null;
         isEquipping = false;
         //item.isEquiped = false;
