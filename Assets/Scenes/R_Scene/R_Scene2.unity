@@ -1187,7 +1187,8 @@ PrefabInstance:
         type: 3}
       propertyPath: equippedItem
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2002686424692379845, guid: b848be24adb8bcb4f8dd99306b5d05e6,
+        type: 3}
     - target: {fileID: 2242586959138362053, guid: 37743b780819c5e4ea8213875ca9474f,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
