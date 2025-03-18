@@ -22,7 +22,7 @@ public class ResourceInRandom: MonoBehaviour, IInteractable
 
         if (health <= 0)
         {
-            resourcePref.ToDropItem(transform.position + Vector3.up, Quaternion.identity);
+            resourcePref.ToDropItem(transform.position + Vector3.up * 2, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }

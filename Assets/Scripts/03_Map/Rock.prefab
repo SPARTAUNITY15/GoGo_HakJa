@@ -152,6 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minHeight: 1
+  maxHeight: 10
+  xRange: {x: 10, y: 1000}
+  zRange: {x: 10, y: 1000}
   resourcePref: {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
   health: 3
 --- !u!64 &4325448378800357231

@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Unity.Mathematics;
 using UnityEngine;
 
 [System.Serializable]
@@ -35,9 +36,10 @@ public class MapGenerator : MonoBehaviour
     [Header("Flatten Regions")]
     public FlattenRegion[] flattenRegions;
 
-    private async void Awake()
+    private void Awake()
     {
-        var noiseArr = await Task.Run(CreateNoise);
+        seed = UnityEngine.Random.Range(0, 100000);
+        var noiseArr = CreateNoise();
         SetTerrain(noiseArr);
         //PlaceObjects();
     }
