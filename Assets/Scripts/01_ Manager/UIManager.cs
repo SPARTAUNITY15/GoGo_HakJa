@@ -33,6 +33,11 @@ public class UIManager : MonoBehaviour
             return;
         }
 
+        
+    }
+
+    private void Start()
+    {
         InitializeUI();
     }
 
