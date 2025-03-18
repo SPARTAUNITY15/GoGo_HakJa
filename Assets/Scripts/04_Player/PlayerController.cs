@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 mouseDelta;             // 마우스 이동값
     public bool canLook = true;             // 카메라 움직일 수 있는지 여부
 
-    public Action inventory;                // 인벤토리 열기
     private float moveSpeed;
     private Rigidbody _rigidbody;
     private Animator animator;
@@ -157,23 +156,6 @@ public class PlayerController : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         mouseDelta = context.ReadValue<Vector2>();
-    }
-
-    public void OnInventory(InputAction.CallbackContext Context)
-    {
-        if (Context.phase == InputActionPhase.Started)
-        {
-            ToggleCursor();
-            UIManager.Instance.ToggleUI("인벤토리");
-            UIManager.Instance.inventoryUI.SetCraftMode(CraftMode.Inventory);
-        }
-    }
-
-    void ToggleCursor()
-    {
-        bool toggle = Cursor.lockState == CursorLockMode.Locked;
-        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
-        canLook = !toggle;
     }
 
     public void OnInteraction(InputAction.CallbackContext Context)
