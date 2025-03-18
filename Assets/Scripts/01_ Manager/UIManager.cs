@@ -32,8 +32,13 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        playerController = FindObjectOfType<PlayerController>(); // PlayerController 인스턴스 초기화
 
-        
+        if (playerController == null)
+        {
+            Debug.LogError("PlayerController 인스턴스를 찾을 수 없습니다.");
+        }
+
     }
 
     private void Start()
@@ -52,7 +57,6 @@ public class UIManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
             ToggleUI("옵션");
-            
         }
     }
     private void LateUpdate()
