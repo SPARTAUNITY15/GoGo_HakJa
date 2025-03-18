@@ -39,9 +39,16 @@ public abstract class EnemyAI : MonoBehaviour
 
     protected virtual void Update()
     {
+        // Die 테스트용 함수
         if (TestDie == true)
         {
             Die();
+        }
+        
+        //TakeDamage 테스트용 함수
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TakeDamage(10);
         }
 
         if (currentState == State.Dead) return;
@@ -143,6 +150,8 @@ public abstract class EnemyAI : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        GetComponent<EnemyDamaged>()?.FlashDamage();
+
         if (health <= 0)
         {
             Die();

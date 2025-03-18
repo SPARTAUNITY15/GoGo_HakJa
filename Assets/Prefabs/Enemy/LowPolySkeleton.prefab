@@ -577,6 +577,7 @@ GameObject:
   - component: {fileID: 3293610528174849458}
   - component: {fileID: 4498056570101974177}
   - component: {fileID: 5286824919077265381}
+  - component: {fileID: 4424560321965631680}
   m_Layer: 0
   m_Name: LowPolySkeleton
   m_TagString: Untagged
@@ -693,6 +694,20 @@ MonoBehaviour:
   dropForce: 2
   dropParticleEffectPrefab: {fileID: 7474993228974353214, guid: ddc574a9da60a0b468b844b75fb69aac,
     type: 3}
+--- !u!114 &4424560321965631680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3284450128340274290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3da79207aa04e14081e2bada121b129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 0, b: 0, a: 0.7176471}
+  flashDuration: 0.7
 --- !u!1 &3325773154088703557
 GameObject:
   m_ObjectHideFlags: 0

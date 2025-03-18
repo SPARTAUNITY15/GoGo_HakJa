@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 2565320990800435052}
   - component: {fileID: 7969928853570368069}
   - component: {fileID: 8308788174611628125}
+  - component: {fileID: 8484780419463991665}
   m_Layer: 0
   m_Name: Black Widow
   m_TagString: Untagged
@@ -205,7 +206,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   patrolRange: 3
   sightRange: 3
-  attackRange: 2
+  attackRange: 3
   safezoneRange: 3
   maxChaseDistance: 3
   health: 100
@@ -233,6 +234,20 @@ MonoBehaviour:
   dropForce: 3
   dropParticleEffectPrefab: {fileID: 7474993228974353214, guid: ddc574a9da60a0b468b844b75fb69aac,
     type: 3}
+--- !u!114 &8484780419463991665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118806338065452650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3da79207aa04e14081e2bada121b129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.7
 --- !u!1 &314546527473267358
 GameObject:
   m_ObjectHideFlags: 0
