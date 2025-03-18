@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,7 +28,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidbody;
     private Animator animator;
 
-    Action interactionAction;                          // 상호작용 이벤트
+    Action interactionAction;               // 상호작용 이벤트
+    private Equip_Item equipItem;           // Equip아이템 참조변수
+
+    private float lastAttackTime;           // 마지막 공격 시간
+    private float attackCooldown = 2f;
 
     private void Awake()
     {
@@ -35,6 +40,7 @@ public class PlayerController : MonoBehaviour
         statManager = GetComponent<StatManager>();
         playerCondition = GetComponent<PlayerCondition>();
         animator = GetComponent<Animator>();
+        equipItem = GetComponentInChildren<Equip_Item>();
         moveSpeed = statManager.speed;
     }
 
@@ -183,6 +189,27 @@ public class PlayerController : MonoBehaviour
 
                 interactionAction?.Invoke();
             }
+        }
+    }
+
+    // 여기부분 재확인필요
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        PlayerEquip playerEquip = GetComponent<PlayerEquip>();
+
+        if (context.phase == InputActionPhase.Started && playerEquip.equippedItem != null && playerEquip.equippedItem.gameObject.activeInHierarchy)
+        {
+            if (Time.time - lastAttackTime >= attackCooldown)
+            {
+                lastAttackTime = Time.time;
+                animator.SetBool("IsAxeAtc", true);
+                playerEquip.equippedItem.StartEquipInteraction();
+                Debug.Log("IsAxeAtc: " + animator.GetBool("IsAxeAtc"));
+            }
+        }
+        else
+        {
+            animator.SetBool("IsAxeAtc", false);
         }
     }
 }
