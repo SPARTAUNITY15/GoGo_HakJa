@@ -9,9 +9,6 @@ public class SpiderAI : EnemyAI
 
     protected override void AttackPlayer()
     {
-        //base.AttackPlayer();
-        //Debug.Log("거미가 투사체 공격!");
-
         if (Time.time >= lastAttackTime + attackCooldown)
         {
             RangedAttack();
@@ -33,7 +30,7 @@ public class SpiderAI : EnemyAI
         }
 
         animator.SetTrigger("Attack");
-        DamagePlayer();
+        //DamagePlayer();
         Debug.Log("거미가 투사체 공격!");
     }
 
