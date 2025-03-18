@@ -54,7 +54,6 @@ public class UIManager : MonoBehaviour
         {
             ToggleCursor();
             ToggleUI("인벤토리");
-            ToggleCursor();
 
 
             Instance.inventoryUI.SetCraftMode(CraftMode.Inventory);

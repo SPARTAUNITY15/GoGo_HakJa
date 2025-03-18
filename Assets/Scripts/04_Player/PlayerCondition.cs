@@ -31,6 +31,8 @@ public class PlayerCondition : StatManager
 
     public event Action onTakeDamage;
     private Animator animator;
+    public GameObject deathPanel;  //사망시 활성화할 패널
+    UIManager uimanager;
 
     public void Awake()
     {
@@ -46,7 +48,7 @@ public class PlayerCondition : StatManager
         curStamina = stamina;
         maxStamina = stamina;
         startStamina = stamina;
-        passiveStamina = 5f;
+        passiveStamina = 3f;
 
         curMoisture = moisture;
         maxMoisture = moisture;
@@ -126,7 +128,9 @@ public class PlayerCondition : StatManager
 
     public void Die()
     {
-        animator.SetTrigger("IsDie");
+        animator.SetBool("IsDie", true);
+        uimanager.ToggleCursor();
+        deathPanel.SetActive(true);
         Destroy(gameObject, 5f);
     }
 
