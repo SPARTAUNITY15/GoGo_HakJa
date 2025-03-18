@@ -635,6 +635,9 @@ GameObject:
   - component: {fileID: 538404421523058463}
   - component: {fileID: 888392024347973336}
   - component: {fileID: 1867623006000217167}
+  - component: {fileID: 6064912659519889246}
+  - component: {fileID: 336394284176542092}
+  - component: {fileID: 3987391483349676022}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -847,6 +850,7 @@ MonoBehaviour:
   statManager: {fileID: 0}
   interaction: {fileID: 0}
   itemPlaceController: {fileID: 0}
+  playerEquip: {fileID: 0}
 --- !u!114 &4541378445153947965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,6 +947,58 @@ MonoBehaviour:
   InteractableLayerMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &6064912659519889246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239204986269734490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e58e90f49f06524f9a5342936cd4a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingHeight: 1
+--- !u!114 &336394284176542092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239204986269734490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ff99cf3e493d04ebc0d823336e87bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipPivot: {fileID: 0}
+  equippedItem: {fileID: 0}
+  isEquipping: 0
+--- !u!114 &3987391483349676022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239204986269734490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed0e599749b3c946ae6189032485d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testItemAdd:
+  - {fileID: 11400000, guid: da14e708ae64f29489192c0fc5ab7a97, type: 2}
+  - {fileID: 11400000, guid: e7d22e47b1d565f4ab474b6444f68aa0, type: 2}
+  - {fileID: 11400000, guid: 2bc6b365a5348544ebbf349362e162a4, type: 2}
+  - {fileID: 11400000, guid: 043bf8d1186da1d4986f81c09290af48, type: 2}
+  - {fileID: 11400000, guid: 043bf8d1186da1d4986f81c09290af48, type: 2}
+  - {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  - {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  - {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  - {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  items: []
+  inventorySize: 20
 --- !u!1 &3308272925035195390
 GameObject:
   m_ObjectHideFlags: 0
