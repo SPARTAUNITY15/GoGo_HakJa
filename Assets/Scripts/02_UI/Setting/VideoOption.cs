@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class VideoOption : MonoBehaviour
@@ -51,7 +52,10 @@ public class VideoOption : MonoBehaviour
         fullscreenBtn.isOn = Screen.fullScreenMode == FullScreenMode.FullScreenWindow;
         screenMode = Screen.fullScreenMode;
     }
-
+    public void GoLobbyScene()
+    {
+        SceneManager.LoadScene("LobbyScene");
+    }
     public void DropboxOptionChange(int x)
     {
         if (x >= 0 && x < resolutions.Count)
