@@ -3,29 +3,26 @@ using System.Collections;
 
 public class SkeletonAI : EnemyAI
 {
-    [SerializeField] private float attackDamage = 10f;
-
-    public float attackCooldown;
+    public float attackCooldown = 1.5f;
     private float lastAttackTime = 0f;
 
     protected override void AttackPlayer()
     {
-        if (Time.time >= lastAttackTime + attackCooldown)
-        {
-            base.AttackPlayer();
-            lastAttackTime = Time.time;
-        }
+        if (Time.time - lastAttackTime < attackCooldown) return;
+        lastAttackTime = Time.time;
+
+        animator.SetTrigger("Attack");
+
         Debug.Log("½ºÄÌ·¹ÅæÀÌ °ËÀ¸·Î °ø°Ý!");
 
         DamagePlayer();
     }
 
-
     private void DamagePlayer()
     {
         if (player != null)
         {
-            StatManager playerStats = player.GetComponent<StatManager>(); 
+            StatManager playerStats = player.GetComponent<StatManager>();
             if (playerStats != null)
             {
                 playerStats.TakePhysicalDamage(attackDamage);

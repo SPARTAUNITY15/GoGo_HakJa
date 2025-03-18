@@ -16,11 +16,15 @@ public abstract class EnemyAI : MonoBehaviour
     public float safezoneRange;
     public float maxChaseDistance;
     public float health = 100;
+    public float attackDamage;
+
+    public bool TestDie = false;
 
     private Vector3 patrolTarget;
     protected bool isPlayerInSight, isPlayerInAttackRange, isInSafeZone;
     protected ItemDropper itemDropper;
     protected SafeZone safeZone;
+    
     
     protected virtual void Start()
     {
@@ -30,11 +34,23 @@ public abstract class EnemyAI : MonoBehaviour
         itemDropper = GetComponent<ItemDropper>();
 
         SetNewPatrolPoint();
-        Die();
+        
     }
 
     protected virtual void Update()
     {
+        // Die 테스트용 함수
+        if (TestDie == true)
+        {
+            Die();
+        }
+        
+        //TakeDamage 테스트용 함수
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TakeDamage(10);
+        }
+
         if (currentState == State.Dead) return;
 
         isPlayerInSight = Physics.CheckSphere(transform.position, sightRange, playerLayer);
@@ -122,7 +138,7 @@ public abstract class EnemyAI : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         animator.SetBool("IsMoving", false);
-        animator.SetTrigger("Attack");
+        //animator.SetTrigger("Attack");
     }
 
     protected void StopMoving()
@@ -134,6 +150,8 @@ public abstract class EnemyAI : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        GetComponent<EnemyDamaged>()?.FlashDamage();
+
         if (health <= 0)
         {
             Die();
