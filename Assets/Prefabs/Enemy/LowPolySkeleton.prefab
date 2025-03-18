@@ -645,11 +645,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   animator: {fileID: 0}
-  patrolRange: 3
-  sightRange: 3
+  patrolRange: 8
+  sightRange: 4
   attackRange: 0.5
   safezoneRange: 3
-  maxChaseDistance: 3
+  maxChaseDistance: 4
   health: 100
   attackDamage: 10
   TestDie: 0

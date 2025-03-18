@@ -3027,12 +3027,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   animator: {fileID: 0}
-  patrolRange: 5
-  sightRange: 5
-  attackRange: 5
+  patrolRange: 10
+  sightRange: 8
+  attackRange: 6
   safezoneRange: 3
-  maxChaseDistance: 5
-  health: 100
+  maxChaseDistance: 7
+  health: 80
   attackDamage: 7
   TestDie: 0
   projectilePrefab: {fileID: 4226196638867828240, guid: d0384f8963b21854b93598b8ec37ba92,
