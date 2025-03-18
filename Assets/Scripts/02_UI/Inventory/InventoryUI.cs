@@ -26,7 +26,7 @@ public class InventoryUI : MonoBehaviour
     public CraftMode curCraftMode;
 
 
-    private void Awake()
+    private void Start()
     {
         slots = slotsParent.GetComponentsInChildren<InventorySlot>();
 

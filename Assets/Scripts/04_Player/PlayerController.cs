@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,12 +23,17 @@ public class PlayerController : MonoBehaviour
     private Vector2 mouseDelta;             // ���콺 �̵���
     public bool canLook = true;             // ī�޶� ������ �� �ִ��� ����
 
-    public Action inventory;                // �κ��丮 ����
     private float moveSpeed;
     private Rigidbody _rigidbody;
     private Animator animator;
 
-    Action interactionAction;                          // ��ȣ�ۿ� �̺�Ʈ
+
+    Action interactionAction;               // ��ȣ�ۿ� �̺�Ʈ
+    private Equip_Item equipItem;           // Equip������ ��������
+
+    private float lastAttackTime;           // ������ ���� �ð�
+    private float attackCooldown = 2f;
+
 
     private void Awake()
     {
@@ -35,6 +41,7 @@ public class PlayerController : MonoBehaviour
         statManager = GetComponent<StatManager>();
         playerCondition = GetComponent<PlayerCondition>();
         animator = GetComponent<Animator>();
+        equipItem = GetComponentInChildren<Equip_Item>();
         moveSpeed = statManager.speed;
     }
 
@@ -153,24 +160,6 @@ public class PlayerController : MonoBehaviour
         mouseDelta = context.ReadValue<Vector2>();
     }
 
-    public void OnInventory(InputAction.CallbackContext Context)
-    {
-        if (Context.phase == InputActionPhase.Started)
-        {
-            //inventory?.Invoke();
-            ToggleCursor();
-            UIManager.Instance.ToggleUI("�κ��丮");
-            UIManager.Instance.inventoryUI.SetCraftMode(CraftMode.Inventory);
-        }
-    }
-
-    void ToggleCursor()
-    {
-        bool toggle = Cursor.lockState == CursorLockMode.Locked;
-        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
-        canLook = !toggle;
-    }
-
     public void OnInteraction(InputAction.CallbackContext Context)
     {
         if (Context.phase == InputActionPhase.Started)
@@ -182,6 +171,21 @@ public class PlayerController : MonoBehaviour
                 interactionAction = interactingObject.SubscribeMethod;
 
                 interactionAction?.Invoke();
+            }
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        PlayerEquip playerEquip = GetComponent<PlayerEquip>();
+
+        if (context.phase == InputActionPhase.Started && playerEquip.equippedItem != null && playerEquip.equippedItem.gameObject.activeInHierarchy)
+        {
+            if (Time.time - lastAttackTime >= attackCooldown)
+            {
+                lastAttackTime = Time.time;
+                animator.SetTrigger("IsEquip");
+                playerEquip.equippedItem.StartEquipInteraction();
             }
         }
     }
