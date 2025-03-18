@@ -165,7 +165,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             GameManager.Instance.player.playerEquip.Unequip();
         }
-        item.ToDropItem(Vector3.forward * 0.1f, Quaternion.identity);
+        item.ToDropItem(GameManager.Instance.player.transform.position + Vector3.forward * 0.5f, Quaternion.identity);
         Inventory.Instance.RemoveItem(item);
         UIManager.Instance.inventoryUI.UpdateUI();
     }

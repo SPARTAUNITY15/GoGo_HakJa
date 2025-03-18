@@ -898,6 +898,10 @@ GameObject:
   - component: {fileID: 8174633961139887092}
   - component: {fileID: 1941932329162161219}
   - component: {fileID: -1422230909636451712}
+  - component: {fileID: 3484987801470326936}
+  - component: {fileID: 3678332592513554639}
+  - component: {fileID: 5712993451837149615}
+  - component: {fileID: 5169383786432330354}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1109,6 +1113,7 @@ MonoBehaviour:
   statManager: {fileID: 0}
   interaction: {fileID: 0}
   itemPlaceController: {fileID: 0}
+  playerEquip: {fileID: 0}
 --- !u!114 &7901322409033179375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,6 +1210,70 @@ MonoBehaviour:
   InteractableLayerMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &3484987801470326936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3860188602042175867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709cb8a007838af41a8423876d60b810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3678332592513554639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3860188602042175867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed0e599749b3c946ae6189032485d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testItemAdd:
+  - {fileID: 11400000, guid: da14e708ae64f29489192c0fc5ab7a97, type: 2}
+  - {fileID: 11400000, guid: e7d22e47b1d565f4ab474b6444f68aa0, type: 2}
+  - {fileID: 11400000, guid: 2bc6b365a5348544ebbf349362e162a4, type: 2}
+  - {fileID: 11400000, guid: 043bf8d1186da1d4986f81c09290af48, type: 2}
+  - {fileID: 11400000, guid: 043bf8d1186da1d4986f81c09290af48, type: 2}
+  - {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  - {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  - {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  - {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  items: []
+  inventorySize: 20
+--- !u!114 &5712993451837149615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3860188602042175867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ff99cf3e493d04ebc0d823336e87bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipPivot: {fileID: 0}
+  equippedItem: {fileID: 0}
+  isEquipping: 0
+--- !u!114 &5169383786432330354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3860188602042175867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e58e90f49f06524f9a5342936cd4a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingHeight: 1
 --- !u!1 &4190206585392693073
 GameObject:
   m_ObjectHideFlags: 0
