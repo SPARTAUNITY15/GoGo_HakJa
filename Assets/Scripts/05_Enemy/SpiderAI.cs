@@ -37,7 +37,7 @@ public class SpiderAI : EnemyAI
         Debug.Log("거미가 투사체 공격!");
     }
 
-    private void DamagePlayer()
+    public void DamagePlayer()
     {
         if (player != null)
         {

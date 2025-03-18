@@ -619,12 +619,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 835985966}
-    - target: {fileID: 8308788174611628125, guid: 928d707027828f648845acb88cab58ee,
+    - target: {fileID: 7969928853570368069, guid: 928d707027828f648845acb88cab58ee,
         type: 3}
-      propertyPath: dropItemPrefab
-      value: 
-      objectReference: {fileID: 8710216647784311638, guid: 051854dd55b2f274baa6569187dd829f,
-        type: 3}
+      propertyPath: attackDamage
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -824,17 +823,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5858859937691349250, guid: 584b28ceda2233a4396114cb64c85603,
-        type: 3}
-      propertyPath: dropItemPrefab
-      value: 
-      objectReference: {fileID: 8710216647784311638, guid: 051854dd55b2f274baa6569187dd829f,
-        type: 3}
     - target: {fileID: 6066772522442141136, guid: 584b28ceda2233a4396114cb64c85603,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 835985966}
+    - target: {fileID: 6066772522442141136, guid: 584b28ceda2233a4396114cb64c85603,
+        type: 3}
+      propertyPath: attackDamage
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7418016074044017502, guid: 584b28ceda2233a4396114cb64c85603,
         type: 3}
       propertyPath: m_Name

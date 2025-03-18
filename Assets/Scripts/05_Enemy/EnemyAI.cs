@@ -16,7 +16,7 @@ public abstract class EnemyAI : MonoBehaviour
     public float safezoneRange;
     public float maxChaseDistance;
     public float health = 100;
-    public float attackDamage = 10f;
+    public float attackDamage;
 
     public bool TestDie = false;
 

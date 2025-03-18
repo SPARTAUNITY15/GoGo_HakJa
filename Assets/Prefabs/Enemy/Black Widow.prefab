@@ -209,7 +209,7 @@ MonoBehaviour:
   safezoneRange: 3
   maxChaseDistance: 3
   health: 100
-  attackDamage: 10
+  attackDamage: 7
   TestDie: 0
   projectilePrefab: {fileID: 4226196638867828240, guid: d0384f8963b21854b93598b8ec37ba92,
     type: 3}
@@ -227,10 +227,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c332db422feba984d9a40eb7675b9f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropItemPrefab: {fileID: 0}
-  itemData: {fileID: 0}
+  dropItemPrefab: {fileID: 6748885173771423218, guid: 9072146d99ef47348a2eb680d16152ac,
+    type: 3}
+  itemData: {fileID: 11400000, guid: 043bf8d1186da1d4986f81c09290af48, type: 2}
   dropForce: 3
-  dropParticleEffectPrefab: {fileID: 0}
+  dropParticleEffectPrefab: {fileID: 7474993228974353214, guid: ddc574a9da60a0b468b844b75fb69aac,
+    type: 3}
 --- !u!1 &314546527473267358
 GameObject:
   m_ObjectHideFlags: 0

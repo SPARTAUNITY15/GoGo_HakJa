@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
 
     private Vector3 targetDirection;
 
+    public SpiderAI spiderAI;
     public void SetTarget(Vector3 direction)
     {
         targetDirection = direction.normalized;
@@ -22,7 +23,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Player")) // 플레이어에게 맞으면 데미지를 줌
         {
-            ///데미지 주는 메소드 추후 추가 
+            spiderAI.DamagePlayer();
             Destroy(gameObject); // 투사체 삭제
         }
     }
