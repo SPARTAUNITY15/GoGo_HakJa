@@ -20,11 +20,11 @@ public class SkeletonAI : EnemyAI
     {
         if (player != null)
         {
-            StatManager playerStats = player.GetComponent<StatManager>();
+            PlayerCondition playerStats = player.GetComponent<PlayerCondition>();
             if (playerStats != null)
             {
                 playerStats.TakePhysicalDamage(attackDamage);
-                Debug.Log($"플레이어가 {attackDamage}만큼 피해를 입음! 현재 체력: {playerStats.health}");
+                Debug.Log($"플레이어가 {attackDamage}만큼 피해를 입음! 현재 체력: {playerStats.curHealth}");
             }
         }
     }
