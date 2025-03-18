@@ -6,7 +6,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     public InventoryUI inventoryUI;
-
+    public PlayerController playerController;
     [System.Serializable]
     public class UIElement
     {
@@ -46,13 +46,22 @@ public class UIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             ToggleUI("인벤토리");
+            
+            Instance.inventoryUI.SetCraftMode(CraftMode.Inventory);
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
             ToggleUI("옵션");
+            
         }
     }
-
+    private void LateUpdate()
+    {
+        if (playerController.canLook)
+        {
+            playerController.CameraLook();
+        }
+    }
     void InitializeUI()
     {
         foreach (var element in uiElements)
@@ -107,7 +116,12 @@ public class UIManager : MonoBehaviour
             currentActiveUI.SetActive(true);
         }
     }
-
+    public void ToggleCursor()
+    {
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        playerController.canLook = !toggle;
+    }
     public void HideCurrentUI()
     {
         if (currentActiveUI != null)
@@ -116,4 +130,6 @@ public class UIManager : MonoBehaviour
             currentActiveUI = null;
         }
     }
+
+    
 }
