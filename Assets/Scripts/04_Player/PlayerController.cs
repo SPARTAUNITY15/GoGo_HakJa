@@ -188,4 +188,9 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    public void SlowSpeed()
+    {
+        moveSpeed /= 2f;
+    }
 }

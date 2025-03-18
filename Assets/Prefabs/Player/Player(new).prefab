@@ -1662,7 +1662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.3066038, b: 0.3066038, a: 0.23529412}
+  m_Color: {r: 1, g: 0.3066038, b: 0.3066038, a: 0.11372549}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3796,9 +3796,9 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2276861092770643544}
-        m_TargetAssemblyTypeName: PlayerEquip, Assembly-CSharp
-        m_MethodName: OnAttackInput
+      - m_Target: {fileID: 3253271326814209914}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnAttack
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3905,8 +3905,8 @@ MonoBehaviour:
   stamina: 100
   moisture: 100
   temperature: 3
-  speed: 10
-  curHealth: 0
+  speed: 3
+  curHealth: 100
   maxHealth: 0
   startHealth: 0
   curHunger: 0
@@ -3922,8 +3922,9 @@ MonoBehaviour:
   startMoisture: 0
   passiveMoisture: 0
   useStamina: 0
-  noHungerHealthDecay: 5
-  noHungerMoistureDecay: 3
+  noHungerHealthDecay: 0
+  noHungerMoistureDecay: 0
+  deathPanel: {fileID: 0}
 --- !u!95 &5880278895555788190
 Animator:
   serializedVersion: 5
@@ -4011,5 +4012,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
   - {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
   - {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  - {fileID: 11400000, guid: 59f35f35c0fc0cd409a3b5187e358c34, type: 2}
+  - {fileID: 11400000, guid: 325cca0b3ed2b464588f1d1df6a25de1, type: 2}
+  - {fileID: 11400000, guid: eeef8747cac94c546a32902a78fcfb4a, type: 2}
   items: []
   inventorySize: 20

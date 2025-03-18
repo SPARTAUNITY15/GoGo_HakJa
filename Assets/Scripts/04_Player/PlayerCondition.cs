@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCondition : StatManager
 {
+    PlayerController playerController;
+
     public float curHealth;
     [HideInInspector] public float maxHealth;
     [HideInInspector] public float startHealth;
@@ -33,6 +35,9 @@ public class PlayerCondition : StatManager
     private Animator animator;
     public GameObject deathPanel;  //사망시 활성화할 패널
     UIManager uimanager;
+    Rigidbody rb;
+
+    float Hitdelay = 5f;
 
     public void Awake()
     {
@@ -56,6 +61,7 @@ public class PlayerCondition : StatManager
         passiveMoisture = 2f;
 
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     public void Update()
@@ -80,8 +86,9 @@ public class PlayerCondition : StatManager
             curMoisture = Mathf.Max(curMoisture - noHungerHealthDecay * Time.deltaTime, 0f);
         }
 
-
         LowHealth();
+
+        Hitdelay -= Time.deltaTime;
     }
 
     public void Heal(float amount)
@@ -114,15 +121,25 @@ public class PlayerCondition : StatManager
         useStamina = !useStamina;
     }
 
+    public void Stop()
+    {
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
+
     // DamageIndicator 사용전용, 데미지 감소 실 테스트 필요, 추후 다른곳에서 호출 필요
     public void TakePhysicalDamage(float damage)
     {
         onTakeDamage?.Invoke();
         animator.SetTrigger("IsHit");
+        Stop();
         curHealth -= damage;
         if (curHealth <= 0)
         {
             Die();
+        }
+        if(Hitdelay <= 0)
+        {
+            playerController.SlowSpeed();
         }
     }
 
@@ -131,6 +148,7 @@ public class PlayerCondition : StatManager
         animator.SetBool("IsDie", true);
         uimanager.ToggleCursor();
         deathPanel.SetActive(true);
+        TimerManager.instance.StopTimer();
         Destroy(gameObject, 5f);
     }
 
@@ -147,7 +165,7 @@ public class PlayerCondition : StatManager
     {
         foreach (ItemData_Consumable effect in item.ItemData_Consumables)
         {
-            switch(effect.consumableType)
+            switch (effect.consumableType)
             {
                 case ConsumableType.Stamina:
                     Debug.Log("스태미나 회복은 기획에 x");
