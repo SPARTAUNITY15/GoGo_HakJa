@@ -29,7 +29,7 @@ public class ResourceInRandom: MonoBehaviour, IInteractable
 
     public void SubscribeMethod()
     {
-        Debug.Log("tent interactive");
+        Debug.Log("item interactive");
     }
 
     void Start()
