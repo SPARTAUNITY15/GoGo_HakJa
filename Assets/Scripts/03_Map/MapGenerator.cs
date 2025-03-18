@@ -38,7 +38,7 @@ public class MapGenerator : MonoBehaviour
 
     private void Awake()
     {
-        seed = UnityEngine.Random.Range(0, 100000); //무작위 시드
+        //seed = UnityEngine.Random.Range(0, 100000); //무작위 시드
         var noiseArr = CreateNoise();//노이즈 생성
         SetTerrain(noiseArr);//지형 변경
     }
