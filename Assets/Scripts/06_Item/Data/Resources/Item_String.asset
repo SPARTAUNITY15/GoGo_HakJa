@@ -15,10 +15,8 @@ MonoBehaviour:
   itemType: 3
   item_name: "\uC2E4"
   item_description: "\uAC70\uBBF8\uC5D0\uC11C \uCD94\uCD9C\uD55C \uC2E4"
-  canStack: 0
+  canStack: 1
   maxStack: 12
-  renderPref: {fileID: 3438003669680913944, guid: 7b6ccd5bb62d888489e8a42ef02c062b,
-    type: 3}
   basePref: {fileID: 9041001416095825085, guid: caa859f1342b79542ba0eae8fcb9a7fb,
     type: 3}
   Icon: {fileID: 21300000, guid: f20f490b5faec8f4ab3aacb3465867dc, type: 3}
@@ -31,4 +29,5 @@ MonoBehaviour:
   useStamina: 0
   distance: 0
   rate: 0
+  isEquiped: 0
   equipPref: {fileID: 0}

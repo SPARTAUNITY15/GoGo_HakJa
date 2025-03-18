@@ -157,8 +157,10 @@ public class PlayerController : MonoBehaviour
     {
         if (Context.phase == InputActionPhase.Started)
         {
-            inventory?.Invoke();
+            //inventory?.Invoke();
             ToggleCursor();
+            UIManager.Instance.ToggleUI("인벤토리");
+            UIManager.Instance.inventoryUI.SetCraftMode(CraftMode.Inventory);
         }
     }
 
