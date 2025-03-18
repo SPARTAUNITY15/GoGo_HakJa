@@ -13,6 +13,6 @@ public class Placed_Bed : Placed_Item
     {
         GameManager.Instance.player.condition.Heal(100);
 
-        Debug.Log("미구현: 아침 되기.");
+        StartCoroutine(GameManager.Instance.dayNightCycle.Sleeping());
     }
 }

@@ -6,5 +6,8 @@ public class Placed_CampFire : Placed_Item
 {
     public override void SubscribeMethod()
     {
+        GameManager.Instance.player.controller.ToggleCursor();
+        UIManager.Instance.ToggleUI("인벤토리");
+        UIManager.Instance.inventoryUI.SetCraftMode(CraftMode.Campfire);
     }
 }

@@ -58,4 +58,14 @@ public class ResourceInRandom: MonoBehaviour, IInteractable
             randomValue -= reward.Probability;
         }
     }
+
+    public string GetPromptName()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public string GetPromptDesc()
+    {
+        throw new System.NotImplementedException();
+    }
 }

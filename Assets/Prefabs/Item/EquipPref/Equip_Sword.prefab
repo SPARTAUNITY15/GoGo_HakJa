@@ -120,7 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9240fde1a78c1a459a9ea375f213f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipItem: {fileID: 0}
 --- !u!95 &2957144032913847694
 Animator:
   serializedVersion: 5
@@ -188,3 +187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: eeef8747cac94c546a32902a78fcfb4a, type: 2}
+  hitLayerMask:
+    serializedVersion: 2
+    m_Bits: 256

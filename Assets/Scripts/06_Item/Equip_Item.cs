@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IImpactable // 에네미, 땅, 트레저, 자원이 상속해야할 인터페이스 
 {
-    public void ReceiveImpact(float value); 
+    public void ReceiveImpact(float value);
 }
 
 public class Equip_Item : MonoBehaviour // 실제 데이터는 인벤에서 슬롯 또는 item으로 관리되고 있을 테고, 여기서는 공격 행위 자체에 필요한 정보만 있으면 됨(공격력, 사거리, 사용 스태미나)
@@ -15,7 +15,7 @@ public class Equip_Item : MonoBehaviour // 실제 데이터는 인벤에서 슬롯 또는 item
     public ItemData itemData;
 
     EquipableType equipableType;
-    LayerMask hitLayerMask;
+    public LayerMask hitLayerMask;
 
     float value;
     float useStamina;
@@ -71,15 +71,14 @@ public class Equip_Item : MonoBehaviour // 실제 데이터는 인벤에서 슬롯 또는 item
 
     public void PerformEquipInteraction() // 히트 판정
     {
-        if (Physics.Raycast(cam.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out RaycastHit hitinfo, distance, hitLayerMask)) // cam.screenToRay대신 뷰포트로 했는데 잘 될지 테스트해바야함
+        //if (Physics.Raycast(cam.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out RaycastHit hitinfo, distance, hitLayerMask)) // cam.screenToRay대신 뷰포트로 했는데 잘 될지 테스트해바야함
+        if (Physics.Raycast(cam.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out RaycastHit hitinfo, distance)) // cam.screenToRay대신 뷰포트로 했는데 잘 될지 테스트해바야함
         {
             Debug.Log($"{hitinfo.collider.name}를 맞춤");
-            IImpactable impactable;
-            if (hitinfo.collider.TryGetComponent<IImpactable>(out impactable))
-            {
-                impactable.ReceiveImpact(value);
-            }
-            else Debug.LogWarning("도구의 대상 오브젝트는 IImpactable 인터페이스를 상속받아야합니다.");
+            //if (hitinfo.collider.TryGetComponent<IImpactable>(out impactable))
+            IImpactable impactable = hitinfo.collider.GetComponentInParent<IImpactable>();
+            impactable.ReceiveImpact(value);
+            //else Debug.LogWarning("도구의 대상 오브젝트는 IImpactable 인터페이스를 상속받아야합니다.");
         }
         else Debug.Log("미스~");
     }

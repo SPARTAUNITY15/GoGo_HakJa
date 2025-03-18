@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25e1e2e2bb878034db63805f86b622ff, type: 3}
-  m_Name: WorkBench_Tent
+  m_Name: WorkBench_MedicalKit
   m_EditorClassIdentifier: 
   ingredients:
-  - stuff: {fileID: 11400000, guid: 043bf8d1186da1d4986f81c09290af48, type: 2}
-    stuff_count: 1
   - stuff: {fileID: 11400000, guid: 61769997ef5a4cb4da093cd426f7663d, type: 2}
     stuff_count: 1
   - stuff: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
     stuff_count: 1
+  - stuff: {fileID: 11400000, guid: 043bf8d1186da1d4986f81c09290af48, type: 2}
+    stuff_count: 1
   product:
-    stuff: {fileID: 11400000, guid: 1eeaa3509ea63674180c5037325cf97f, type: 2}
-    stuff_count: 0
+    stuff: {fileID: 11400000, guid: 91e09455a64c44047aed31d85cd2018e, type: 2}
+    stuff_count: 1
