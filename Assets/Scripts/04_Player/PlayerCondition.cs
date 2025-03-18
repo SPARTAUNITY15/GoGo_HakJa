@@ -116,18 +116,18 @@ public class PlayerCondition : StatManager
     public void TakePhysicalDamage(float damage)
     {
         onTakeDamage?.Invoke();
+        animator.SetTrigger("IsHit");
         curHealth -= damage;
         if (curHealth <= 0)
         {
             Die();
         }
-        animator.SetTrigger("IsHit");
     }
 
-    private void Die()
+    public void Die()
     {
-        Destroy(gameObject);
-        Debug.Log("사망");
+        animator.SetTrigger("IsDie");
+        Destroy(gameObject, 5f);
     }
 
     // 체력감소시 DamageIndicator 사용
