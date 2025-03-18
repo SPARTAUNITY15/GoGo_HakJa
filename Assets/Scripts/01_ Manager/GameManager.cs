@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     //public UIManager UI;
     public Player player;
     public CraftingManager craftingManager;
+    public DayNightCycle dayNightCycle;
 
     public Player Player
     {
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
 
         player = FindObjectOfType<Player>();
         craftingManager = new();
+        dayNightCycle = FindObjectOfType<DayNightCycle>();
         //UI = FindObjectOfType<UIManager>();
         //if(UI == null)
         //{

@@ -6,7 +6,8 @@ public interface IInteractable
 {
     public void SubscribeMethod();
 
-    public void GetPromptInfo();
+    public string GetPromptName();
+    public string GetPromptDesc();
 }
 public class InteractionHandler : MonoBehaviour
 {
@@ -34,13 +35,13 @@ public class InteractionHandler : MonoBehaviour
                 Debug.LogError($"{hit.transform.gameObject} 오브젝트는 InteractableLayerMask 임에도 IInteractable 컴포넌트가 없습니다.");
             }
 
-            //promptUI.ShowPrompt(interactableObject);
+            UIManager.Instance.promptUI.ShowPrompt(interactingObject);
         }
         else
         {
             // 비우기
             interactingObject = null;
-            //promptUI.HidePrompt();
+            UIManager.Instance.promptUI.HidePrompt();
         }
     }
 }

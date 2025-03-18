@@ -9,7 +9,7 @@ public enum CraftMode
     Inventory
 }
 
-[System.Serializable]   
+[System.Serializable]
 public class TableDict
 {
     public string name;
@@ -20,13 +20,14 @@ public class InventoryUI : MonoBehaviour
 {
     public Transform slotsParent;
     private InventorySlot[] slots;
+    public InventorySlot equipSlot;
+
     //public Dictionary<string, CraftingTable> tableDict;
     public List<TableDict> tableClassLists;
     public Dictionary<string, GameObject> tableDictionary = new();
     public CraftMode curCraftMode;
 
-
-    private void Start()
+    void Awake()
     {
         slots = slotsParent.GetComponentsInChildren<InventorySlot>();
 
@@ -34,7 +35,10 @@ public class InventoryUI : MonoBehaviour
         {
             tableDictionary.Add(table.name, Instantiate(table.table, transform));
         }
+    }
 
+    private void Start()
+    {
         UpdateUI();
     }
 
@@ -53,14 +57,24 @@ public class InventoryUI : MonoBehaviour
                 slots[i].ClearSlot();
             }
         }
+
+        if (GameManager.Instance.player.playerEquip.isEquipping)
+        {
+            equipSlot.SetItem(GameManager.Instance.player.playerEquip.equippedItem.itemData, 1);
+        }
+        else
+        {
+            equipSlot.ClearSlot();
+        }
+
     }
 
     public void SetCraftMode(CraftMode newMode)
     {
         curCraftMode = newMode;
-        foreach(var i in tableDictionary)
+        foreach (var i in tableDictionary)
         {
-            if(i.Key == curCraftMode.ToString())
+            if (i.Key == curCraftMode.ToString())
             {
                 i.Value.gameObject.SetActive(true);
             }

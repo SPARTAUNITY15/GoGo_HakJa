@@ -31,6 +31,8 @@ public class PlayerCondition : StatManager
 
     public event Action onTakeDamage;
     private Animator animator;
+    public GameObject deathPanel;  //사망시 활성화할 패널
+    UIManager uimanager;
 
     public void Awake()
     {
@@ -46,7 +48,7 @@ public class PlayerCondition : StatManager
         curStamina = stamina;
         maxStamina = stamina;
         startStamina = stamina;
-        passiveStamina = 5f;
+        passiveStamina = 3f;
 
         curMoisture = moisture;
         maxMoisture = moisture;
@@ -116,18 +118,20 @@ public class PlayerCondition : StatManager
     public void TakePhysicalDamage(float damage)
     {
         onTakeDamage?.Invoke();
+        animator.SetTrigger("IsHit");
         curHealth -= damage;
         if (curHealth <= 0)
         {
             Die();
         }
-        animator.SetTrigger("IsHit");
     }
 
-    private void Die()
+    public void Die()
     {
-        Destroy(gameObject);
-        Debug.Log("사망");
+        animator.SetBool("IsDie", true);
+        uimanager.ToggleCursor();
+        deathPanel.SetActive(true);
+        Destroy(gameObject, 5f);
     }
 
     // 체력감소시 DamageIndicator 사용

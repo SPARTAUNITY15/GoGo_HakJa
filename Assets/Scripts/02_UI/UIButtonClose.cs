@@ -6,5 +6,6 @@ public class UIButtonClose : MonoBehaviour
     void Start()
     {
         GetComponent<Button>().onClick.AddListener(() => UIManager.Instance.HideCurrentUI());
+        GetComponent<Button>().onClick.AddListener(() => UIManager.Instance.ToggleCursor());
     }
 }

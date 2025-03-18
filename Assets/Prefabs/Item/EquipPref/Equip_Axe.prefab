@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: e7d22e47b1d565f4ab474b6444f68aa0, type: 2}
+  hitLayerMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &2916524866150800341
 GameObject:
   m_ObjectHideFlags: 0

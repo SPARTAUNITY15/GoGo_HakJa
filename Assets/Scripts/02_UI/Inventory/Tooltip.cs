@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -58,13 +59,20 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public Coroutine coroutine;
     public static bool hoverOnTooltip;
-    public void ShowTooltip(string name, string description, ItemData item)
+    public void ShowTooltip(ItemData item, bool EquipSlot)
     {
+        if (EquipSlot)
+        {
+            ShowEquipItemButton(item);
+        }
+        else
+        {
+            ShowButton(item);
+        }
         tooltipPanel.SetActive(true);
-        ShowButton(item);
         SetPos();
-        tooltipName.text = name;
-        tooltipDesc.text = description;
+        tooltipName.text = item.item_name;
+        tooltipDesc.text = item.item_description;
         coroutine = null;
 
     }
@@ -104,18 +112,18 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         switch (item.itemType)
         {
             case ItemType.Equipable:
-                if (!item.isEquiped)
-                {
-                    EquipBtn.gameObject.SetActive(true);
-                    EquipBtn.onClick.RemoveAllListeners(); // 원래꺼 지우기
-                    EquipBtn.onClick.AddListener(() => OnEquipButton(item));
-                }
-                else
-                {
-                    UnequipBtn.gameObject.SetActive(true);
-                    UnequipBtn.onClick.RemoveAllListeners();
-                    UnequipBtn.onClick.AddListener(() => OnUnequipButton(item)); 
-                }
+                //if (!item.isEquiped)
+                //{
+                EquipBtn.gameObject.SetActive(true);
+                EquipBtn.onClick.RemoveAllListeners(); // 원래꺼 지우기
+                EquipBtn.onClick.AddListener(() => OnEquipButton(item));
+                //}
+                //else
+                //{
+                //UnequipBtn.gameObject.SetActive(true);
+                //UnequipBtn.onClick.RemoveAllListeners();
+                //UnequipBtn.onClick.AddListener(() => OnUnequipButton(item)); 
+                //}
                 break;
             case ItemType.Placeable:
                 PlaceBtn.gameObject.SetActive(true);
@@ -135,6 +143,20 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         DropBtn.onClick.AddListener(() => OnDropBtn(item));
     }
 
+    void ShowEquipItemButton(ItemData item)
+    {
+        EquipBtn.gameObject.SetActive(false);
+        UseBtn.gameObject.SetActive(false);
+        PlaceBtn.gameObject.SetActive(false);
+        DropBtn.gameObject.SetActive(false);
+
+        UnequipBtn.gameObject.SetActive(true);
+        UnequipBtn.onClick.RemoveAllListeners();
+        UnequipBtn.onClick.AddListener(() => OnUnequipButton(item));
+
+    }
+
+
     void OnEquipButton(ItemData item)
     {
         GameManager.Instance.player.playerEquip.Equip(item);
@@ -142,7 +164,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     void OnUnequipButton(ItemData item)
     {
-        GameManager.Instance.player.playerEquip.Unequip();
+        GameManager.Instance.player.playerEquip.Unequip(item);
     }
 
     void OnUseBtn(ItemData item)
@@ -161,12 +183,25 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     void OnDropBtn(ItemData item)
     {
-        if(item.isEquiped) // 장착중인 아이템 장착 해제 후 버리기.
-        {
-            GameManager.Instance.player.playerEquip.Unequip();
-        }
+        //if(item.isEquiped) // 장착중인 아이템 장착 해제 후 버리기.
+        //{
+        //    GameManager.Instance.player.playerEquip.Unequip(item);
+        //}
         item.ToDropItem(GameManager.Instance.player.transform.position + Vector3.forward * 0.5f, Quaternion.identity);
         Inventory.Instance.RemoveItem(item);
         UIManager.Instance.inventoryUI.UpdateUI();
     }
+
+    //void OnDropEquipBtn(ItemData item)
+    //{
+    //    PlayerEquip playerEquip = GameManager.Instance.player.playerEquip
+    //        .equippedItem = null;
+    //    isEquipping = false;
+    //    //item.isEquiped = false;
+    //    attackAction = null;
+
+    //    item.ToDropItem(GameManager.Instance.player.transform.position + Vector3.forward * 0.5f, Quaternion.identity);
+    //    Inventory.Instance.RemoveItem(item);
+    //    UIManager.Instance.inventoryUI.UpdateUI();
+    //}
 }

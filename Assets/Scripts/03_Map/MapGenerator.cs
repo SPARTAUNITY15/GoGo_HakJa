@@ -1,8 +1,9 @@
 using System.Threading.Tasks;
+using Unity.Mathematics;
 using UnityEngine;
 
 [System.Serializable]
-public class FlattenRegion
+public class FlattenRegion //평탄화할 지형
 {
     public int startX;
     public int endX;
@@ -18,14 +19,14 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private Terrain terrain;
 
     [Header("Map")]
-    public int mapSize;
-    public float depth;
-    public float scale;
-    public int octaves;
-    [Range(0, 1)] public float persistance;
-    public float lacunarity;
-    public int seed;
-    public Vector2 offset;
+    public int mapSize; //맵 크기
+    public float depth; //맵 깊이
+    public float scale; //확대 정도 클수록 부드러움
+    public int octaves; //중첩수
+    [Range(0, 1)] public float persistance; //지속성 클수록 더 세밀
+    public float lacunarity;//주파수 증가율 높을 수록 부드러움
+    public int seed;//시드
+    public Vector2 offset;//랜덤성을 위한 값
     public float offsetRanX;
     public float offsetRanZ;
     public float chunkX;
@@ -35,26 +36,27 @@ public class MapGenerator : MonoBehaviour
     [Header("Flatten Regions")]
     public FlattenRegion[] flattenRegions;
 
-    private async void Awake()
+    private void Awake()
     {
-        var noiseArr = await Task.Run(CreateNoise);
-        SetTerrain(noiseArr);
-        //PlaceObjects();
+        //seed = UnityEngine.Random.Range(0, 100000); //무작위 시드
+        var noiseArr = CreateNoise();//노이즈 생성
+        SetTerrain(noiseArr);//지형 변경
     }
 
-    private void SetTerrain(float[,] noiseArr)
+    private void SetTerrain(float[,] noiseArr)//지형 변경
     {
         terrain.terrainData.size = new Vector3 (mapSize, depth, mapSize);
         terrain.terrainData.SetHeights(0, 0, noiseArr);
     }
 
-    float[,] CreateNoise()
+    float[,] CreateNoise()//노이즈 생성
     {
         noiseMap = new float[mapSize, mapSize];
         float min = float.MaxValue;
         float max = float.MinValue;
-        System.Random prng = new System.Random(seed);
+        System.Random prng = new System.Random(seed);//동일한 시드면 동일한 값을 얻음
         Vector2[] octaveOffsets = new Vector2[octaves];
+
         for (int i = 0; i < octaves; i++)
         {
             offsetRanX = prng.Next(-100000, 100000) + offset.x;
@@ -62,7 +64,7 @@ public class MapGenerator : MonoBehaviour
             octaveOffsets[i] = new Vector2(offsetRanX, offsetRanZ);
         }
 
-        if (scale <= 0)
+        if (scale <= 0)//scale의 최솟값
         {
             scale = 0.0001f;
         }
@@ -74,11 +76,11 @@ public class MapGenerator : MonoBehaviour
         {
             for (int z = 0; z < mapSize; z++)
             {
-                float amplitude = 1;
-                float frequency = 1;
+                float amplitude = 1;//진폭
+                float frequency = 1;//주파수
                 float noiseHeight = 0;
 
-                for (int i = 0; i < octaves; i++)
+                for (int i = 0; i < octaves; i++)//중첩
                 {
                     float sampleX = ((x - halfXSize) + chunkX * mapSize) / scale * frequency + octaveOffsets[i].x;
                     float sampleZ = ((z - halfZSize) + chunkZ * mapSize) / scale * frequency + octaveOffsets[i].y;
@@ -89,11 +91,11 @@ public class MapGenerator : MonoBehaviour
                     frequency *= lacunarity;
                 }
 
-                if (noiseHeight > max)
+                if (noiseHeight > max)//최댓값 갱신
                 {
                     max = noiseHeight;
                 }
-                if (noiseHeight < min)
+                if (noiseHeight < min)//최솟값 갱신
                 {
                     min = noiseHeight;
                 }

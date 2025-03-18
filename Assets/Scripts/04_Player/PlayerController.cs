@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,29 +8,30 @@ public class PlayerController : MonoBehaviour
     private PlayerCondition playerCondition;
 
     [Header("Moverment")]
-    public float jumpPower;                 // Á¡ÇÁÆÄ¿ö
-    private Vector2 curMovementInput;       // ÀÌµ¿ ÀÔ·Â°ª
-    public LayerMask groundLayerMask;       // ¶¥¿¡ ÀÖ´ÂÁö Ã¼Å©ÇÒ¶§ »ç¿ë
+    public float jumpPower;                 // ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½
+    private Vector2 curMovementInput;       // ï¿½Ìµï¿½ ï¿½Ô·Â°ï¿½
+    public LayerMask groundLayerMask;       // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿?
 
     [Header("Look")]
-    public Transform cameraContainer;       // Ä«¸Þ¶ó°¡ µû¶ó´Ù´Ò ¿ÀºêÁ§Æ®
-    public float minXLook;                  // Ä«¸Þ¶ó°¡ ¾Æ·¡·Î º¼¼öÀÖ´Â ÇÑ°è
-    public float maxXLook;                  // Ä«¸Þ¶ó°¡ À§·Î º¼¼öÀÖ´Â ÇÑ°è
-    private float camCurXRot;               // Ä«¸Þ¶ó XÃà È¸Àü°ª
-    public float lookSensitivity;           // ¸¶¿ì½º °¨µµ
-    private Vector2 mouseDelta;             // ¸¶¿ì½º ÀÌµ¿°ª
-    public bool canLook = true;             // Ä«¸Þ¶ó ¿òÁ÷ÀÏ ¼ö ÀÖ´ÂÁö ¿©ºÎ
+    public Transform cameraContainer;       // Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½Ù´ï¿?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+    public float minXLook;                  // Ä«ï¿½Þ¶ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ñ°ï¿½
+    public float maxXLook;                  // Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ñ°ï¿½
+    private float camCurXRot;               // Ä«ï¿½Þ¶ï¿½ Xï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½
+    public float lookSensitivity;           // ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½
+    private Vector2 mouseDelta;             // ï¿½ï¿½ï¿½ì½º ï¿½Ìµï¿½ï¿½ï¿½
+    public bool canLook = true;             // Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    public Action inventory;                // ÀÎº¥Åä¸® ¿­±â
     private float moveSpeed;
     private Rigidbody _rigidbody;
     private Animator animator;
 
-    Action interactionAction;               // »óÈ£ÀÛ¿ë ÀÌº¥Æ®
-    private Equip_Item equipItem;           // Equip¾ÆÀÌÅÛ ÂüÁ¶º¯¼ö
 
-    private float lastAttackTime;           // ¸¶Áö¸· °ø°Ý ½Ã°£
+    Action interactionAction;               // ï¿½ï¿½È£ï¿½Û¿ï¿½ ï¿½Ìºï¿½Æ®
+    private Equip_Item equipItem;           // Equipï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+    private float lastAttackTime;           // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
     private float attackCooldown = 2f;
+
 
     private void Awake()
     {
@@ -44,7 +43,6 @@ public class PlayerController : MonoBehaviour
         moveSpeed = statManager.speed;
     }
 
-    // ¸¶¿ì½º Ä¿¼­ È­¸é Áß¾Ó¿¡ °íÁ¤
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -56,14 +54,14 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsJump", !isGrounded);
     }
 
-    // ÀÌµ¿
+    // ï¿½Ìµï¿½
     void FixedUpdate()
     {
         Move();
     }
 
 
-    // Ä«¸Þ¶ó È¸ÀüÃ³¸®
+    // Ä«ï¿½Þ¶ï¿½ È¸ï¿½ï¿½Ã³ï¿½ï¿½
     private void LateUpdate()
     {
         if (canLook)
@@ -145,7 +143,7 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
-    void CameraLook()
+    public void CameraLook()
     {
         camCurXRot += mouseDelta.y * lookSensitivity;
         camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook);
@@ -157,23 +155,6 @@ public class PlayerController : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         mouseDelta = context.ReadValue<Vector2>();
-    }
-
-    public void OnInventory(InputAction.CallbackContext Context)
-    {
-        if (Context.phase == InputActionPhase.Started)
-        {
-            ToggleCursor();
-            UIManager.Instance.ToggleUI("ÀÎº¥Åä¸®");
-            UIManager.Instance.inventoryUI.SetCraftMode(CraftMode.Inventory);
-        }
-    }
-
-    void ToggleCursor()
-    {
-        bool toggle = Cursor.lockState == CursorLockMode.Locked;
-        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
-        canLook = !toggle;
     }
 
     public void OnInteraction(InputAction.CallbackContext Context)
@@ -191,7 +172,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // ¿©±âºÎºÐ ÀçÈ®ÀÎÇÊ¿ä
     public void OnAttack(InputAction.CallbackContext context)
     {
         PlayerEquip playerEquip = GetComponent<PlayerEquip>();
@@ -202,7 +182,9 @@ public class PlayerController : MonoBehaviour
             {
                 lastAttackTime = Time.time;
                 animator.SetTrigger("IsEquip");
+                playerEquip.attackAction?.Invoke();
                 playerEquip.equippedItem.StartEquipInteraction();
+
             }
         }
     }

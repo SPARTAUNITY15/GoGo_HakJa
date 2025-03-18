@@ -187,3 +187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 59f35f35c0fc0cd409a3b5187e358c34, type: 2}
+  hitLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
