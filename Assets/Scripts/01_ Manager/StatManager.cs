@@ -7,7 +7,7 @@ public interface IDamagable
     void TakePhysicalDamage(float damage);
 }
 
-public class StatManager : MonoBehaviour, IDamagable
+public class StatManager : MonoBehaviour
 {
     public PlayerCondition playerCondition;
 
@@ -21,19 +21,5 @@ public class StatManager : MonoBehaviour, IDamagable
     public void AddStat(ref float currentValue, float amount, float maxValue)
     {
         currentValue = Mathf.Min(currentValue + amount, maxValue);
-    }
-
-    public void TakePhysicalDamage(float damage)
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
-    
-    private void Die()
-    {
-        Destroy(gameObject);
     }
 }

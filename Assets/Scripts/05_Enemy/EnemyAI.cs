@@ -5,8 +5,8 @@ public abstract class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform player;
-    public LayerMask playerLayer, safeZoneLayer;
-    public Animator animator; 
+    public LayerMask playerLayer;
+    public Animator animator;
     protected enum State { Patrolling, Chasing, Attacking, Safe, Dead }
     protected State currentState = State.Patrolling;
 
@@ -16,71 +16,113 @@ public abstract class EnemyAI : MonoBehaviour
     public float safezoneRange;
     public float maxChaseDistance;
     public float health = 100;
+    public float attackDamage;
+
+    public bool TestDie = false;
 
     private Vector3 patrolTarget;
     protected bool isPlayerInSight, isPlayerInAttackRange, isInSafeZone;
     protected ItemDropper itemDropper;
     protected SafeZone safeZone;
-    
+
+
     protected virtual void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         itemDropper = GetComponent<ItemDropper>();
+        safeZone = FindObjectOfType<SafeZone>();
 
         SetNewPatrolPoint();
-        Die();
+
     }
 
     protected virtual void Update()
     {
+        // Die 테스트용 함수
+        if (TestDie == true)
+        {
+            Die();
+        }
+
+        //TakeDamage 테스트용 함수
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TakeDamage(10);
+        }
+
         if (currentState == State.Dead) return;
 
+        // 플레이어 감지 및 상태 확인
+        UpdatePlayerDetection();
+
+        // 상태 전환 관리
+        HandleState();
+
+    }
+    private void UpdatePlayerDetection()
+    {
         isPlayerInSight = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
         isInSafeZone = safeZone != null && safeZone.isPlayerInside;
-        bool isNearSafeZone = Physics.CheckSphere(transform.position, safezoneRange, safeZoneLayer);
 
+        if (safeZone == null)
+        {
+            Debug.LogError("safeZone이 할당되지 않았습니다!");
+            return;
+        }
+
+        // 안전구역에 있을 경우, 플레이어 감지를 비활성화
         if (isInSafeZone)
         {
             isPlayerInSight = false;
             isPlayerInAttackRange = false;
         }
-
+    }
+    private void HandleState()
+    {
         if (isInSafeZone && (currentState == State.Chasing || currentState == State.Attacking))
         {
-            currentState = State.Patrolling;
-            SetNewPatrolPoint();
-            StopMoving();
+            TransitionToPatrolling();
+            animator.ResetTrigger("Attack");
             return;
         }
-        if (!isInSafeZone && isNearSafeZone && isPlayerInSight) 
-        {
-            currentState = State.Chasing;
-        }
-        else
-        {
-            switch (currentState)
-            {
-                case State.Patrolling:
-                    Patrol();
-                    if (isPlayerInSight) currentState = State.Chasing;
-                    break;
 
-                case State.Chasing:
-                    ChasePlayer();
-                    if (isPlayerInAttackRange) currentState = State.Attacking;
-                    break;
+        // 상태 전환 처리
+        switch (currentState)
+        {
+            case State.Patrolling:
+                Patrol();
+                if (isPlayerInSight) TransitionToChasing();
+                break;
 
-                case State.Attacking:
-                    AttackPlayer();
-                    if (!isPlayerInAttackRange) currentState = State.Patrolling;
-                    break;
-            }
+            case State.Chasing:
+                ChasePlayer();
+                if (isPlayerInAttackRange) TransitionToAttacking();
+                break;
+
+            case State.Attacking:
+                AttackPlayer();
+                if (!isPlayerInAttackRange) TransitionToPatrolling();
+                break;
         }
     }
+    private void TransitionToPatrolling()
+    {
+        currentState = State.Patrolling;
+        SetNewPatrolPoint();
+    }
 
+    private void TransitionToChasing()
+    {
+        currentState = State.Chasing;
+    }
+
+    private void TransitionToAttacking()
+    {
+        currentState = State.Attacking;
+    }
     protected void SetNewPatrolPoint()
     {
         Vector3 randomPoint = transform.position + new Vector3(
@@ -90,7 +132,7 @@ public abstract class EnemyAI : MonoBehaviour
         {
             patrolTarget = hit.position;
             agent.SetDestination(patrolTarget);
-            animator.SetBool("IsMoving", true); 
+            animator.SetBool("IsMoving", true);
         }
     }
 
@@ -134,6 +176,8 @@ public abstract class EnemyAI : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        GetComponent<EnemyDamaged>()?.FlashDamage();
+
         if (health <= 0)
         {
             Die();
