@@ -7,7 +7,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     public Image icon;
     public TMP_Text stackText; // 스택 개수 표시
-    private ItemData currentItem;
+    protected ItemData currentItem;
     private int itemCount;
 
     public void SetItem(ItemData item, int count)
@@ -48,12 +48,12 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public static bool hoverOnSlot;
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public virtual void OnPointerEnter(PointerEventData eventData)
     {
         hoverOnSlot = true;
         if (currentItem != null)
         {
-            Tooltip.Instance.ShowTooltip(currentItem.item_name, currentItem.item_description, currentItem);
+            Tooltip.Instance.ShowTooltip(currentItem, false);
         }
     }
 

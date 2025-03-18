@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8107196319873787116}
   - component: {fileID: 2203606770982915838}
   - component: {fileID: 4437087427421268443}
+  - component: {fileID: 47910290813474859}
   m_Layer: 0
   m_Name: Cactus
   m_TagString: Untagged
@@ -102,3 +103,26 @@ MonoBehaviour:
   zRange: {x: 10, y: 1000}
   resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
   health: 1
+  isFlag: 0
+--- !u!64 &47910290813474859
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471259420535681277}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8662610069560990937, guid: 1dda2d800037641478587ca660849cd5, type: 3}
