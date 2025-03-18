@@ -115,7 +115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &343179047318769399
 Transform:
   m_ObjectHideFlags: 0
@@ -200,16 +200,13 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  safeZoneLayer:
-    serializedVersion: 2
-    m_Bits: 0
   animator: {fileID: 0}
-  patrolRange: 5
-  sightRange: 5
-  attackRange: 5
+  patrolRange: 10
+  sightRange: 8
+  attackRange: 6
   safezoneRange: 3
-  maxChaseDistance: 5
-  health: 100
+  maxChaseDistance: 7
+  health: 80
   attackDamage: 7
   TestDie: 0
   projectilePrefab: {fileID: 4226196638867828240, guid: d0384f8963b21854b93598b8ec37ba92,
@@ -246,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3da79207aa04e14081e2bada121b129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashColor: {r: 1, g: 0, b: 0, a: 0.7137255}
   flashDuration: 0.7
 --- !u!1 &314546527473267358
 GameObject:

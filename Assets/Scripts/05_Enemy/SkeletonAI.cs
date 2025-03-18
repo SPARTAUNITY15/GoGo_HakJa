@@ -11,8 +11,6 @@ public class SkeletonAI : EnemyAI
         if (Time.time - lastAttackTime < attackCooldown) return;
         lastAttackTime = Time.time;
 
-        animator.SetTrigger("Attack");
-
         Debug.Log("스켈레톤이 검으로 공격!");
 
         DamagePlayer();
@@ -29,6 +27,24 @@ public class SkeletonAI : EnemyAI
                 Debug.Log($"플레이어가 {attackDamage}만큼 피해를 입음! 현재 체력: {playerStats.curHealth}");
             }
         }
+    }
+    protected override void Die()
+    {
+        currentState = State.Dead;
+        agent.isStopped = true;
+        GetComponentInChildren<Collider>().enabled = false;
+
+        int randomDeath = Random.Range(0, 2);
+        string deathTrigger = randomDeath == 0 ? "Die" : "Die2";
+
+        animator.SetTrigger(deathTrigger);
+
+        if (itemDropper != null)
+        {
+            itemDropper.DropItemWithDelay(0.5f);
+        }
+
+        Destroy(gameObject, 3f);
     }
 }
 

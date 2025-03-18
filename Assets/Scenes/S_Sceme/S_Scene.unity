@@ -521,7 +521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &541604475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,11 +620,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LowPolySkeleton
       objectReference: {fileID: 0}
-    - target: {fileID: 3293610528174849458, guid: 34a95de64361c374897c003440808ef5,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -693,21 +688,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7969928853570368069, guid: 928d707027828f648845acb88cab58ee,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8308788174611628125, guid: 928d707027828f648845acb88cab58ee,
-        type: 3}
-      propertyPath: dropForce
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8484780419463991665, guid: 928d707027828f648845acb88cab58ee,
-        type: 3}
-      propertyPath: flashColor.a
-      value: 0.7137255
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -727,7 +707,7 @@ GameObject:
   - component: {fileID: 2102404273}
   - component: {fileID: 2102404277}
   - component: {fileID: 2102404278}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: SafeZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -906,16 +886,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5858859937691349250, guid: 584b28ceda2233a4396114cb64c85603,
-        type: 3}
-      propertyPath: dropForce
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6066772522442141136, guid: 584b28ceda2233a4396114cb64c85603,
-        type: 3}
-      propertyPath: player
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7418016074044017502, guid: 584b28ceda2233a4396114cb64c85603,
         type: 3}
