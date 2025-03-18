@@ -188,7 +188,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.014633541
+  m_Radius: 0.01
   m_Height: 0.029267086
   m_Direction: 1
   m_Center: {x: -0.005, y: 0.0011274004, z: -0.0041648173}
@@ -3027,11 +3027,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   animator: {fileID: 0}
-  patrolRange: 3
-  sightRange: 3
-  attackRange: 3
+  patrolRange: 5
+  sightRange: 5
+  attackRange: 5
   safezoneRange: 3
-  maxChaseDistance: 3
+  maxChaseDistance: 5
   health: 100
   attackDamage: 7
   TestDie: 0
