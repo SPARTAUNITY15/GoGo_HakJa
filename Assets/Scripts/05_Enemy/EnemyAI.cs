@@ -5,7 +5,7 @@ public abstract class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform player;
-    public LayerMask playerLayer, safeZoneLayer;
+    public LayerMask playerLayer;
     public Animator animator; 
     protected enum State { Patrolling, Chasing, Attacking, Safe, Dead }
     protected State currentState = State.Patrolling;
@@ -32,7 +32,8 @@ public abstract class EnemyAI : MonoBehaviour
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         itemDropper = GetComponent<ItemDropper>();
-
+        safeZone = FindObjectOfType<SafeZone>();
+        
         SetNewPatrolPoint();
         
     }
@@ -56,7 +57,12 @@ public abstract class EnemyAI : MonoBehaviour
         isPlayerInSight = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
         isInSafeZone = safeZone != null && safeZone.isPlayerInside;
-        bool isNearSafeZone = Physics.CheckSphere(transform.position, safezoneRange, safeZoneLayer);
+        if (safeZone == null)
+        {
+            Debug.LogError("safeZone이 할당되지 않았습니다!");
+            return;
+        }
+
 
         if (isInSafeZone)
         {
@@ -68,13 +74,9 @@ public abstract class EnemyAI : MonoBehaviour
         {
             currentState = State.Patrolling;
             SetNewPatrolPoint();
-            StopMoving();
             return;
         }
-        if (!isInSafeZone && isNearSafeZone && isPlayerInSight) 
-        {
-            currentState = State.Chasing;
-        }
+        
         else
         {
             switch (currentState)

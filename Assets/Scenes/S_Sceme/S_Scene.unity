@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 2102404273}
   - component: {fileID: 2102404277}
   - component: {fileID: 2102404278}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: SafeZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
