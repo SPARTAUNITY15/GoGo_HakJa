@@ -54,13 +54,13 @@ public class UIManager : MonoBehaviour
         {
             ToggleCursor();
             ToggleUI("인벤토리");
-            ToggleCursor();
 
 
             Instance.inventoryUI.SetCraftMode(CraftMode.Inventory);
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
+            ToggleCursor();
             ToggleUI("옵션");
         }
     }
