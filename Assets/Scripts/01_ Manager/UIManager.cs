@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -66,9 +67,12 @@ public class UIManager : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (playerController.canLook)
+        if (playerController != null)
         {
-            playerController.CameraLook();
+            if (playerController.canLook)
+            {
+                playerController.CameraLook();
+            }
         }
     }
     void InitializeUI()
@@ -142,4 +146,5 @@ public class UIManager : MonoBehaviour
     }
 
     
+
 }

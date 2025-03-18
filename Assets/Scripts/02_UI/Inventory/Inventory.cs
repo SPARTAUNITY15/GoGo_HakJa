@@ -6,6 +6,7 @@ public class Inventory : MonoBehaviour
     public static Inventory Instance;
     public List<ItemData> testItemAdd = new();
     public List<ItemData> items = new List<ItemData>();
+    //public ItemData equippedItemData;
     public Dictionary<ItemData, int> itemCounts = new Dictionary<ItemData, int>(); // 아이템 개수 저장
     public int inventorySize = 20;
 

@@ -3906,7 +3906,7 @@ MonoBehaviour:
   moisture: 100
   temperature: 3
   speed: 10
-  curHealth: 0
+  curHealth: 100
   maxHealth: 0
   startHealth: 0
   curHunger: 0
@@ -3922,8 +3922,8 @@ MonoBehaviour:
   startMoisture: 0
   passiveMoisture: 0
   useStamina: 0
-  noHungerHealthDecay: 5
-  noHungerMoistureDecay: 3
+  noHungerHealthDecay: 0
+  noHungerMoistureDecay: 0
 --- !u!95 &5880278895555788190
 Animator:
   serializedVersion: 5
@@ -4011,5 +4011,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
   - {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
   - {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  - {fileID: 11400000, guid: 59f35f35c0fc0cd409a3b5187e358c34, type: 2}
+  - {fileID: 11400000, guid: 325cca0b3ed2b464588f1d1df6a25de1, type: 2}
+  - {fileID: 11400000, guid: eeef8747cac94c546a32902a78fcfb4a, type: 2}
+  - {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab, type: 2}
   items: []
   inventorySize: 20
