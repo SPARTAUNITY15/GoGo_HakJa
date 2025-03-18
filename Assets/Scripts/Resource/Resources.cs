@@ -11,6 +11,7 @@ public class Resources : MonoBehaviour, IImpactable
 
     public ItemData resourcePref;
     public float health;
+    public bool isFlag = false;
 
     public void ReceiveImpact(float value)
     {
@@ -19,11 +20,18 @@ public class Resources : MonoBehaviour, IImpactable
         if (health <= 0)
         {
             resourcePref.ToDropItem(transform.position + Vector3.up, Quaternion.identity);
-            RandomMove();
+            if (!isFlag)
+            {
+                RandomMove();
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 
-    private void RandomMove()
+    private void RandomMove()   
     {
         int floorLayer = LayerMask.GetMask("Floor");
         while (true)

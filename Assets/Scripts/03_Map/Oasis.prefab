@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8221426124017019302}
   - component: {fileID: 7735285916777004692}
   - component: {fileID: 7586206343769125230}
+  - component: {fileID: 2004103402597326221}
   m_Layer: 0
   m_Name: Palm2.001
   m_TagString: Untagged
@@ -83,6 +84,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2004103402597326221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43865308127810171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 3
+  isFlag: 1
 --- !u!1 &103194409591289471
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +114,7 @@ GameObject:
   - component: {fileID: 1880243665748695176}
   - component: {fileID: 1858899738632041342}
   - component: {fileID: 555572610028824446}
+  - component: {fileID: 1160054768807916903}
   m_Layer: 0
   m_Name: Ruins5
   m_TagString: Untagged
@@ -166,6 +187,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1160054768807916903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103194409591289471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  health: 5
+  isFlag: 1
 --- !u!1 &208103725774506945
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +217,7 @@ GameObject:
   - component: {fileID: 97662391310221914}
   - component: {fileID: 8477164753089993371}
   - component: {fileID: 347760295125080119}
+  - component: {fileID: 8210155109515031541}
   m_Layer: 0
   m_Name: Ruins1.001
   m_TagString: Untagged
@@ -249,6 +290,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8210155109515031541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208103725774506945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  health: 5
+  isFlag: 1
 --- !u!1 &837648639867068373
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +320,7 @@ GameObject:
   - component: {fileID: 7413193945787671446}
   - component: {fileID: 1859092489965323550}
   - component: {fileID: 7881189396759695022}
+  - component: {fileID: 8048706368478439278}
   m_Layer: 0
   m_Name: Ruins2
   m_TagString: Untagged
@@ -332,6 +393,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8048706368478439278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837648639867068373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  health: 5
+  isFlag: 1
 --- !u!1 &960851030574259669
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +423,7 @@ GameObject:
   - component: {fileID: 5290782586022378684}
   - component: {fileID: 5718739583990262673}
   - component: {fileID: 1648712254934840115}
+  - component: {fileID: 8422659986986568457}
   m_Layer: 0
   m_Name: Ruins4.002
   m_TagString: Untagged
@@ -415,6 +496,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8422659986986568457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960851030574259669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  health: 5
+  isFlag: 1
 --- !u!1 &1783527335678080206
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +526,7 @@ GameObject:
   - component: {fileID: 7331350863399785173}
   - component: {fileID: 8830907402790914277}
   - component: {fileID: 4004953813764308059}
+  - component: {fileID: 6604120005786853625}
   m_Layer: 0
   m_Name: Cactus6.002
   m_TagString: Untagged
@@ -498,6 +599,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6604120005786853625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783527335678080206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 1
+  isFlag: 1
 --- !u!1 &1989236359332486819
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,6 +629,7 @@ GameObject:
   - component: {fileID: 5008898303594343969}
   - component: {fileID: 5146080773422513082}
   - component: {fileID: 1836621502135756206}
+  - component: {fileID: 4071829065109157630}
   m_Layer: 0
   m_Name: Ruins6
   m_TagString: Untagged
@@ -581,6 +702,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4071829065109157630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989236359332486819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  health: 5
+  isFlag: 1
 --- !u!1 &2006799251402205009
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +732,7 @@ GameObject:
   - component: {fileID: 1519509208255900146}
   - component: {fileID: 2928351886201999724}
   - component: {fileID: 2618467435465428867}
+  - component: {fileID: 3721441551812422196}
   m_Layer: 0
   m_Name: Cactus4.002
   m_TagString: Untagged
@@ -664,6 +805,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3721441551812422196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006799251402205009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 1
+  isFlag: 1
 --- !u!1 &2185325339485317508
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,6 +835,7 @@ GameObject:
   - component: {fileID: 4640986290188079176}
   - component: {fileID: 2514121878551305174}
   - component: {fileID: 3872434417346620538}
+  - component: {fileID: 5286103068222212853}
   m_Layer: 0
   m_Name: Cactus1
   m_TagString: Untagged
@@ -747,6 +908,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5286103068222212853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2185325339485317508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 1
+  isFlag: 1
 --- !u!1 &2247479505520022244
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,6 +938,7 @@ GameObject:
   - component: {fileID: 998652427238319362}
   - component: {fileID: 8142530102590838218}
   - component: {fileID: 1421989263571839987}
+  - component: {fileID: 2909772045139426850}
   m_Layer: 0
   m_Name: Palm6.001
   m_TagString: Untagged
@@ -830,6 +1011,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2909772045139426850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247479505520022244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 3
+  isFlag: 1
 --- !u!1 &2340402585983111657
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,6 +1041,7 @@ GameObject:
   - component: {fileID: 8705008312621107664}
   - component: {fileID: 479638604069797729}
   - component: {fileID: 7194216126336089296}
+  - component: {fileID: 7076429860591352699}
   m_Layer: 0
   m_Name: Ruins4.004
   m_TagString: Untagged
@@ -913,6 +1114,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7076429860591352699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2340402585983111657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  health: 5
+  isFlag: 1
 --- !u!1 &2565291700254191668
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +1144,7 @@ GameObject:
   - component: {fileID: 2822738242678505028}
   - component: {fileID: 454112041768791443}
   - component: {fileID: 4411483062030341253}
+  - component: {fileID: 5894911022067371026}
   m_Layer: 0
   m_Name: Ruins4.003
   m_TagString: Untagged
@@ -996,6 +1217,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5894911022067371026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565291700254191668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  health: 5
+  isFlag: 1
 --- !u!1 &3266127587223367627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,6 +1247,7 @@ GameObject:
   - component: {fileID: 2529936105434486311}
   - component: {fileID: 7337577093014718267}
   - component: {fileID: 3416673139189921658}
+  - component: {fileID: 7915090735543492201}
   m_Layer: 0
   m_Name: Cactus2.001
   m_TagString: Untagged
@@ -1079,6 +1320,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7915090735543492201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3266127587223367627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 1
+  isFlag: 1
 --- !u!1 &3784570799818609232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,6 +1350,7 @@ GameObject:
   - component: {fileID: 5380396979366751154}
   - component: {fileID: 5683484822853538636}
   - component: {fileID: 1346477938806472593}
+  - component: {fileID: 946440117522634534}
   m_Layer: 0
   m_Name: Cactus6.001
   m_TagString: Untagged
@@ -1162,6 +1423,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &946440117522634534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3784570799818609232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 1
+  isFlag: 1
 --- !u!1 &3804715433405597188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,6 +1453,7 @@ GameObject:
   - component: {fileID: 8525716695287084590}
   - component: {fileID: 1882873287448632417}
   - component: {fileID: 1346461393734158013}
+  - component: {fileID: 4241073654157556647}
   m_Layer: 0
   m_Name: Palm3.001
   m_TagString: Untagged
@@ -1245,6 +1526,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4241073654157556647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3804715433405597188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 3
+  isFlag: 1
 --- !u!1 &3813530500844345971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1594,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3813530500844345971}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1362,6 +1662,7 @@ GameObject:
   - component: {fileID: 7788953744774461411}
   - component: {fileID: 5357262001529486718}
   - component: {fileID: 6519293375427010443}
+  - component: {fileID: 8859375191985006485}
   m_Layer: 0
   m_Name: Palm1
   m_TagString: Untagged
@@ -1434,6 +1735,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8859375191985006485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3825472474206046767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 3
+  isFlag: 1
 --- !u!1 &3936727377688947897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,6 +1765,7 @@ GameObject:
   - component: {fileID: 8177165577695187752}
   - component: {fileID: 2203239897708170700}
   - component: {fileID: 2992747726815194553}
+  - component: {fileID: 2431214449640855058}
   m_Layer: 0
   m_Name: Ruins1
   m_TagString: Untagged
@@ -1517,6 +1838,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2431214449640855058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3936727377688947897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  health: 5
+  isFlag: 1
 --- !u!1 &4467012043668294623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,6 +1868,7 @@ GameObject:
   - component: {fileID: 8951769155341451089}
   - component: {fileID: 775002035196546506}
   - component: {fileID: 1446524872844244241}
+  - component: {fileID: 2240080486766316830}
   m_Layer: 0
   m_Name: Cactus6
   m_TagString: Untagged
@@ -1600,6 +1941,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2240080486766316830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4467012043668294623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 1
+  isFlag: 1
 --- !u!1 &4540980337108275832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,6 +1971,7 @@ GameObject:
   - component: {fileID: 6610313421030491952}
   - component: {fileID: 861524894745595847}
   - component: {fileID: 8871122101199354456}
+  - component: {fileID: 8447696820170004958}
   m_Layer: 0
   m_Name: Ruins4
   m_TagString: Untagged
@@ -1683,6 +2044,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8447696820170004958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4540980337108275832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  health: 5
+  isFlag: 1
 --- !u!1 &5205323264723003034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,6 +2074,7 @@ GameObject:
   - component: {fileID: 3888932911397756115}
   - component: {fileID: 4828464832318871842}
   - component: {fileID: 3730569403112272244}
+  - component: {fileID: 4053405488880601592}
   m_Layer: 0
   m_Name: Palm2
   m_TagString: Untagged
@@ -1766,6 +2147,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4053405488880601592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205323264723003034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 3
+  isFlag: 1
 --- !u!1 &5248955209916348645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,6 +2177,7 @@ GameObject:
   - component: {fileID: 6745859894960956937}
   - component: {fileID: 6891804454843803746}
   - component: {fileID: 362150585019921230}
+  - component: {fileID: 1206393871628235827}
   m_Layer: 0
   m_Name: Palm3
   m_TagString: Untagged
@@ -1849,6 +2250,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1206393871628235827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248955209916348645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 3
+  isFlag: 1
 --- !u!1 &5424694408124195929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,6 +2280,7 @@ GameObject:
   - component: {fileID: 2661163519089627781}
   - component: {fileID: 884533153473407818}
   - component: {fileID: 2503501585866867525}
+  - component: {fileID: 1231687150840459246}
   m_Layer: 0
   m_Name: Palm6
   m_TagString: Untagged
@@ -1932,6 +2353,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1231687150840459246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5424694408124195929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 3
+  isFlag: 1
 --- !u!1 &5567876097068653469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,6 +2383,7 @@ GameObject:
   - component: {fileID: 8284894372466208148}
   - component: {fileID: 4455612804283942569}
   - component: {fileID: 2602926325057056041}
+  - component: {fileID: 3470962209003071295}
   m_Layer: 0
   m_Name: Cactus6.005
   m_TagString: Untagged
@@ -2015,6 +2456,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3470962209003071295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5567876097068653469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 1
+  isFlag: 1
 --- !u!1 &5777448760951551942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,6 +2486,7 @@ GameObject:
   - component: {fileID: 1531595055948807224}
   - component: {fileID: 1007584574163720490}
   - component: {fileID: 8062335431182924259}
+  - component: {fileID: 3263707653827932139}
   m_Layer: 0
   m_Name: Cactus4.001
   m_TagString: Untagged
@@ -2098,6 +2559,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3263707653827932139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5777448760951551942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 1
+  isFlag: 1
 --- !u!1 &6099524340615432195
 GameObject:
   m_ObjectHideFlags: 0
@@ -2109,6 +2589,7 @@ GameObject:
   - component: {fileID: 2385004162436774522}
   - component: {fileID: 4316755350829932080}
   - component: {fileID: 4352997413114090760}
+  - component: {fileID: 7402872477889443863}
   m_Layer: 0
   m_Name: Cactus6.003
   m_TagString: Untagged
@@ -2181,6 +2662,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7402872477889443863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6099524340615432195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 1
+  isFlag: 1
 --- !u!1 &6236233099474785914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,6 +2692,7 @@ GameObject:
   - component: {fileID: 1706855828686575988}
   - component: {fileID: 4417414732312495902}
   - component: {fileID: 114128456267775686}
+  - component: {fileID: 9043855700138988394}
   m_Layer: 0
   m_Name: Cactus5
   m_TagString: Untagged
@@ -2264,6 +2765,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9043855700138988394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6236233099474785914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 1
+  isFlag: 1
 --- !u!1 &6380399521461060451
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,6 +2795,7 @@ GameObject:
   - component: {fileID: 113662843138453876}
   - component: {fileID: 7547813713687721914}
   - component: {fileID: 4386384887787643182}
+  - component: {fileID: 7286573091563991380}
   m_Layer: 0
   m_Name: Cactus2
   m_TagString: Untagged
@@ -2347,6 +2868,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7286573091563991380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6380399521461060451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 1
+  isFlag: 1
 --- !u!1 &6435735844838577375
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,6 +2898,7 @@ GameObject:
   - component: {fileID: 8507319611344829345}
   - component: {fileID: 4321909113814849084}
   - component: {fileID: 4504582437207238814}
+  - component: {fileID: 5186329453903669306}
   m_Layer: 0
   m_Name: Cactus4
   m_TagString: Untagged
@@ -2430,6 +2971,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5186329453903669306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6435735844838577375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 1
+  isFlag: 1
 --- !u!1 &6944756517302693417
 GameObject:
   m_ObjectHideFlags: 0
@@ -2441,6 +3001,7 @@ GameObject:
   - component: {fileID: 991263187318892856}
   - component: {fileID: 742950077589867758}
   - component: {fileID: 4950077923899461026}
+  - component: {fileID: 1164871499381383866}
   m_Layer: 0
   m_Name: Cactus3
   m_TagString: Untagged
@@ -2513,6 +3074,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1164871499381383866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6944756517302693417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 1
+  isFlag: 1
 --- !u!1 &7315662345343892833
 GameObject:
   m_ObjectHideFlags: 0
@@ -2524,6 +3104,7 @@ GameObject:
   - component: {fileID: 8075493631038206650}
   - component: {fileID: 4145383361574942992}
   - component: {fileID: 4307349475824456102}
+  - component: {fileID: 5859189612136909213}
   m_Layer: 0
   m_Name: Palm4
   m_TagString: Untagged
@@ -2596,6 +3177,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5859189612136909213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7315662345343892833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 3
+  isFlag: 1
 --- !u!1 &7358556137224329147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,6 +3207,7 @@ GameObject:
   - component: {fileID: 5076053391968885923}
   - component: {fileID: 7568347595598103967}
   - component: {fileID: 6695295940968348373}
+  - component: {fileID: 5746422739954689626}
   m_Layer: 0
   m_Name: Palm5
   m_TagString: Untagged
@@ -2679,6 +3280,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5746422739954689626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7358556137224329147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 3
+  isFlag: 1
 --- !u!1 &7836558504271851416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2690,6 +3310,7 @@ GameObject:
   - component: {fileID: 812683593336457254}
   - component: {fileID: 8925471635956308389}
   - component: {fileID: 6390260228460886617}
+  - component: {fileID: 4218998281154838299}
   m_Layer: 0
   m_Name: Ruins4.001
   m_TagString: Untagged
@@ -2762,6 +3383,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4218998281154838299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7836558504271851416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  health: 5
+  isFlag: 1
 --- !u!1 &7977410086685040498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2947,6 +3587,7 @@ GameObject:
   - component: {fileID: 3296548808293127707}
   - component: {fileID: 3436998972071061034}
   - component: {fileID: 4021531544799198478}
+  - component: {fileID: 646933376804728276}
   m_Layer: 0
   m_Name: Palm7
   m_TagString: Untagged
@@ -3019,6 +3660,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &646933376804728276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8138030706121320542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 3
+  isFlag: 1
 --- !u!1 &9100207753544238686
 GameObject:
   m_ObjectHideFlags: 0
@@ -3030,6 +3690,7 @@ GameObject:
   - component: {fileID: 3885675513297568743}
   - component: {fileID: 7465749392186388831}
   - component: {fileID: 571178831687811390}
+  - component: {fileID: 2968853374336413026}
   m_Layer: 0
   m_Name: Ruins3
   m_TagString: Untagged
@@ -3102,6 +3763,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2968853374336413026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100207753544238686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+  health: 5
+  isFlag: 1
 --- !u!1 &9141954643027800890
 GameObject:
   m_ObjectHideFlags: 0
@@ -3113,6 +3793,7 @@ GameObject:
   - component: {fileID: 3590563246811384152}
   - component: {fileID: 6839824789262202604}
   - component: {fileID: 4167958489356619906}
+  - component: {fileID: 7334564576581174627}
   m_Layer: 0
   m_Name: Cactus6.004
   m_TagString: Untagged
@@ -3185,3 +3866,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7334564576581174627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141954643027800890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 0
+  maxHeight: 0
+  xRange: {x: 0, y: 0}
+  zRange: {x: 0, y: 0}
+  resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+  health: 1
+  isFlag: 1
