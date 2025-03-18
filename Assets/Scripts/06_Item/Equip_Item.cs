@@ -11,6 +11,7 @@ public class Equip_Item : MonoBehaviour // 실제 데이터는 인벤에서 슬롯 또는 item
 {
     Camera cam;
     Animator animator;
+    private PlayerCondition playerCondition;
 
     public ItemData itemData;
 
@@ -23,9 +24,11 @@ public class Equip_Item : MonoBehaviour // 실제 데이터는 인벤에서 슬롯 또는 item
     float rate;
 
     bool isAttacking;
+
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        playerCondition = FindObjectOfType<PlayerCondition>();
         cam = Camera.main;
 
         equipableType = itemData.equipableType;
@@ -55,7 +58,7 @@ public class Equip_Item : MonoBehaviour // 실제 데이터는 인벤에서 슬롯 또는 item
     {
         if (!isAttacking)
         {
-            //if(GameManager.Instance.player.UseStamina(useStamina)) // 나중에 함수 추가되면 넣기.
+            if(!isAttacking && playerCondition.UseStamina(useStamina))
             {
                 isAttacking = true;
                 animator.SetTrigger("Interaction");

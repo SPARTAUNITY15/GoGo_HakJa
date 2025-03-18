@@ -10,7 +10,7 @@ public class ConditionUI : MonoBehaviour
     public Image _Stamina;
     public Image _Moisture;
 
-    public string conditionType; // "Health", "Hunger", "Stamina", "Moisture" Áß ÇÏ³ª
+    public string conditionType; // "Health", "Hunger", "Stamina", "Moisture" ï¿½ï¿½ ï¿½Ï³ï¿½
 
     private void Update()
     {
@@ -20,7 +20,7 @@ public class ConditionUI : MonoBehaviour
 
             if (playerCondition == null)
             {
-                Debug.LogError("PlayerConditionÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù!");
+                Debug.LogError("PlayerConditionï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½!");
                 return;
             }
         }
@@ -47,9 +47,9 @@ public class ConditionUI : MonoBehaviour
     {
         if (denominator == 0)
         {
-            Debug.LogError("0À¸·Î ³ª´©±â¸¦ ½ÃµµÇß½À´Ï´Ù!");
+            Debug.LogError("0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½â¸¦ ï¿½Ãµï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½!");
             return 0f;
         }
-        return Mathf.Clamp01(numerator / denominator); // 0~1 ¹üÀ§·Î Å¬·¥ÇÁ
+        return Mathf.Clamp01(numerator / denominator); // 0~1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
     }
 }

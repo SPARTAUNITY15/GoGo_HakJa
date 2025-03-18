@@ -15,10 +15,10 @@ public class PlacementGenerator : MonoBehaviour
 
     [Space]
 
-    [SerializeField] float minHeight;
-    [SerializeField] float maxHeight;
-    [SerializeField] Vector2 xRange;
-    [SerializeField] Vector2 zRange;
+    [SerializeField] public float minHeight;
+    [SerializeField] public float maxHeight;
+    [SerializeField] public Vector2 xRange;
+    [SerializeField] public Vector2 zRange;
 
     [Header("Prefab Variation Setting")]
     [SerializeField] bool isOasis = false;
@@ -26,7 +26,7 @@ public class PlacementGenerator : MonoBehaviour
     [SerializeField] Vector2 rotationRange;
     [SerializeField] Vector3 minScale;
     [SerializeField] Vector3 maxScale;
-    [SerializeField] float transformY = 0;
+    [SerializeField] public float transformY = 0;
 
     private void Start()
     {

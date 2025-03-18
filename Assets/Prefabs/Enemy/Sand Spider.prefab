@@ -188,7 +188,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.014633541
+  m_Radius: 0.01
   m_Height: 0.029267086
   m_Direction: 1
   m_Center: {x: -0.005, y: 0.0011274004, z: -0.0041648173}
@@ -2952,6 +2952,8 @@ GameObject:
   - component: {fileID: 5670863381381764160}
   - component: {fileID: 6066772522442141136}
   - component: {fileID: 1479954915319855138}
+  - component: {fileID: 5858859937691349250}
+  - component: {fileID: 3850592095903106428}
   m_Layer: 0
   m_Name: Sand Spider
   m_TagString: Untagged
@@ -3025,12 +3027,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   animator: {fileID: 0}
-  patrolRange: 3
-  sightRange: 3
-  attackRange: 2
+  patrolRange: 10
+  sightRange: 8
+  attackRange: 6
   safezoneRange: 3
-  maxChaseDistance: 3
-  health: 100
+  maxChaseDistance: 7
+  health: 80
+  attackDamage: 7
+  TestDie: 0
   projectilePrefab: {fileID: 4226196638867828240, guid: d0384f8963b21854b93598b8ec37ba92,
     type: 3}
   attackPoint: {fileID: 3214428342917023944}
@@ -3057,6 +3061,38 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5858859937691349250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7418016074044017502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c332db422feba984d9a40eb7675b9f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItemPrefab: {fileID: 6748885173771423218, guid: 9072146d99ef47348a2eb680d16152ac,
+    type: 3}
+  itemData: {fileID: 11400000, guid: 043bf8d1186da1d4986f81c09290af48, type: 2}
+  dropForce: 3
+  dropParticleEffectPrefab: {fileID: 7474993228974353214, guid: ddc574a9da60a0b468b844b75fb69aac,
+    type: 3}
+--- !u!114 &3850592095903106428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7418016074044017502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3da79207aa04e14081e2bada121b129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.7
 --- !u!1 &7436004109215068245
 GameObject:
   m_ObjectHideFlags: 0

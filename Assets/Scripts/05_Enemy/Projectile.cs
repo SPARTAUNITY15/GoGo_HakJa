@@ -2,17 +2,32 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 10f;   // 투사체 속도
-    public int damage = 10;     // 데미지
-    public float lifetime = 3f; // 일정 시간이 지나면 삭제
+    public float speed;
+    public int damage;
+    public float lifetime;
 
     private Vector3 targetDirection;
 
+    private Renderer projectileRenderer;
+    private Color originalColor;
+
+    public SpiderAI spiderAI;
     public void SetTarget(Vector3 direction)
     {
         targetDirection = direction.normalized;
     }
 
+    private void Awake()
+    {
+        originalColor = Color.green;
+        projectileRenderer = GetComponent<Renderer>();
+        projectileRenderer.material.color = originalColor;
+    }
+    private void Start()
+    {
+        //투사체 안 맞았을 경우 lifetime 이후 삭제
+        Destroy(gameObject, lifetime);
+    }
     void Update()
     {
         transform.position += targetDirection * speed * Time.deltaTime;
@@ -20,9 +35,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // 플레이어에게 맞으면 데미지를 줌
+        if (other.CompareTag("Player"))
         {
-            ///데미지 주는 메소드 추후 추가 
+            spiderAI.DamagePlayer();
             Destroy(gameObject); // 투사체 삭제
         }
     }

@@ -30,6 +30,7 @@ public class PlayerCondition : StatManager
     public float noHungerMoistureDecay;
 
     public event Action onTakeDamage;
+    private Animator animator;
 
     public void Awake()
     {
@@ -51,6 +52,8 @@ public class PlayerCondition : StatManager
         maxMoisture = moisture;
         startMoisture = moisture;
         passiveMoisture = 2f;
+
+        animator = GetComponent<Animator>();
     }
 
     public void Update()
@@ -113,6 +116,18 @@ public class PlayerCondition : StatManager
     public void TakePhysicalDamage(float damage)
     {
         onTakeDamage?.Invoke();
+        curHealth -= damage;
+        if (curHealth <= 0)
+        {
+            Die();
+        }
+        animator.SetTrigger("IsHit");
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        Debug.Log("사망");
     }
 
     // 체력감소시 DamageIndicator 사용

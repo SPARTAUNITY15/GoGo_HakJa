@@ -96,5 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a224afd6c7e44bf488c7f772bb073182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minHeight: 1
+  maxHeight: 10
+  xRange: {x: 10, y: 1000}
+  zRange: {x: 10, y: 1000}
   resourcePref: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
   health: 1
