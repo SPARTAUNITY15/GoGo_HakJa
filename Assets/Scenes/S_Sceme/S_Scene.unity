@@ -521,7 +521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &541604475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,11 +638,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Widow
       objectReference: {fileID: 0}
-    - target: {fileID: 118806338065452650, guid: 928d707027828f648845acb88cab58ee,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 343179047318769399, guid: 928d707027828f648845acb88cab58ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -692,46 +687,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7969928853570368069, guid: 928d707027828f648845acb88cab58ee,
-        type: 3}
-      propertyPath: health
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 7969928853570368069, guid: 928d707027828f648845acb88cab58ee,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7969928853570368069, guid: 928d707027828f648845acb88cab58ee,
-        type: 3}
-      propertyPath: sightRange
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7969928853570368069, guid: 928d707027828f648845acb88cab58ee,
-        type: 3}
-      propertyPath: attackRange
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7969928853570368069, guid: 928d707027828f648845acb88cab58ee,
-        type: 3}
-      propertyPath: patrolRange
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7969928853570368069, guid: 928d707027828f648845acb88cab58ee,
-        type: 3}
-      propertyPath: maxChaseDistance
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8308788174611628125, guid: 928d707027828f648845acb88cab58ee,
-        type: 3}
-      propertyPath: dropForce
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8484780419463991665, guid: 928d707027828f648845acb88cab58ee,
-        type: 3}
-      propertyPath: flashColor.a
-      value: 0.7137255
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
