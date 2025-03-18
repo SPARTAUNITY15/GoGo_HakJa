@@ -753,6 +753,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6198296868192261555, guid: 8cd62a9de8237494d8e47ce987815cd6,
         type: 3}
+      propertyPath: inventoryUI
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198296868192261555, guid: 8cd62a9de8237494d8e47ce987815cd6,
+        type: 3}
       propertyPath: uiElements.Array.data[0].targetCanvas
       value: 
       objectReference: {fileID: 1096182848}

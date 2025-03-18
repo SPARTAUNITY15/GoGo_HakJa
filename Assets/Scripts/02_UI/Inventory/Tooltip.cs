@@ -142,7 +142,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     void OnUnequipButton(ItemData item)
     {
-        GameManager.Instance.player.playerEquip.Unequip();
+        GameManager.Instance.player.playerEquip.Unequip(item);
     }
 
     void OnUseBtn(ItemData item)
@@ -163,7 +163,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if(item.isEquiped) // 장착중인 아이템 장착 해제 후 버리기.
         {
-            GameManager.Instance.player.playerEquip.Unequip();
+            GameManager.Instance.player.playerEquip.Unequip(item);
         }
         item.ToDropItem(GameManager.Instance.player.transform.position + Vector3.forward * 0.5f, Quaternion.identity);
         Inventory.Instance.RemoveItem(item);

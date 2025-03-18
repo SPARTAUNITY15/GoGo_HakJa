@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Placed_Chest : MonoBehaviour
+public class Placed_Chest : Placed_Item
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void SubscribeMethod()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("¹Ì±¸Çö");
     }
 }

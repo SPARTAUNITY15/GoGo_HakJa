@@ -382,8 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RecipesOfTable:
   - {fileID: 11400000, guid: 5d6014f7e0e538443b430f169cdd1786, type: 2}
-  - {fileID: 11400000, guid: 201317b39b514f04fa12663c5f47704c, type: 2}
-  - {fileID: 11400000, guid: 98a03776bdb80da4eb191a30a326ea03, type: 2}
+  - {fileID: 11400000, guid: d1ea75ce822dd3f45b986e5a17d0bb13, type: 2}
   content: {fileID: 8816585415607708802}
   recipeSlotPref: {fileID: 6197772181709934138, guid: e633b30919b647e45aaf1c978fb5a15e,
     type: 3}

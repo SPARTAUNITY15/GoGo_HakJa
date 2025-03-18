@@ -27,6 +27,7 @@ public static class ItemStateExtensions
         go.name = $"Drop_{itemData}";
         go.AddComponent<Drop_Item>().itemData = itemData;
         go.transform.GetChild(0).AddComponent<Rigidbody>();
+        ChangeLayer(go, 13);
 
         return go;
     }
@@ -61,10 +62,12 @@ public static class ItemStateExtensions
     {
         GameObject go = Object.Instantiate(itemData.basePref);
         go.name = $"Placed_{itemData}";
-        go.AddComponent<Placed_Item>().itemData = itemData;
+        PlaceItem_AddScript(go, itemData);
 
         go.transform.position = worldPosition;
         go.transform.rotation = rotation;
+
+        ChangeLayer(go, 13);
 
         return go;
     }
@@ -99,5 +102,40 @@ public static class ItemStateExtensions
         go.transform.rotation = rotation;
 
         return go;
+    }
+
+    private static void ChangeLayer(GameObject parent, int layerNum)
+    {
+        if (parent == null) return;
+
+        parent.layer = layerNum;
+
+        foreach(Transform child in parent.transform)
+        {
+            ChangeLayer(child.gameObject, layerNum);
+        }
+    }
+
+    private static void PlaceItem_AddScript(GameObject go, ItemData itemData)
+    {
+
+        switch (itemData.item_name)
+        {
+            case "상자":
+                go.AddComponent<Placed_Chest>().itemData = itemData;
+                break;
+            case "모닥불":
+                go.AddComponent<Placed_CampFire>().itemData = itemData;
+                break;
+            case "텐트":
+                go.AddComponent<Placed_Tent>().itemData = itemData;
+                break;
+            case "침대":
+                go.AddComponent<Placed_Bed>().itemData = itemData;
+                break;
+            case "작업대":
+                go.AddComponent<Placed_WorkBench>().itemData = itemData;
+                break;
+        }
     }
 }

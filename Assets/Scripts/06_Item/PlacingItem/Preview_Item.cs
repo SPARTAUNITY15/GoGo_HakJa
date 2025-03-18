@@ -85,7 +85,7 @@ public class Preview_Item : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, 1 << 7))
         {
             //position = new Vector3(hitInfo.point.x, hitInfo.point.y + bounds.extents.y, hitInfo.point.z);
-            position = new Vector3(hitInfo.point.x, hitInfo.point.y, hitInfo.point.z);
+            position = new Vector3(hitInfo.point.x, hitInfo.point.y + 0.1f, hitInfo.point.z);
         }
         Debug.Log($"{hitInfo.point.y} + {bounds.extents.y}");
 

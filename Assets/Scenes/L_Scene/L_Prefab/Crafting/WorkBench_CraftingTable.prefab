@@ -380,10 +380,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb7ffae81a49248489689bc67b7380cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RecipesOfTable: []
+  RecipesOfTable:
+  - {fileID: 11400000, guid: a079864b34ae4ae4692a5bbd8a06fb52, type: 2}
+  - {fileID: 11400000, guid: 33a7719a628b8df419f9757a4bd20592, type: 2}
+  - {fileID: 11400000, guid: b9f649343ebb82f4288f964330328063, type: 2}
+  - {fileID: 11400000, guid: 45e69714cc44dd3469866f3efca7a37f, type: 2}
+  - {fileID: 11400000, guid: 0cbea06a961fa14439127bcffae36ade, type: 2}
+  - {fileID: 11400000, guid: 7be64e1a393517e489564fa590e5b6be, type: 2}
+  - {fileID: 11400000, guid: fe3e0fe8f90b97541ba65d4c0aed5ce5, type: 2}
   content: {fileID: 8816585415607708802}
   recipeSlotPref: {fileID: 6197772181709934138, guid: e633b30919b647e45aaf1c978fb5a15e,
     type: 3}
+  name: 
 --- !u!1 &6563340446761884720
 GameObject:
   m_ObjectHideFlags: 0

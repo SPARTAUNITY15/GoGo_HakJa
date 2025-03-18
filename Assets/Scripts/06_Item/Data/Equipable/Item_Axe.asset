@@ -17,8 +17,6 @@ MonoBehaviour:
   item_description: "\uB454\uD55C \uB3C4\uB07C"
   canStack: 0
   maxStack: 12
-  renderPref: {fileID: 1625462388967980548, guid: 27b5ee6681867974cacf3ced8e8234fd,
-    type: 3}
   basePref: {fileID: 8709803997802854298, guid: 81578df3767d5934c80e2cc4b5ba8b77,
     type: 3}
   Icon: {fileID: 21300000, guid: 8230efda6e0c0934eb6bf7ad9bcaf2d2, type: 3}
@@ -31,5 +29,6 @@ MonoBehaviour:
   useStamina: 10
   distance: 1
   rate: 1
+  isEquiped: 0
   equipPref: {fileID: 2629744223312670578, guid: b848be24adb8bcb4f8dd99306b5d05e6,
     type: 3}

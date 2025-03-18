@@ -113,7 +113,7 @@ public class DayNightCycle : MonoBehaviour
             // ÀÏ¸ô
             isTransiting = true;
             RenderSettings.skybox = sunSetbox;
-            LerpSkybox(daybox, nightbox, (time - 0.65f) / 0.1f);  
+            LerpSkybox(daybox, nightbox, (time - 0.65f) / 0.1f);
         }
         else
         {
@@ -128,12 +128,26 @@ public class DayNightCycle : MonoBehaviour
 
     void UpdateSkybox()
     {
-        
+
 
     }
 
     void LerpSkybox(Material from, Material to, float t)
     {
         RenderSettings.skybox.Lerp(from, to, t);
+    }
+
+    public IEnumerator Sleeping()
+    {
+        timeRate *= fullDayLength;
+        while (true)
+        {
+            yield return null;
+            if (time > 0.2f && time < 0.3f)
+            {
+                timeRate = 1.0f / fullDayLength;
+                yield break;
+            }
+        }
     }
 }

@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   item_name: "\uBAA8\uB2E5\uBD88"
-  item_description: "\uB530\uB73B\uD55C \uBD88\uC774\uB2E4"
+  item_description: "\uC74C\uC2DD\uC744 \uB9CC\uB4E4 \uC218 \uC788\uC744 \uB9CC\uD07C
+    \uB728\uAC70\uC6B4 \uBD88\uC774\uB2E4"
   canStack: 0
   maxStack: 12
-  renderPref: {fileID: 3580053305475902321, guid: 98b351e192db9be4b9ede28a8c1bb9ae,
-    type: 3}
   basePref: {fileID: 8477608589998250770, guid: ae13bd1e482c7fd49bb98d7b52f2aa63,
     type: 3}
   Icon: {fileID: 21300000, guid: dfd4825dedfc88344820a9dfb98f306f, type: 3}
@@ -31,4 +30,5 @@ MonoBehaviour:
   useStamina: 0
   distance: 0
   rate: 0
+  isEquiped: 0
   equipPref: {fileID: 0}
