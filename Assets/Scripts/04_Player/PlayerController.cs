@@ -159,22 +159,22 @@ public class PlayerController : MonoBehaviour
         mouseDelta = context.ReadValue<Vector2>();
     }
 
-    //public void OnInventory(InputAction.CallbackContext Context)
-    //{
-    //    if (Context.phase == InputActionPhase.Started)
-    //    {
-    //        ToggleCursor();
-    //        UIManager.Instance.ToggleUI("인벤토리");
-    //        UIManager.Instance.inventoryUI.SetCraftMode(CraftMode.Inventory);
-    //    }
-    //}
+    public void OnInventory(InputAction.CallbackContext Context)
+    {
+        if (Context.phase == InputActionPhase.Started)
+        {
+            ToggleCursor();
+            UIManager.Instance.ToggleUI("인벤토리");
+            UIManager.Instance.inventoryUI.SetCraftMode(CraftMode.Inventory);
+        }
+    }
 
-    //void ToggleCursor()
-    //{
-    //    bool toggle = Cursor.lockState == CursorLockMode.Locked;
-    //    Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
-    //    canLook = !toggle;
-    //}
+    void ToggleCursor()
+    {
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        canLook = !toggle;
+    }
 
     public void OnInteraction(InputAction.CallbackContext Context)
     {

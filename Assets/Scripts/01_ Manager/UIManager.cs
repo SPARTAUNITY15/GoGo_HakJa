@@ -6,7 +6,6 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     public InventoryUI inventoryUI;
-    public PlayerController playerController;
 
     [System.Serializable]
     public class UIElement
@@ -38,7 +37,6 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         InitializeUI();
-        playerController = FindObjectOfType<PlayerController>();
     }
 
     void Update()
@@ -46,21 +44,11 @@ public class UIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             ToggleUI("인벤토리");
-            ToggleCursor();
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
             ToggleUI("옵션");
         }
-    }
-    void ToggleCursor()
-    {
-        //bool toggle = Cursor.lockState == CursorLockMode.None; 
-        //Cursor.lockState = toggle ? CursorLockMode.Locked : CursorLockMode.None; 
-        //playerController.canLook = toggle; 
-        bool toggle = Cursor.lockState == CursorLockMode.Locked;
-        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
-        playerController.canLook = !toggle;
     }
 
     void InitializeUI()
