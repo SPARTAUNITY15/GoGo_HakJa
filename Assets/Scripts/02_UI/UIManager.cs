@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
     public InventoryUI inventoryUI;
+
     [System.Serializable]
     public class UIElement
     {
@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     public List<UIElement> uiElements;
     private Dictionary<string, GameObject> uiDictionary = new Dictionary<string, GameObject>();
 
-    private GameObject currentActiveUI = null;// 현재 활성화된 UI
+    private GameObject currentActiveUI = null; // 현재 활성화된 UI
 
     void Awake()
     {
@@ -30,9 +30,22 @@ public class UIManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
 
         InitializeUI();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            ToggleUI("인벤토리");
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleUI("옵션");
+        }
     }
 
     void InitializeUI()
@@ -50,28 +63,39 @@ public class UIManager : MonoBehaviour
             uiDictionary[element.uiName] = uiInstance;
         }
 
-        inventoryUI = uiDictionary["인벤토리"].GetComponent<InventoryUI>();
+        if (uiDictionary.ContainsKey("인벤토리"))
+        {
+            inventoryUI = uiDictionary["인벤토리"].GetComponent<InventoryUI>();
+        }
     }
 
-    public void ToggleUI(string uiName) //현재 활성 UI가 null이면 그냥 켜고, null이 아니면 현재 활성 UI랑 미래 UI랑 비교해서 같으면 끄고 다르면 켜진거 끄고 켜기.
+    public void ToggleUI(string uiName)
     {
-        if (currentActiveUI == uiDictionary[uiName])
+        if (uiDictionary.ContainsKey(uiName))
         {
-            HideCurrentUI();
+            if (currentActiveUI == uiDictionary[uiName])
+            {
+                HideCurrentUI();
+            }
+            else
+            {
+                HideCurrentUI();
+                ShowUI(uiName);
+            }
         }
         else
         {
-            HideCurrentUI();
-            ShowUI(uiName);
+            Debug.LogWarning($"UI 이름 '{uiName}'이(가) 존재하지 않습니다.");
         }
     }
+
     public void ShowUI(string uiName)
     {
         if (uiDictionary.ContainsKey(uiName))
         {
             if (currentActiveUI != null)
             {
-                currentActiveUI.SetActive(false); // 기존 UI 비활성화
+                currentActiveUI.SetActive(false);
             }
 
             currentActiveUI = uiDictionary[uiName];

@@ -7,7 +7,7 @@ public class ResourceEditor : Editor
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
-        if (GUILayout.Button("½ÇÇà"))
+        if (GUILayout.Button("ï¿½ï¿½ï¿½ï¿½"))
         {
             ((Resources)target).ReceiveImpact(1);
         }
