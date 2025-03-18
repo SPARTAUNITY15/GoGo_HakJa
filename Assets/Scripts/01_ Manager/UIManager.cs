@@ -32,8 +32,6 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
-        
     }
 
     private void Start()
