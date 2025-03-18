@@ -24,6 +24,8 @@ public class SpiderAI : EnemyAI
             Projectile projScript = projectile.GetComponent<Projectile>();
             if (projScript != null)
             {
+                projScript.spiderAI = this; 
+
                 Vector3 direction = (player.position - attackPoint.position).normalized;
                 projScript.SetTarget(direction);
             }

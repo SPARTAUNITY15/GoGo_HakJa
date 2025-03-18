@@ -698,6 +698,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8308788174611628125, guid: 928d707027828f648845acb88cab58ee,
+        type: 3}
+      propertyPath: dropForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484780419463991665, guid: 928d707027828f648845acb88cab58ee,
+        type: 3}
+      propertyPath: flashColor.a
+      value: 0.7137255
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -896,6 +906,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858859937691349250, guid: 584b28ceda2233a4396114cb64c85603,
+        type: 3}
+      propertyPath: dropForce
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6066772522442141136, guid: 584b28ceda2233a4396114cb64c85603,
         type: 3}
