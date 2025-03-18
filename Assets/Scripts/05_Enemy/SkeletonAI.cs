@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SkeletonAI : EnemyAI
 {
-    public float attackCooldown = 1.5f;
+    public float attackCooldown = 1f;
     private float lastAttackTime = 0f;
 
     protected override void AttackPlayer()
