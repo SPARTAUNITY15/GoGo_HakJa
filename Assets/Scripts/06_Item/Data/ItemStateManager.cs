@@ -75,10 +75,10 @@ public static class ItemStateExtensions
     /// </summary>
     /// <param name="itemData"></param> 
     /// <returns></returns>
-    public static GameObject ToEquipItem(this ItemData itemData, Transform parent)
+    public static GameObject ToEquipItem(this ItemData itemData, Transform parent, bool instantiateInWorldSpace = false)
     {
         GameObject go = Object.Instantiate(itemData.equipPref);
-        go.transform.SetParent(parent);
+        go.transform.SetParent(parent, instantiateInWorldSpace);
 
         return go;
     }

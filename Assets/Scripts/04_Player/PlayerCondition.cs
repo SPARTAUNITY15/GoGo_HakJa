@@ -123,5 +123,30 @@ public class PlayerCondition : StatManager
             onTakeDamage?.Invoke();
         }
     }
+
+    public void UseConsumableItem(ItemData item)
+    {
+        foreach (ItemData_Consumable effect in item.ItemData_Consumables)
+        {
+            switch(effect.consumableType)
+            {
+                case ConsumableType.Stamina:
+                    Debug.Log("스태미나 회복은 기획에 x");
+                    break;
+                case ConsumableType.Thirst:
+                    Drink(effect.value);
+                    break;
+                case ConsumableType.Temperature:
+                    Debug.Log("체온 변동은 기획에 x");
+                    break;
+                case ConsumableType.Hunger:
+                    Eat(effect.value);
+                    break;
+                case ConsumableType.Health:
+                    Heal(effect.value);
+                    break;
+            }
+        }
+    }
 }
 

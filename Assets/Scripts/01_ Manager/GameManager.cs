@@ -17,8 +17,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public UIManager UI;
+    //public UIManager UI;
     public Player player;
+    public CraftingManager craftingManager;
+
     public Player Player
     {
         get { return player; }
@@ -41,6 +43,13 @@ public class GameManager : MonoBehaviour
         }
 
         player = FindObjectOfType<Player>();
-        UI = FindObjectOfType<UIManager>();
+        craftingManager = new();
+        //UI = FindObjectOfType<UIManager>();
+        //if(UI == null)
+        //{
+        //    UI = new GameObject("UIManager").AddComponent<UIManager>();
+        //}
+
+        //UI.InitializeUI();
     }
 }

@@ -46,16 +46,20 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         return currentItem;
     }
 
+    public static bool hoverOnSlot;
+
     public void OnPointerEnter(PointerEventData eventData)
     {
+        hoverOnSlot = true;
         if (currentItem != null)
         {
-            Tooltip.Instance.ShowTooltip(currentItem.item_description);
+            Tooltip.Instance.ShowTooltip(currentItem.item_name, currentItem.item_description, currentItem);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Tooltip.Instance.HideTooltip();
+        hoverOnSlot = false;
+        Tooltip.Instance.coroutine = StartCoroutine(Tooltip.Instance.HideTooltip());
     }
 }

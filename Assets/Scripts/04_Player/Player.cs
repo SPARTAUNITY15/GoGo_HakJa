@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     public StatManager statManager;
     public InteractionHandler interaction;
     public ItemPlaceController itemPlaceController;
+    public PlayerEquip playerEquip;
+
     private void Awake()
     {
         GameManager.Instance.Player = this;
@@ -15,5 +17,6 @@ public class Player : MonoBehaviour
         statManager = GetComponent<StatManager>();
         interaction = GetComponent<InteractionHandler>();
         itemPlaceController = GetComponent<ItemPlaceController>();
+        playerEquip = GetComponent<PlayerEquip>();
     }
 }
