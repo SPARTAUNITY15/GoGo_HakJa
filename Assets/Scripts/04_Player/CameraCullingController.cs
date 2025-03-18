@@ -11,11 +11,11 @@ public class CameraCullingController : MonoBehaviour
     {
         if (condition || (GameManager.Instance.player.playerEquip.isEquipping && GameManager.Instance.player.playerEquip.equippedItem.itemData == item))
         {
-            mainCamera.cullingMask |= layerMask;
+            mainCamera.cullingMask |= layerMask;//cullingMask에 추가
         }
         else
         {
-            mainCamera.cullingMask &= ~layerMask;
+            mainCamera.cullingMask &= ~layerMask;//cullingMask에서 제거
         }
     }
 }
