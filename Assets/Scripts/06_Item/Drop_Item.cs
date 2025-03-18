@@ -8,8 +8,14 @@ public class Drop_Item : MonoBehaviour ,IInteractable
 {
     public ItemData itemData;
 
-    public void GetPromptInfo()
+    public string GetPromptDesc()
     {
+        return "[G] ащ╠Б";
+    }
+
+    public string GetPromptName()
+    {
+        return itemData.name;
     }
 
     public void SubscribeMethod()

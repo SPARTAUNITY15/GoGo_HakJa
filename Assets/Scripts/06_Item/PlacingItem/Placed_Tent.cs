@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Placed_Tent : MonoBehaviour
+public class Placed_Tent : Placed_Item
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void SubscribeMethod()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

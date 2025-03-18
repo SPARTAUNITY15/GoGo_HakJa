@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     public InventoryUI inventoryUI;
+    public PromptUI promptUI;
     [System.Serializable]
     public class UIElement
     {
@@ -51,6 +52,7 @@ public class UIManager : MonoBehaviour
         }
 
         inventoryUI = uiDictionary["인벤토리"].GetComponent<InventoryUI>();
+        promptUI = uiDictionary["프롬프트"].GetComponent<PromptUI>();
     }
 
     public void ToggleUI(string uiName) //현재 활성 UI가 null이면 그냥 켜고, null이 아니면 현재 활성 UI랑 미래 UI랑 비교해서 같으면 끄고 다르면 켜진거 끄고 켜기.

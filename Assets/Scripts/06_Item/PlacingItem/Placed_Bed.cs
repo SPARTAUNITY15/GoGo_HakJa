@@ -2,14 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Placed_Bed : MonoBehaviour, IInteractable
+public class Placed_Bed : Placed_Item
 {
-    public void GetPromptInfo()
-    {
-        
-    }
-
-    public void SubscribeMethod()
+    public override void SubscribeMethod()
     {
         Sleep();
     }
@@ -18,6 +13,6 @@ public class Placed_Bed : MonoBehaviour, IInteractable
     {
         GameManager.Instance.player.condition.Heal(100);
 
-            // ³·¹ã ¹Ù²î°Ô 
+        Debug.Log("¹Ì±¸Çö: ¾ÆÄ§ µÇ±â.");
     }
 }
