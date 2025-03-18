@@ -7,14 +7,14 @@ using UnityEngine;
 
 public class PlacementGenerator : MonoBehaviour
 {
-    [SerializeField] Transform parent;
-    [SerializeField] GameObject prefab;
+    [SerializeField] Transform parent;//부모 오브젝트
+    [SerializeField] GameObject prefab;//생성할 오브젝트
 
     [Header("Raycast Setting")]
-    [SerializeField] int destiny;
+    [SerializeField] int destiny;//생성할 갯수
 
     [Space]
-
+    //생성 범위
     [SerializeField] public float minHeight;
     [SerializeField] public float maxHeight;
     [SerializeField] public Vector2 xRange;
@@ -30,11 +30,11 @@ public class PlacementGenerator : MonoBehaviour
 
     private void Start()
     {
-        if (!isOasis)
+        if (!isOasis)//오아시스가 아닐때
         {
             Generate();
         }
-        else
+        else//오아시스 일때
         {
             GenerateOasis();
         }
@@ -47,6 +47,7 @@ public class PlacementGenerator : MonoBehaviour
 
         while (i < destiny)
         {
+            //랜덤한 위치 생성
             float sampleX = Random.Range(xRange.x, xRange.y);
             float sampleY = Random.Range(zRange.x, zRange.y);
             Vector3 ray = new Vector3(sampleX, maxHeight, sampleY);
@@ -60,7 +61,8 @@ public class PlacementGenerator : MonoBehaviour
                 continue;
             }
 
-            GameObject go = (GameObject)PrefabUtility.InstantiatePrefab(prefab, transform);
+            GameObject go = (GameObject)PrefabUtility.InstantiatePrefab(prefab, transform);//오브젝트 생성
+            //오브젝트 값 세팅
             go.transform.parent = parent;
             go.transform.position = hit.point - new Vector3(0, transformY, 0);
             go.transform.Rotate(Vector3.up, Random.Range(rotationRange.x, rotationRange.y), Space.Self);
@@ -76,13 +78,14 @@ public class PlacementGenerator : MonoBehaviour
         }
     }
 
-    void GenerateOasis()
+    void GenerateOasis()//오아시스 생성
     {
         int floorLayer = LayerMask.GetMask("Floor");
         int i = 0;
 
         while (i < destiny)
         {
+            //정해진 위치에 생성
             float sampleX = xRange.x;
             float sampleY = zRange.x;
             Vector3 ray = new Vector3(sampleX, maxHeight, sampleY);

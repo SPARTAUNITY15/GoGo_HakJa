@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -54,19 +55,24 @@ public class UIManager : MonoBehaviour
         {
             ToggleCursor();
             ToggleUI("인벤토리");
-            
+
+
             Instance.inventoryUI.SetCraftMode(CraftMode.Inventory);
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
+            ToggleCursor();
             ToggleUI("옵션");
         }
     }
     private void LateUpdate()
     {
-        if (playerController.canLook)
+        if (playerController != null)
         {
-            playerController.CameraLook();
+            if (playerController.canLook)
+            {
+                playerController.CameraLook();
+            }
         }
     }
     void InitializeUI()
@@ -140,4 +146,5 @@ public class UIManager : MonoBehaviour
     }
 
     
+
 }

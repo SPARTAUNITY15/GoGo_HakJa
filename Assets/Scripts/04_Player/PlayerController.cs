@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -45,7 +43,6 @@ public class PlayerController : MonoBehaviour
         moveSpeed = statManager.speed;
     }
 
-    // ���콺 Ŀ�� ȭ�� �߾ӿ� ����
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -185,7 +182,9 @@ public class PlayerController : MonoBehaviour
             {
                 lastAttackTime = Time.time;
                 animator.SetTrigger("IsEquip");
+                playerEquip.attackAction?.Invoke();
                 playerEquip.equippedItem.StartEquipInteraction();
+
             }
         }
     }

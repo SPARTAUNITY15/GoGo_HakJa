@@ -26,7 +26,7 @@ MonoBehaviour:
   CookedThing: {fileID: 0}
   equipableType: 1
   value: 10
-  useStamina: 15
+  useStamina: 20
   distance: 1
   rate: 1
   isEquiped: 0
