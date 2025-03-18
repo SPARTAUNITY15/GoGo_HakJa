@@ -2773,7 +2773,9 @@ GameObject:
   - component: {fileID: 5914501428625932367}
   - component: {fileID: 4691581205074681377}
   - component: {fileID: 5566193829815762524}
-  m_Layer: 0
+  - component: {fileID: 4825751481398004388}
+  - component: {fileID: 2631011865836994504}
+  m_Layer: 13
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2845,6 +2847,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4825751481398004388
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7977410086685040498}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 23.236364, y: 3.52, z: 26.0569}
+  m_Center: {x: 1.7230616, y: -1.92, z: 2.7999058}
+--- !u!114 &2631011865836994504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7977410086685040498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043a1ba3722816840b23e0505507c395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottle: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab, type: 2}
 --- !u!1 &8117387168776120049
 GameObject:
   m_ObjectHideFlags: 0

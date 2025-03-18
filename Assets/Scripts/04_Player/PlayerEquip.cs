@@ -24,16 +24,22 @@ public class PlayerEquip : MonoBehaviour
 
         equippedItem = item.ToEquipItem(equipPivot, false).GetComponent<Equip_Item>();
         isEquipping = true;
-        item.isEquiped = true;
+        //item.isEquiped = true;
         attackAction = equippedItem.StartEquipInteraction;
+
+        Inventory.Instance.RemoveItem(item);
+        UIManager.Instance.inventoryUI.UpdateUI();
     }
 
     public void Unequip(ItemData item)
     {
         equippedItem = null;
         isEquipping = false;
-        item.isEquiped = false;
+        //item.isEquiped = false;
         attackAction = null;
+
+        Inventory.Instance.AddItem(item);
+        UIManager.Instance.inventoryUI.UpdateUI();
     }
 
     public void OnAttackInput(InputAction.CallbackContext context) // 테스트용 임시 메서드
