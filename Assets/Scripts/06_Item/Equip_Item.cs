@@ -54,35 +54,43 @@ public class Equip_Item : MonoBehaviour // 실제 데이터는 인벤에서 슬롯 또는 item
     }
 
     // 히트(무기 - 적, 자원 - 자원, 삽 - 땅 속에 숨겨진 트리거, 돋보기/나침반 - 땅)
-    public void StartEquipInteraction() // 행동 시작
-    {
-        if (!isAttacking)
-        {
-            if(!isAttacking && playerCondition.UseStamina(useStamina))
-            {
-                isAttacking = true;
-                animator.SetTrigger("Interaction");
-                Invoke("OnCanAttack", rate);
-            }
-        }
-    }
+    //public void StartEquipInteraction() // 행동 시작
+    //{
+    //    if (!isAttacking)
+    //    {
+    //        if(!isAttacking && playerCondition.UseStamina(useStamina))
+    //        {
+    //            isAttacking = true;
+    //            animator.SetTrigger("Interaction");
+    //            Invoke("OnCanAttack", rate);
+    //        }
+    //    }
+    //}
 
-    private void OnCanAttack()
-    {
-        isAttacking = false;
-    }
+    //private void OnCanAttack()
+    //{
+    //    isAttacking = false;
+    //}
 
-    public void PerformEquipInteraction() // 히트 판정
+        Ray ray;
+    public void PerformEquipInteraction(float Camera2Player) // 히트 판정
     {
         //if (Physics.Raycast(cam.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out RaycastHit hitinfo, distance, hitLayerMask)) // cam.screenToRay대신 뷰포트로 했는데 잘 될지 테스트해바야함
-        if (Physics.Raycast(cam.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out RaycastHit hitinfo, distance)) // cam.screenToRay대신 뷰포트로 했는데 잘 될지 테스트해바야함
+        ray = cam.ViewportPointToRay(new Vector2(0.5f, 0.5f));
+
+        if (Physics.Raycast(cam.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out RaycastHit hitinfo, distance + Camera2Player, hitLayerMask)) // cam.screenToRay대신 뷰포트로 했는데 잘 될지 테스트해바야함
         {
             Debug.Log($"{hitinfo.collider.name}를 맞춤");
             //if (hitinfo.collider.TryGetComponent<IImpactable>(out impactable))
             IImpactable impactable = hitinfo.collider.GetComponentInParent<IImpactable>();
-            impactable.ReceiveImpact(value);
+            impactable?.ReceiveImpact(value);
             //else Debug.LogWarning("도구의 대상 오브젝트는 IImpactable 인터페이스를 상속받아야합니다.");
         }
         else Debug.Log("미스~");
     }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawLine(ray, )
+    //}
 }

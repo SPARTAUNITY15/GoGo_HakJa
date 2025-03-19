@@ -12,7 +12,8 @@ public class PlayerEquip : MonoBehaviour
     public Equip_Item equippedItem; // 장착 중인 아이템.
     public bool isEquipping;
 
-    public Action attackAction;
+    public Action<float> attackAction;
+    public Transform cameraTrs;
 
     public void Equip(ItemData item)
     {
@@ -25,7 +26,7 @@ public class PlayerEquip : MonoBehaviour
         equippedItem = item.ToEquipItem(equipPivot, false).GetComponent<Equip_Item>();
         isEquipping = true;
         //item.isEquiped = true;
-        attackAction = equippedItem.StartEquipInteraction;
+        attackAction = equippedItem.PerformEquipInteraction;
 
         Inventory.Instance.RemoveItem(item);
         UIManager.Instance.inventoryUI.UpdateUI();
@@ -43,12 +44,22 @@ public class PlayerEquip : MonoBehaviour
         UIManager.Instance.inventoryUI.UpdateUI();
     }
 
-    public void OnAttackInput(InputAction.CallbackContext context) // 테스트용 임시 메서드
+    //public void OnAttack(InputAction.CallbackContext context) // 테스트용 임시 메서드
+    //{
+    //    if (context.phase == InputActionPhase.Started)
+    //    {
+    //        attackAction?.Invoke();
+    //        //equippedItem.StartEquipInteraction();
+    //    }
+    //}
+
+    public void OnAttackEvent()
     {
-        if (context.phase == InputActionPhase.Started)
-        {
-            attackAction?.Invoke();
-            //equippedItem.StartEquipInteraction();
-        }
+            attackAction?.Invoke(CalcCamera2Player());
+    }
+
+    private float CalcCamera2Player()
+    {
+        return MathF.Abs((transform.position - cameraTrs.position).magnitude);
     }
 }
