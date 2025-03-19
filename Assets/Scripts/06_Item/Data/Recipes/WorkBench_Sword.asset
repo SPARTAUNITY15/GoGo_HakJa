@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e1e2e2bb878034db63805f86b622ff, type: 3}
+  m_Name: WorkBench_Sword
+  m_EditorClassIdentifier: 
+  ingredients:
+  - stuff: {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
+    stuff_count: 1
+  - stuff: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
+    stuff_count: 1
+  product:
+    stuff: {fileID: 11400000, guid: eeef8747cac94c546a32902a78fcfb4a, type: 2}
+    stuff_count: 1

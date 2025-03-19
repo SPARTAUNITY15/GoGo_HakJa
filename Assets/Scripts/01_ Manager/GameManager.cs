@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
@@ -19,8 +17,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public UIManager UI;
+    //public UIManager UI;
     public Player player;
+    public CraftingManager craftingManager;
+    public DayNightCycle dayNightCycle;
+
+    public Player Player
+    {
+        get { return player; }
+        set { player = value; }
+    }
 
     private void Awake()
     {
@@ -38,10 +44,14 @@ public class GameManager : MonoBehaviour
         }
 
         player = FindObjectOfType<Player>();
-        UI = FindObjectOfType<UIManager>();
+        craftingManager = new();
+        dayNightCycle = FindObjectOfType<DayNightCycle>();
+        //UI = FindObjectOfType<UIManager>();
+        //if(UI == null)
+        //{
+        //    UI = new GameObject("UIManager").AddComponent<UIManager>();
+        //}
 
-        //player.Init();
-        //UI.Init();
+        //UI.InitializeUI();
     }
-
 }

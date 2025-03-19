@@ -1,3 +1,8 @@
+
+
+
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,20 +10,25 @@ using UnityEngine;
 public enum ItemType
 {
     Equipable,
-    Consumable
+    Consumable,
+    Placeable,
+    Resources
+
 }
+
+//[System.Serializable]
+//public class ItemData_ItemType
+//{
+//    public ItemType itemType;
+//}
 
 public enum ConsumableType
 {
     Health,
-    Hunger
-}
-
-public enum EquipableType
-{
-    AttackPower,
-    JumpPower,
-    MoveSpeed
+    Stamina,
+    Hunger,
+    Thirst,
+    Temperature
 }
 
 [System.Serializable]
@@ -28,38 +38,76 @@ public class ItemData_Consumable
     public float value;
 }
 
-[System.Serializable]
-public class ItemData_Equipable
+public enum EquipableType
 {
-    public EquipableType equipableType; 
-    public float value;
+    DoesGatherResources,
+    DoesAttack,
+    DoesShoot,
+    DoesDig,
+    DoesDiscover
+    //DoesStat
+}
+
+//public enum DoesStatType // ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½
+//{
+//    MoveSpeed,
+//    JumpPower,
+//    MaxHealth,
+//}
+
+
+//[System.Serializable]
+//public class ItemData_Equipable
+//{
+//    public EquipableType equipableType;
+//}
+
+public enum PlaceableType
+{
+    Sleep,
+    Craft,
+    Tent,
+    Storage,
+
 }
 
 //[System.Serializable]
-//public class ItemData_Equipable_Value
+//public class ItemData_Placeable
 //{
-//    public EquipableType equipableType;
-//    public float value;
+//    public PlaceableType placeableType;
 //}
 
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]
 public class ItemData : ScriptableObject
 {
-    [Header("°øÅë Á¤º¸")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public ItemType itemType;
+    //public ItemData_ItemType itemData_ItemType;
     public string item_name;
     public string item_description;
+
     public bool canStack;
     public int maxStack = 12;
-    public GameObject dropPref;
-    public Sprite Image;
+    //public GameObject renderPref;
+    public GameObject basePref;
+    public Sprite Icon;
+    public bool isNotStackOver; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½Ç¾îµµ ï¿½È»ï¿½ï¿½ï¿½ï¿½.
 
-    [Header("¼ÒºñÅÛ")]
+    [Header("ï¿½Òºï¿½ï¿½ï¿½")]
     public ItemData_Consumable[] ItemData_Consumables;
     public bool isCookable;
     public ItemData CookedThing;
 
-    [Header("ÀåºñÅÛ")]
-    public ItemData_Equipable[] itemData_Equipables;
-    public GameObject EquipPref;
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½")]
+    //public ItemData_Equipable[] itemData_Equipables; 
+    public EquipableType equipableType;
+    public float value; // ï¿½Ú¿ï¿½ - ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½î°³ï¿½ï¿½ ï¿½Ú¿ï¿½ï¿½ï¿½ Ä¶ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ ï¿½Ü¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½..
+    public float useStamina; // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¹Ì³ï¿½
+    public float distance;
+    public float rate; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½
+    //public bool isEquiped;
+    public GameObject equipPref;
+
+    //[Header("ï¿½ï¿½Ä¡ï¿½ï¿½")]
+    //public ItemData_Placeable[] itemData_Placeable;
 }

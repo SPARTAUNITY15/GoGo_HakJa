@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b529cf34b1aff4db09cf38181a5001, type: 3}
+  m_Name: Item_Sword
+  m_EditorClassIdentifier: 
+  itemType: 0
+  item_name: "\uAC80"
+  item_description: "\uBB34\uB518 \uAC80"
+  canStack: 0
+  maxStack: 12
+  basePref: {fileID: 3242554436294408100, guid: e75f5bfc2d5ffea449d86e506cc2a8bc,
+    type: 3}
+  Icon: {fileID: 21300000, guid: 142ff746cf0c80949ac043dc45c69770, type: 3}
+  isNotStackOver: 0
+  ItemData_Consumables: []
+  isCookable: 0
+  CookedThing: {fileID: 0}
+  equipableType: 1
+  value: 50
+  useStamina: 20
+  distance: 1
+  rate: 1
+  equipPref: {fileID: 3584678801318600481, guid: 726e2b4d446767a4698ddfa3c62d6e99,
+    type: 3}
