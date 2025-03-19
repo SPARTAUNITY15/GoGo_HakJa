@@ -56,13 +56,24 @@ public class UIManager : MonoBehaviour
             ToggleCursor();
             ToggleUI("인벤토리");
 
-
-            Instance.inventoryUI.SetCraftMode(CraftMode.Inventory);
+            if (inventoryUI != null)
+            {
+                Instance.inventoryUI.SetCraftMode(CraftMode.Inventory);
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ToggleCursor();
-            ToggleUI("옵션");
+            if (currentActiveUI != null && currentActiveUI == uiDictionary["인벤토리"])
+            {
+                // 인벤토리가 열려 있으면 UI만 닫고, 커서는 유지
+                HideCurrentUI();
+            }
+            else
+            {
+                // 일반적인 ESC 동작 수행 (커서 토글 및 옵션 창 토글)
+                ToggleCursor();
+                ToggleUI("옵션");
+            }
         }
     }
     private void LateUpdate()
