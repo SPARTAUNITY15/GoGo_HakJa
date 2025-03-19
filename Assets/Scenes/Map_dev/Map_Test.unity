@@ -1916,9 +1916,9 @@ MonoBehaviour:
   - {fileID: 7418016074044017502, guid: 584b28ceda2233a4396114cb64c85603, type: 3}
   - {fileID: 3284450128340274290, guid: 34a95de64361c374897c003440808ef5, type: 3}
   monsters: []
-  destiny: 3
+  destiny: 2
   distance: 50
-  minHeight: 1
+  minHeight: -1
   maxHeight: 10
   xRange: {x: 1, y: 1023}
   zRange: {x: 1, y: 1023}
