@@ -77,7 +77,6 @@
     - Resolution : 해상도 변경
     - 게임 내에서도 Esc 키로 사용 가능
       
-![image (4)](https://github.com/user-attachments/assets/5b43466e-b372-4dac-be19-e4d2cc7d8657)
 ![image (2)](https://github.com/user-attachments/assets/b8534081-ccd0-41c3-adfc-36baeb6bc409)
 
 
@@ -90,3 +89,5 @@
 - 인벤토리, 제작
 
 인벤토리에서 장비를 장착하고, 필요한 아이템이 있을 경우 자원을 소모하여 아이템 제작이 가능합니다.
+
+![image (4)](https://github.com/user-attachments/assets/5b43466e-b372-4dac-be19-e4d2cc7d8657)
