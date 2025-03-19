@@ -68,6 +68,7 @@
     - Start : 바로 게임시작
     - Option : 설정
     - Exit : 나가기
+      
 ![image](https://github.com/user-attachments/assets/8372323c-b2a8-4feb-8779-3d7acabe931d)
 
 
@@ -75,6 +76,7 @@
     - Volume : 전체적인 사운드 볼륨 조절 가능
     - Resolution : 해상도 변경
     - 게임 내에서도 Esc 키로 사용 가능
+      
 ![image (4)](https://github.com/user-attachments/assets/5b43466e-b372-4dac-be19-e4d2cc7d8657)
 ![image (2)](https://github.com/user-attachments/assets/b8534081-ccd0-41c3-adfc-36baeb6bc409)
 
