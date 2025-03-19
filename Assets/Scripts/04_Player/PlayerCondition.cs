@@ -1,6 +1,7 @@
 using System;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerCondition : StatManager
 {
@@ -34,6 +35,7 @@ public class PlayerCondition : StatManager
     public event Action onTakeDamage;
     private Animator animator;
     public GameObject deathPanel;  //사망시 활성화할 패널
+    public AudioClip Hit;
     UIManager uimanager;
     Rigidbody rb;
 
@@ -141,6 +143,7 @@ public class PlayerCondition : StatManager
         {
             playerController.SlowSpeed();
         }
+        AudioManager.Instance.PlayPlayerSound(Hit);
     }
 
     public void Die()

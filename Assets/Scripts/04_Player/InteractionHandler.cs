@@ -8,6 +8,7 @@ public interface IInteractable
 
     public string GetPromptName();
     public string GetPromptDesc();
+
 }
 public class InteractionHandler : MonoBehaviour
 {
