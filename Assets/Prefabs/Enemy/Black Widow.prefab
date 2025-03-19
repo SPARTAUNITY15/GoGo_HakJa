@@ -212,7 +212,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4226196638867828240, guid: d0384f8963b21854b93598b8ec37ba92,
     type: 3}
   attackPoint: {fileID: 7248747344494849470}
-  attackCooldown: 2
+  attackCooldown: 4.5
 --- !u!114 &8308788174611628125
 MonoBehaviour:
   m_ObjectHideFlags: 0
