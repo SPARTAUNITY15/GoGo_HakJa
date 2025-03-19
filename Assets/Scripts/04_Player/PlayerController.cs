@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private float attackCooldown = 2f;
     public AudioClip Sword;
     public AudioClip Footstep;
+    public AudioClip Footrun;
 
 
     private void Awake()
@@ -55,14 +56,11 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsJump", !isGrounded);
     }
 
-    // �̵�
     void FixedUpdate()
     {
         Move();
     }
 
-
-    // ī�޶� ȸ��ó��
     private void LateUpdate()
     {
         if (canLook)
@@ -92,7 +90,11 @@ public class PlayerController : MonoBehaviour
         }
         bool isMove = curMovementInput != Vector2.zero;
         animator.SetBool("IsMove", isMove);
-        AudioManager.Instance.PlayPlayerSound(Sword);
+        AudioManager.Instance.PlayPlayerSound(Footstep);
+        if (isMove && !animator.GetBool("IsRun"))
+        {
+            AudioManager.Instance.PlayPlayerSound(Footstep);
+        }
     }
 
     public void OnRun(InputAction.CallbackContext context)
@@ -105,6 +107,7 @@ public class PlayerController : MonoBehaviour
                 moveSpeed *= 2f;
                 playerCondition.LoseStamina();
                 animator.SetBool("IsRun", true);
+                AudioManager.Instance.PlayPlayerSound(Footrun);
             }
         }
         else if (context.phase == InputActionPhase.Canceled)
@@ -112,7 +115,6 @@ public class PlayerController : MonoBehaviour
             moveSpeed /= 2f;
             playerCondition.LoseStamina();
             animator.SetBool("IsRun", false);
-            AudioManager.Instance.PlayPlayerSound(Footstep);
         }
     }
 

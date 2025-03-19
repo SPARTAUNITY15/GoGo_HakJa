@@ -3865,6 +3865,7 @@ MonoBehaviour:
   interaction: {fileID: 0}
   itemPlaceController: {fileID: 0}
   playerEquip: {fileID: 0}
+  _MainScene: {fileID: 8300000, guid: 56ecc1693925c6544b14d154d888d57e, type: 3}
 --- !u!114 &3253271326814209914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3887,6 +3888,9 @@ MonoBehaviour:
   maxXLook: 65
   lookSensitivity: 0.1
   canLook: 1
+  Sword: {fileID: 8300000, guid: 1f479fbb8fe48d74d81e89d86e483708, type: 3}
+  Footstep: {fileID: 8300000, guid: e55d38af5a9120142b71646da16035e1, type: 3}
+  Footrun: {fileID: 8300000, guid: 80f0e3b51ee91c44d83707b2f8e244d0, type: 3}
 --- !u!114 &3431096481933028422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3925,6 +3929,7 @@ MonoBehaviour:
   noHungerHealthDecay: 0
   noHungerMoistureDecay: 0
   deathPanel: {fileID: 0}
+  Hit: {fileID: 8300000, guid: 08e394baee9c7504d9ca6c2c34daa797, type: 3}
 --- !u!95 &5880278895555788190
 Animator:
   serializedVersion: 5
