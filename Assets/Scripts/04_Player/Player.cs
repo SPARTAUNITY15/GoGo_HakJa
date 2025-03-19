@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public InteractionHandler interaction;
     public ItemPlaceController itemPlaceController;
     public PlayerEquip playerEquip;
+    public AudioClip _MainScene;
 
     private void Awake()
     {
@@ -18,5 +19,10 @@ public class Player : MonoBehaviour
         interaction = GetComponent<InteractionHandler>();
         itemPlaceController = GetComponent<ItemPlaceController>();
         playerEquip = GetComponent<PlayerEquip>();
+    }
+
+    public void Start()
+    {
+        AudioManager.Instance.PlayBGM(_MainScene);
     }
 }
