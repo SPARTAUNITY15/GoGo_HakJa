@@ -41,7 +41,7 @@ public class InteractionHandler : MonoBehaviour
         {
             // ºñ¿ì±â
             interactingObject = null;
-            //UIManager.Instance.promptUI.HidePrompt();
+            UIManager.Instance.promptUI.HidePrompt();
         }
     }
 }
