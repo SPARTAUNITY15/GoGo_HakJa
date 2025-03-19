@@ -68,23 +68,22 @@
     - Start : 바로 게임시작
     - Option : 설정
     - Exit : 나가기
+![image](https://github.com/user-attachments/assets/8372323c-b2a8-4feb-8779-3d7acabe931d)
 
-![image.png](attachment:f2f499cf-8901-4347-bfcb-675a62ce5c7b:image.png)
 
 - 설정화면
     - Volume : 전체적인 사운드 볼륨 조절 가능
     - Resolution : 해상도 변경
     - 게임 내에서도 Esc 키로 사용 가능
+![image (4)](https://github.com/user-attachments/assets/5b43466e-b372-4dac-be19-e4d2cc7d8657)
+![image (2)](https://github.com/user-attachments/assets/b8534081-ccd0-41c3-adfc-36baeb6bc409)
 
-![image.png](attachment:f27860fb-59b2-4544-b64f-ad9663429f51:image.png)
-
-![image.png](attachment:c9a1307d-6fc0-4219-b6bb-e57d56ffde26:image.png)
 
 - 메인화면
 
 게임시작 시 사막 한가운데에서 시작하게 됩니다. 주변 자원 및 몬스터에게서 아이템 파밍이 가능합니다.
+![image (3)](https://github.com/user-attachments/assets/abb0af21-919d-4918-b378-2f2083da9cd8)
 
-![image.png](attachment:f0cc6778-2cf9-4387-a186-ac1325cc9536:image.png)
 
 - 인벤토리, 제작
 
