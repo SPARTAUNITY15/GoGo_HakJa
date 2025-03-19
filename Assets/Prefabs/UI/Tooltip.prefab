@@ -1556,7 +1556,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC7A5\uCC29\uD574\uC81C"
+  m_text: "\uC7A5\uCC29 \uD574\uC81C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: af83e056f3dc7b84ba00ad0fb1e7cd4a, type: 2}
   m_sharedMaterial: {fileID: -6239593712380839304, guid: af83e056f3dc7b84ba00ad0fb1e7cd4a,
@@ -1620,7 +1620,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -45.029907, y: 12.277496, z: -44.197144, w: 15.553619}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
