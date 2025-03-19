@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2639919877712707148}
   - component: {fileID: 615887522255357226}
   - component: {fileID: 772412397546756990}
-  - component: {fileID: 5158384507025672109}
   - component: {fileID: 4003936610131103877}
   m_Layer: 0
   m_Name: Anim_Magnifier
@@ -108,18 +107,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3726873423174238959, guid: c8fa40be45fbc6246acb25b76057659b, type: 3}
---- !u!114 &5158384507025672109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1699292735738198317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9240fde1a78c1a459a9ea375f213f37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &4003936610131103877
 Animator:
   serializedVersion: 5

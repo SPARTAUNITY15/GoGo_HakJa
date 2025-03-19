@@ -34,7 +34,7 @@ public class ItemDropper : MonoBehaviour
 
             if (dropParticleEffectPrefab != null)
             {
-                GameObject particleEffect = Instantiate(dropParticleEffectPrefab, transform.position, Quaternion.identity);
+                GameObject particleEffect = Instantiate(dropParticleEffectPrefab, transform.position + Vector3.up * 0.1f, Quaternion.identity);
                 ParticleSystem ps = particleEffect.GetComponent<ParticleSystem>();
                 if (ps != null)
                 {

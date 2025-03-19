@@ -29,6 +29,5 @@ MonoBehaviour:
   useStamina: 20
   distance: 1
   rate: 1
-  isEquiped: 0
   equipPref: {fileID: 2629744223312670578, guid: b848be24adb8bcb4f8dd99306b5d05e6,
     type: 3}
