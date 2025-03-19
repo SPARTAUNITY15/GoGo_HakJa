@@ -131,6 +131,7 @@ public abstract class EnemyAI : MonoBehaviour, IImpactable
         if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 2f, NavMesh.AllAreas))
         {
             patrolTarget = hit.position;
+            Debug.Log(patrolTarget);
             agent.SetDestination(patrolTarget);
             animator.SetBool("IsMoving", true);
         }

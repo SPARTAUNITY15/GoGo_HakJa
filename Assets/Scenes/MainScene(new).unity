@@ -1016,14 +1016,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a874f6115f2d24a45a3439737614c26d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
+  parent: {fileID: 1200074855}
   prefabs:
   - {fileID: 7418016074044017502, guid: 584b28ceda2233a4396114cb64c85603, type: 3}
   - {fileID: 3284450128340274290, guid: 34a95de64361c374897c003440808ef5, type: 3}
   monsters: []
   destiny: 3
   distance: 50
-  minHeight: 1
+  minHeight: -1
   maxHeight: 10
   xRange: {x: 1, y: 1023}
   zRange: {x: 1, y: 1023}
@@ -1519,6 +1519,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062540632}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1200074854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1200074855}
+  m_Layer: 0
+  m_Name: Monsters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1200074855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200074854}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1207227927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2520,6 +2551,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sand Spider
       objectReference: {fileID: 0}
+    - target: {fileID: 7418016074044017502, guid: 584b28ceda2233a4396114cb64c85603,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3323,6 +3359,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LowPolySkeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 3284450128340274290, guid: 34a95de64361c374897c003440808ef5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3956,16 +3997,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3253271326814209914, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: Footrun
-      value: 
-      objectReference: {fileID: 8300000, guid: 80f0e3b51ee91c44d83707b2f8e244d0, type: 3}
-    - target: {fileID: 3253271326814209914, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: Footstep
-      value: 
-      objectReference: {fileID: 8300000, guid: e55d38af5a9120142b71646da16035e1, type: 3}
     - target: {fileID: 6050234259640502757, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3989,7 +4020,7 @@ PrefabInstance:
     - target: {fileID: 8111890036980253850, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7
+      value: 544
       objectReference: {fileID: 0}
     - target: {fileID: 8111890036980253850, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
         type: 3}
@@ -3999,7 +4030,7 @@ PrefabInstance:
     - target: {fileID: 8111890036980253850, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.7
+      value: 532
       objectReference: {fileID: 0}
     - target: {fileID: 8111890036980253850, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
         type: 3}
@@ -4064,3 +4095,4 @@ SceneRoots:
   - {fileID: 1400605860}
   - {fileID: 748724952}
   - {fileID: 1279908689}
+  - {fileID: 1200074855}
