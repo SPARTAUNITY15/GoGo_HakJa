@@ -35,7 +35,6 @@ public abstract class EnemyAI : MonoBehaviour, IImpactable
         safeZone = FindObjectOfType<SafeZone>();
 
         SetNewPatrolPoint();
-
     }
 
     protected virtual void Update()
