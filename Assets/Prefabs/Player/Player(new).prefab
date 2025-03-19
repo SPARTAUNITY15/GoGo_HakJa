@@ -3796,9 +3796,9 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2276861092770643544}
-        m_TargetAssemblyTypeName: PlayerEquip, Assembly-CSharp
-        m_MethodName: OnAttackInput
+      - m_Target: {fileID: 3253271326814209914}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnAttack
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3905,7 +3905,7 @@ MonoBehaviour:
   stamina: 100
   moisture: 100
   temperature: 3
-  speed: 10
+  speed: 3
   curHealth: 100
   maxHealth: 0
   startHealth: 0
@@ -3924,6 +3924,7 @@ MonoBehaviour:
   useStamina: 0
   noHungerHealthDecay: 0
   noHungerMoistureDecay: 0
+  deathPanel: {fileID: 0}
 --- !u!95 &5880278895555788190
 Animator:
   serializedVersion: 5
@@ -3957,7 +3958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d98e18caa0573c4281a0ce1f8da86f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactDistance: 3
+  interactDistance: 5
   InteractableLayerMask:
     serializedVersion: 2
     m_Bits: 8192
@@ -3989,6 +3990,7 @@ MonoBehaviour:
   equipPivot: {fileID: 1928134342493477127}
   equippedItem: {fileID: 0}
   isEquipping: 0
+  cameraTrs: {fileID: 1890916084094038308}
 --- !u!114 &6814137139564910633
 MonoBehaviour:
   m_ObjectHideFlags: 0

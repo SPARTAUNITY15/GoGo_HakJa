@@ -1462,18 +1462,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062540632}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1080374434 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3253271326814209914, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-    type: 3}
-  m_PrefabInstance: {fileID: 3449731213215277800}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df474f792519dda4a9e68e74ae651d88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1207227927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3843,26 +3831,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3431096481933028422, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4161458394485848709, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1080374434}
-    - target: {fileID: 4161458394485848709, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 4161458394485848709, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerController, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 6050234259640502757, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3883,95 +3851,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.size
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.data[13]
-      value: 
-      objectReference: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab,
-        type: 2}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.data[14]
-      value: 
-      objectReference: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab,
-        type: 2}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.data[15]
-      value: 
-      objectReference: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab,
-        type: 2}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.data[16]
-      value: 
-      objectReference: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab,
-        type: 2}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.data[17]
-      value: 
-      objectReference: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab,
-        type: 2}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.data[18]
-      value: 
-      objectReference: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab,
-        type: 2}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.data[19]
-      value: 
-      objectReference: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab,
-        type: 2}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.data[20]
-      value: 
-      objectReference: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab,
-        type: 2}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.data[21]
-      value: 
-      objectReference: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab,
-        type: 2}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.data[22]
-      value: 
-      objectReference: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab,
-        type: 2}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.data[23]
-      value: 
-      objectReference: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab,
-        type: 2}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.data[24]
-      value: 
-      objectReference: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab,
-        type: 2}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.data[25]
-      value: 
-      objectReference: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab,
-        type: 2}
-    - target: {fileID: 6814137139564910633, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
-        type: 3}
-      propertyPath: testItemAdd.Array.data[26]
-      value: 
-      objectReference: {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab,
-        type: 2}
     - target: {fileID: 8111890036980253850, guid: 3b07bfaf9b4c5f2438e019fd3a5dd5c1,
         type: 3}
       propertyPath: m_LocalPosition.x
