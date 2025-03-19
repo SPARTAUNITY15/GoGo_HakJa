@@ -17,6 +17,8 @@ MonoBehaviour:
     stuff_count: 1
   - stuff: {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
     stuff_count: 1
+  - stuff: {fileID: 11400000, guid: 043bf8d1186da1d4986f81c09290af48, type: 2}
+    stuff_count: 1
   product:
     stuff: {fileID: 11400000, guid: 59f35f35c0fc0cd409a3b5187e358c34, type: 2}
-    stuff_count: 0
+    stuff_count: 1

@@ -4009,18 +4009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testItemAdd:
-  - {fileID: 11400000, guid: da14e708ae64f29489192c0fc5ab7a97, type: 2}
   - {fileID: 11400000, guid: e7d22e47b1d565f4ab474b6444f68aa0, type: 2}
-  - {fileID: 11400000, guid: 2bc6b365a5348544ebbf349362e162a4, type: 2}
-  - {fileID: 11400000, guid: 043bf8d1186da1d4986f81c09290af48, type: 2}
-  - {fileID: 11400000, guid: 043bf8d1186da1d4986f81c09290af48, type: 2}
-  - {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
-  - {fileID: 11400000, guid: 1da72344928a6474d951cf035c23eb09, type: 2}
-  - {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
-  - {fileID: 11400000, guid: 9813b01cb5e19c1409770e88a055cdf0, type: 2}
-  - {fileID: 11400000, guid: 59f35f35c0fc0cd409a3b5187e358c34, type: 2}
-  - {fileID: 11400000, guid: 325cca0b3ed2b464588f1d1df6a25de1, type: 2}
-  - {fileID: 11400000, guid: eeef8747cac94c546a32902a78fcfb4a, type: 2}
-  - {fileID: 11400000, guid: c3598a52c0b613b41ba195941dae8bab, type: 2}
+  - {fileID: 11400000, guid: da14e708ae64f29489192c0fc5ab7a97, type: 2}
   items: []
   inventorySize: 20

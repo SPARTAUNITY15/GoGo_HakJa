@@ -50,7 +50,7 @@ public class PlayerCondition : StatManager
         curHunger = hunger;
         maxHunger = hunger;
         startHunger = hunger;
-        passiveHunger = 3f;
+        passiveHunger = 0.1f;
 
         curStamina = stamina;
         maxStamina = stamina;
@@ -60,7 +60,7 @@ public class PlayerCondition : StatManager
         curMoisture = moisture;
         maxMoisture = moisture;
         startMoisture = moisture;
-        passiveMoisture = 2f;
+        passiveMoisture = 0.2f;
 
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();

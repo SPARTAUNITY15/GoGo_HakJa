@@ -190,7 +190,7 @@ public abstract class EnemyAI : MonoBehaviour, IImpactable
         currentState = State.Dead;
         animator.SetTrigger("Die");
         agent.isStopped = true; //네비게이션 중지
-        GetComponentInChildren<Collider>().enabled = false;
+        GetComponentInChildren<Collider>().enabled = true;
 
         if (itemDropper != null)
         {

@@ -21,4 +21,4 @@ MonoBehaviour:
     stuff_count: 1
   product:
     stuff: {fileID: 11400000, guid: 1eeaa3509ea63674180c5037325cf97f, type: 2}
-    stuff_count: 0
+    stuff_count: 1

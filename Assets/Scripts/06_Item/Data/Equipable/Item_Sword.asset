@@ -25,10 +25,9 @@ MonoBehaviour:
   isCookable: 0
   CookedThing: {fileID: 0}
   equipableType: 1
-  value: 10
+  value: 50
   useStamina: 20
   distance: 1
   rate: 1
-  isEquiped: 0
   equipPref: {fileID: 3584678801318600481, guid: 726e2b4d446767a4698ddfa3c62d6e99,
     type: 3}
