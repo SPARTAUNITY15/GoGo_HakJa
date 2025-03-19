@@ -3023,9 +3023,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  safeZoneLayer:
-    serializedVersion: 2
-    m_Bits: 0
   animator: {fileID: 0}
   patrolRange: 10
   sightRange: 8
@@ -3038,7 +3035,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4226196638867828240, guid: d0384f8963b21854b93598b8ec37ba92,
     type: 3}
   attackPoint: {fileID: 3214428342917023944}
-  attackCooldown: 2.5
+  attackCooldown: 4.5
 --- !u!195 &1479954915319855138
 NavMeshAgent:
   m_ObjectHideFlags: 0
