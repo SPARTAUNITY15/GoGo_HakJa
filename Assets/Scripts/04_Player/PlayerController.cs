@@ -182,8 +182,8 @@ public class PlayerController : MonoBehaviour
             {
                 lastAttackTime = Time.time;
                 animator.SetTrigger("IsEquip");
-                playerEquip.attackAction?.Invoke();
-                playerEquip.equippedItem.StartEquipInteraction();
+                //playerEquip.attackAction?.Invoke();
+                //playerEquip.equippedItem.StartEquipInteraction();
 
             }
         }
