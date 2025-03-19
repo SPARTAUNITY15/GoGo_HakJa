@@ -17,7 +17,7 @@ public class ResourceInRandom: MonoBehaviour, IInteractable
     public ItemData resourcePref;//선택된 보상
     public float health;//체력
 
-    public void GetPromptInfo()
+    public void SubscribeMethod()
     {
         health--;
 
@@ -26,11 +26,6 @@ public class ResourceInRandom: MonoBehaviour, IInteractable
             resourcePref.ToDropItem(transform.position + Vector3.up * 2, Quaternion.identity);
             Destroy(this.gameObject);
         }
-    }
-
-    public void SubscribeMethod()
-    {
-        Debug.Log("item interactive");
     }
 
     void Start()

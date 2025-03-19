@@ -8,7 +8,7 @@ public class LobySceneButtons : MonoBehaviour
     // Start 버튼을 눌렀을 때 실행되는 함수
     public void StartGame()
     {
-        SceneManager.LoadScene("MainScene"); // MainScene으로 이동
+        SceneManager.LoadScene("MainScene(new)"); // MainScene으로 이동
     }
 
     // Exit 버튼을 눌렀을 때 실행되는 함수

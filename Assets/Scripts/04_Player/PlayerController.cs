@@ -8,29 +8,31 @@ public class PlayerController : MonoBehaviour
     private PlayerCondition playerCondition;
 
     [Header("Moverment")]
-    public float jumpPower;                 // ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½
-    private Vector2 curMovementInput;       // ï¿½Ìµï¿½ ï¿½Ô·Â°ï¿½
-    public LayerMask groundLayerMask;       // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿?
+    public float jumpPower;                 // Á¡ÇÁÆÄ¿ö
+    private Vector2 curMovementInput;       // ÇöÀç ÀÌµ¿ ÀÔ·Â
+    public LayerMask groundLayerMask;       // ¶¥ Ã¼Å© ·¹ÀÌ¾î ¸¶½ºÅ©
 
     [Header("Look")]
-    public Transform cameraContainer;       // Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½Ù´ï¿?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
-    public float minXLook;                  // Ä«ï¿½Þ¶ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ñ°ï¿½
-    public float maxXLook;                  // Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ñ°ï¿½
-    private float camCurXRot;               // Ä«ï¿½Þ¶ï¿½ Xï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½
-    public float lookSensitivity;           // ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½
-    private Vector2 mouseDelta;             // ï¿½ï¿½ï¿½ì½º ï¿½Ìµï¿½ï¿½ï¿½
-    public bool canLook = true;             // Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public Transform cameraContainer;       // Ä«¸Þ¶ó ÄÁÅ×ÀÌ³Ê
+    public float minXLook;                  // Ä«¸Þ¶ó ÃÖ¼Ò xÈ¸Àü
+    public float maxXLook;                  // Ä«¸Þ¶ó ÃÖ´ë xÈ¸Àü
+    private float camCurXRot;               // Ä«¸Þ¶ó ÇöÀç xÈ¸Àü
+    public float lookSensitivity;           // ¸¶¿ì½º °¨µµ
+    private Vector2 mouseDelta;             // ¸¶¿ì½º ÀÌµ¿·®
+    public bool canLook = true;             // Ä«¸Þ¶ó¸¦ È¸Àü½ÃÅ³ ¼ö ÀÖ´ÂÁö ¿©ºÎ
 
     private float moveSpeed;
     private Rigidbody _rigidbody;
     private Animator animator;
 
+    Action interactionAction;               // »óÈ£ÀÛ¿ë ¾×¼Ç
+    private Equip_Item equipItem;           // Àåºñ ¾ÆÀÌÅÛ
 
-    Action interactionAction;               // ï¿½ï¿½È£ï¿½Û¿ï¿½ ï¿½Ìºï¿½Æ®
-    private Equip_Item equipItem;           // Equipï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-
-    private float lastAttackTime;           // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+    private float lastAttackTime;           // ¸¶Áö¸· °ø°Ý½Ã°£
     private float attackCooldown = 2f;
+    public AudioClip Sword;
+    public AudioClip Footstep;
+    public AudioClip Footrun;
 
 
     private void Awake()
@@ -54,14 +56,11 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsJump", !isGrounded);
     }
 
-    // ï¿½Ìµï¿½
     void FixedUpdate()
     {
         Move();
     }
 
-
-    // Ä«ï¿½Þ¶ï¿½ È¸ï¿½ï¿½Ã³ï¿½ï¿½
     private void LateUpdate()
     {
         if (canLook)
@@ -91,6 +90,11 @@ public class PlayerController : MonoBehaviour
         }
         bool isMove = curMovementInput != Vector2.zero;
         animator.SetBool("IsMove", isMove);
+        AudioManager.Instance.PlayPlayerSound(Footstep);
+        if (isMove && !animator.GetBool("IsRun"))
+        {
+            AudioManager.Instance.PlayPlayerSound(Footstep);
+        }
     }
 
     public void OnRun(InputAction.CallbackContext context)
@@ -103,6 +107,7 @@ public class PlayerController : MonoBehaviour
                 moveSpeed *= 2f;
                 playerCondition.LoseStamina();
                 animator.SetBool("IsRun", true);
+                AudioManager.Instance.PlayPlayerSound(Footrun);
             }
         }
         else if (context.phase == InputActionPhase.Canceled)
@@ -184,8 +189,13 @@ public class PlayerController : MonoBehaviour
                 animator.SetTrigger("IsEquip");
                 //playerEquip.attackAction?.Invoke();
                 //playerEquip.equippedItem.StartEquipInteraction();
-
+                AudioManager.Instance.PlayPlayerSound(Sword);
             }
         }
+    }
+
+    public void SlowSpeed()
+    {
+        moveSpeed /= 2f;
     }
 }

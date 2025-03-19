@@ -866,10 +866,6 @@ MonoBehaviour:
     m_ActionId: 0c651d47-ddb7-4828-9243-dd3ff772b9d5
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 7fc8ff4e-7b91-4ca4-96de-ed81c252da09
-    m_ActionName: Player/Inventory[/Keyboard/tab]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4541378445153947965}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
@@ -901,6 +897,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 58007601-a0f4-4419-b6a8-68d994d212d4
     m_ActionName: Player/Run[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 64f7483a-7b51-4725-b72d-27799cad6ad9
+    m_ActionName: Player/Interaction[/Keyboard/g]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -924,6 +936,7 @@ MonoBehaviour:
   interaction: {fileID: 0}
   itemPlaceController: {fileID: 0}
   playerEquip: {fileID: 0}
+  _MainScene: {fileID: 8300000, guid: 56ecc1693925c6544b14d154d888d57e, type: 3}
 --- !u!114 &4541378445153947965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,6 +959,8 @@ MonoBehaviour:
   maxXLook: 65
   lookSensitivity: 0.1
   canLook: 1
+  Sword: {fileID: 8300000, guid: 1f479fbb8fe48d74d81e89d86e483708, type: 3}
+  Footstep: {fileID: 8300000, guid: 80f0e3b51ee91c44d83707b2f8e244d0, type: 3}
 --- !u!114 &538404421523058463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,7 +979,7 @@ MonoBehaviour:
   stamina: 100
   moisture: 100
   temperature: 3
-  speed: 10
+  speed: 3
   curHealth: 0
   maxHealth: 0
   startHealth: 0
@@ -981,8 +996,10 @@ MonoBehaviour:
   startMoisture: 0
   passiveMoisture: 0
   useStamina: 0
-  noHungerHealthDecay: 5
-  noHungerMoistureDecay: 3
+  noHungerHealthDecay: 1
+  noHungerMoistureDecay: 1
+  deathPanel: {fileID: 0}
+  Hit: {fileID: 8300000, guid: 08e394baee9c7504d9ca6c2c34daa797, type: 3}
 --- !u!95 &888392024347973336
 Animator:
   serializedVersion: 5
@@ -1016,10 +1033,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d98e18caa0573c4281a0ce1f8da86f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactDistance: 0
+  interactDistance: 5
   InteractableLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
 --- !u!114 &6064912659519889246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,6 +1065,7 @@ MonoBehaviour:
   equipPivot: {fileID: 5277983666585676790}
   equippedItem: {fileID: 0}
   isEquipping: 0
+  cameraTrs: {fileID: 0}
 --- !u!114 &3987391483349676022
 MonoBehaviour:
   m_ObjectHideFlags: 0
